@@ -188,15 +188,22 @@ cp -R typescript-guidelines <agent-skills-dir>/
    `SKILL.md` frontmatter (~100 words each, always in context).
 2. When a user task matches a skill's description, the agent loads the full
    `SKILL.md` body.
-3. `SKILL.md` instructs the agent to read `guidelines.txt` and `idioms.md`
-   before writing code.
-4. For style reviews or framework-specific work, the agent loads `style.md` or
-   `frameworks/<name>.md` on demand.
-5. For edge cases, the agent greps `rules/<slug>/index.md` for the full
-   upstream doc.
+3. `SKILL.md` instructs the agent to read — **before writing code** — the
+   Tier-1 files for that skill:
+   - `guidelines.txt` (lint rules, except for `rust-guidelines` where it
+     holds design rules since the compiler covers lint).
+   - `design.md` (architectural guidelines; Python + TypeScript only).
+   - `patterns.md` (reusable design patterns; all three skills).
+   - `idioms.md` (positive local patterns; Python + TypeScript only —
+     rust-unofficial's idioms section is inlined in `patterns.md`).
+4. For style reviews or framework-specific work, the agent loads `style.md`
+   or `frameworks/<name>.md` on demand.
+5. For rule edge cases, the agent greps `rules/<slug>/index.md` for the
+   full upstream doc.
 
-Progressive disclosure keeps the context footprint minimal while making all
-~4,000 rules reachable.
+Progressive disclosure keeps the context footprint minimal while making
+~1,700 lint rules + ~50 Microsoft design rules + ~150 concatenated pattern
+sections fully reachable.
 
 ## Sources
 
@@ -221,21 +228,29 @@ Progressive disclosure keeps the context footprint minimal while making all
 Rule text, examples, and configuration are from the upstream documentation.
 The compiled `guidelines.txt` / `style.md` / framework files are derivative
 digests generated to fit in an agent's working context. `design.md` and
-`patterns.md` are redistributed with attribution under each upstream's license
-(all Apache-2.0 or MIT-compatible).
+`patterns.md` are redistributed with attribution under each upstream's
+license (mix of MIT, Apache-2.0, MPL-2.0, and CC BY-SA — see License below).
 
 ## License
 
 Project scaffolding, compiled digests, tiering, and imperative rewrites in
 this repo are MIT. Per-source content retains its upstream license:
 
-- Rust guidelines — MIT (Microsoft)
-- Ruff rules — MIT
-- Oxlint rules — MIT
-- Google Python & TypeScript style guides — Apache 2.0
-- python-patterns.guide — content copyright Brandon Rhodes, redistributed here
-  for attribution and agent reference; canonical authoritative version lives
-  at the source URL.
+- **Rust guidelines** — MIT (Microsoft Pragmatic Rust Guidelines)
+- **rust-unofficial/patterns** — MPL-2.0
+- **Ruff rules** — MIT (Astral)
+- **Oxlint rules** — MIT (Oxc project)
+- **Google Python & TypeScript style guides** — Apache-2.0
+- **python-patterns.guide** — content copyright Brandon Rhodes,
+  redistributed with attribution for agent reference; canonical
+  authoritative version lives at the source URL.
+- **Systemic TypeScript** — content copyright Vincent Alandev,
+  redistributed with attribution for agent reference.
+- **refactoring.guru (Python / TypeScript / Rust GoF examples)** —
+  CC BY-SA 4.0; example code retains its source licensing. Per the
+  ShareAlike clause, any derivative `patterns.md` redistributed
+  downstream must carry the same CC BY-SA 4.0 license on the
+  refactoring.guru-sourced sections.
 
 ## Contributing
 
