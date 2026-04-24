@@ -25,8 +25,6 @@ Every section below is a reusable design decision. Read sequentially:
 
 ---
 
-
-
 ## Part 1 — Systemic TypeScript
 
 *by Vincent Alandev · valand.dev/systemic-ts*
@@ -36,7 +34,6 @@ The **complications** are TypeScript features that hurt at scale — treat each 
 an anti-pattern to avoid. The **systemic** patterns are positive replacements.
 
 ### Preludes
-
 
 <!-- source: https://valand.dev/systemic-ts/prelude-1-system-vs-script -->
 
@@ -103,9 +100,7 @@ As features are added to a program, complexity grows. Proper organization must b
 
 In other words, complication exists not because of complexity itself but because of **unorganized complexity shifts** and this is the exact phenomenon that arises when a program turns from [scriptic to systemic](https://valand.dev/systemic-ts/system-vs-script).
 
-
 ### Complications (avoid these)
-
 
 <!-- source: https://valand.dev/systemic-ts/complication-1-throw -->
 
@@ -671,7 +666,7 @@ const fn = async () => {
   const uniformData1 = [...]
   const uniformData2 = [...]
   const uniformData3 = [...]
-  
+
   await instruction1(uniformData1)
   await instruction2(uniformData2)
   await instruction3(uniformData3)
@@ -814,9 +809,7 @@ This precaution takes many forms. One seemingly innocent operation is copying an
 
 The second precaution can also be taken into a more advanced version of it. Not all entities are fit to be represented as primitives at all if it does not require the traits of primitives such as non-shareability and direct comparability.
 
-
 ### Systemic patterns (prefer these)
-
 
 <!-- source: https://valand.dev/systemic-ts/systemic-1-known-vs-unknown-error-throwless -->
 
@@ -2132,22 +2125,15 @@ I encourage you to meditate on this phenomenon and put it back in the context of
 
 This question is important because agents need explicit lifetime management and manually managing lifetime isn't an easy task. Thus, a program could be modeled as agents passing tasks (and messages in general) to one another. This brings us back to the [first inspiration of OOP](https://wiki.c2.com/?AlanKaysDefinitionOfObjectOriented), but not having to develop a whole new language and falling into the traps such as prematurely [marrying inheritance to the language](https://en.wikipedia.org/wiki/Composition_over_inheritance), or prematurely marrying module visibility with data encapsulation, or deciding that [everything is an object!](https://en.wikipedia.org/wiki/Object-oriented_programming)
 
-
 ## Part 2 — Gang-of-Four Patterns in TypeScript
 
 *by refactoring.guru · conceptual examples adapted for TypeScript*
 
-
 ### Creational patterns
-
 
 <!-- source: https://refactoring.guru/design-patterns/abstract-factory/typescript/example -->
 
 # Abstract Factory in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/abstract-factory/typescript/example#checkout)[](https://refactoring.guru/design-patterns/abstract-factory/typescript/example#checkout)
 
 # **Abstract Factory** in TypeScript
 
@@ -2160,28 +2146,10 @@ The client code calls the creation methods of a factory object instead of creati
 Client code works with factories and products only through their abstract interfaces. This lets the client code work with any product variants, created by the factory object. You just create a new concrete factory class and pass it to the client code.
 
 > If you can’t figure out the difference between various factory patterns and concepts, then read our [Factory Comparison](https://refactoring.guru/design-patterns/factory-comparison).
-
-[Learn more about Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/abstract-factory/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/abstract-factory/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/abstract-factory/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/abstract-factory/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The Abstract Factory pattern is pretty common in TypeScript code. Many frameworks and libraries use it to provide a way to extend and customize their standard components.
 
 **Identification:** The pattern is easy to recognize by methods, which return a factory object. Then, the factory is used for creating specific sub-components.
 
-[](https://refactoring.guru/design-patterns/abstract-factory/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Abstract Factory** design pattern. It focuses on answering these questions:
@@ -2190,7 +2158,7 @@ This example illustrates the structure of the **Abstract Factory** design patter
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/abstract-factory/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Abstract Factory interface declares a set of methods that return
@@ -2339,7 +2307,7 @@ console.log('');
 console.log('Client: Testing the same client code with the second factory type...');
 clientCode(new ConcreteFactory2());
 
-#### [](https://refactoring.guru/design-patterns/abstract-factory/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Client: Testing client code with the first factory type...
 The result of the product B1.
@@ -2349,290 +2317,19 @@ Client: Testing the same client code with the second factory type...
 The result of the product B2.
 The result of the B2 collaborating with the (The result of the product A2.)
 
-#### Read next
-
-[Builder in TypeScript](https://refactoring.guru/design-patterns/builder/typescript/example)
-
-#### Return
-
-[Design Patterns in TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-## **Abstract Factory** in Other Languages
-
-[](https://refactoring.guru/design-patterns/abstract-factory/csharp/example "Abstract Factory in C#")[](https://refactoring.guru/design-patterns/abstract-factory/cpp/example "Abstract Factory in C++")[](https://refactoring.guru/design-patterns/abstract-factory/go/example "Abstract Factory in Go")[](https://refactoring.guru/design-patterns/abstract-factory/java/example "Abstract Factory in Java")[](https://refactoring.guru/design-patterns/abstract-factory/php/example "Abstract Factory in PHP")[](https://refactoring.guru/design-patterns/abstract-factory/python/example "Abstract Factory in Python")[](https://refactoring.guru/design-patterns/abstract-factory/ruby/example "Abstract Factory in Ruby")[](https://refactoring.guru/design-patterns/abstract-factory/rust/example "Abstract Factory in Rust")[](https://refactoring.guru/design-patterns/abstract-factory/swift/example "Abstract Factory in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/abstract-factory/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/abstract-factory/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/abstract-factory/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/abstract-factory/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/abstract-factory/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/abstract-factory/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/abstract-factory/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/abstract-factory/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/abstract-factory/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/abstract-factory/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/builder/typescript/example -->
 
 # Builder in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/builder/typescript/example#checkout)[](https://refactoring.guru/design-patterns/builder/typescript/example#checkout)
 
 # **Builder** in TypeScript
 
 **Builder** is a creational design pattern, which allows constructing complex objects step by step.
 
 Unlike other creational patterns, Builder doesn’t require products to have a common interface. That makes it possible to produce different products using the same construction process.
-
-[Learn more about Builder](https://refactoring.guru/design-patterns/builder)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/builder/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/builder/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/builder/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/builder/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The Builder pattern is a well-known pattern in TypeScript world. It’s especially useful when you need to create an object with lots of possible configuration options.
 
 **Identification:** The Builder pattern can be recognized in a class, which has a single creation method and several methods to configure the resulting object. Builder methods often support chaining (for example, `someBuilder.setValueA(1).setValueB(2).create()`).
 
-[](https://refactoring.guru/design-patterns/builder/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Builder** design pattern and focuses on the following questions:
@@ -2641,7 +2338,7 @@ This example illustrates the structure of the **Builder** design pattern and foc
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/builder/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Builder interface specifies methods for creating the different parts of
@@ -2785,7 +2482,7 @@ function clientCode(director: Director) {
 const director = new Director();
 clientCode(director);
 
-#### [](https://refactoring.guru/design-patterns/builder/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Standard basic product:
 Product parts: PartA1
@@ -2796,262 +2493,9 @@ Product parts: PartA1, PartB1, PartC1
 Custom product:
 Product parts: PartA1, PartC1
 
-#### Read next
-
-[Factory Method in TypeScript](https://refactoring.guru/design-patterns/factory-method/typescript/example)
-
-#### Return
-
-[Abstract Factory in TypeScript](https://refactoring.guru/design-patterns/abstract-factory/typescript/example)
-
-## **Builder** in Other Languages
-
-[](https://refactoring.guru/design-patterns/builder/csharp/example "Builder in C#")[](https://refactoring.guru/design-patterns/builder/cpp/example "Builder in C++")[](https://refactoring.guru/design-patterns/builder/go/example "Builder in Go")[](https://refactoring.guru/design-patterns/builder/java/example "Builder in Java")[](https://refactoring.guru/design-patterns/builder/php/example "Builder in PHP")[](https://refactoring.guru/design-patterns/builder/python/example "Builder in Python")[](https://refactoring.guru/design-patterns/builder/ruby/example "Builder in Ruby")[](https://refactoring.guru/design-patterns/builder/rust/example "Builder in Rust")[](https://refactoring.guru/design-patterns/builder/swift/example "Builder in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/builder/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/builder/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/builder/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/builder/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/builder/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/builder/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/builder/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/builder/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/builder/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/builder/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/factory-method/typescript/example -->
 
 # Factory Method in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/factory-method/typescript/example#checkout)[](https://refactoring.guru/design-patterns/factory-method/typescript/example#checkout)
 
 # **Factory Method** in TypeScript
 
@@ -3060,28 +2504,10 @@ Pamplona, Spain, 31009
 The Factory Method defines a method, which should be used for creating objects instead of using a direct constructor call (`new` operator). Subclasses can override this method to change the class of objects that will be created.
 
 > If you can’t figure out the difference between various factory patterns and concepts, then read our [Factory Comparison](https://refactoring.guru/design-patterns/factory-comparison).
-
-[Learn more about Factory Method](https://refactoring.guru/design-patterns/factory-method)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/factory-method/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/factory-method/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/factory-method/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/factory-method/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The Factory Method pattern is widely used in TypeScript code. It’s very useful when you need to provide a high level of flexibility for your code.
 
 **Identification:** Factory methods can be recognized by creation methods that construct objects from concrete classes. While concrete classes are used during the object creation, the return type of the factory methods is usually declared as either an abstract class or an interface.
 
-[](https://refactoring.guru/design-patterns/factory-method/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Factory Method** design pattern and focuses on the following questions:
@@ -3090,7 +2516,7 @@ This example illustrates the structure of the **Factory Method** design pattern 
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/factory-method/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Creator class declares the factory method that is supposed to return an
@@ -3187,7 +2613,7 @@ console.log('');
 console.log('App: Launched with the ConcreteCreator2.');
 clientCode(new ConcreteCreator2());
 
-#### [](https://refactoring.guru/design-patterns/factory-method/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 App: Launched with the ConcreteCreator1.
 Client: I'm not aware of the creator's class, but it still works.
@@ -3197,290 +2623,19 @@ App: Launched with the ConcreteCreator2.
 Client: I'm not aware of the creator's class, but it still works.
 Creator: The same creator's code has just worked with {Result of the ConcreteProduct2}
 
-#### Read next
-
-[Prototype in TypeScript](https://refactoring.guru/design-patterns/prototype/typescript/example)
-
-#### Return
-
-[Builder in TypeScript](https://refactoring.guru/design-patterns/builder/typescript/example)
-
-## **Factory Method** in Other Languages
-
-[](https://refactoring.guru/design-patterns/factory-method/csharp/example "Factory Method in C#")[](https://refactoring.guru/design-patterns/factory-method/cpp/example "Factory Method in C++")[](https://refactoring.guru/design-patterns/factory-method/go/example "Factory Method in Go")[](https://refactoring.guru/design-patterns/factory-method/java/example "Factory Method in Java")[](https://refactoring.guru/design-patterns/factory-method/php/example "Factory Method in PHP")[](https://refactoring.guru/design-patterns/factory-method/python/example "Factory Method in Python")[](https://refactoring.guru/design-patterns/factory-method/ruby/example "Factory Method in Ruby")[](https://refactoring.guru/design-patterns/factory-method/rust/example "Factory Method in Rust")[](https://refactoring.guru/design-patterns/factory-method/swift/example "Factory Method in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/factory-method/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/factory-method/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/factory-method/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/factory-method/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/factory-method/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/factory-method/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/factory-method/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/factory-method/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/factory-method/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/factory-method/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/prototype/typescript/example -->
 
 # Prototype in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/prototype/typescript/example#checkout)[](https://refactoring.guru/design-patterns/prototype/typescript/example#checkout)
 
 # **Prototype** in TypeScript
 
 **Prototype** is a creational design pattern that allows cloning objects, even complex ones, without coupling to their specific classes.
 
 All prototype classes should have a common interface that makes it possible to copy objects even if their concrete classes are unknown. Prototype objects can produce full copies since objects of the same class can access each other’s private fields.
-
-[Learn more about Prototype](https://refactoring.guru/design-patterns/prototype)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/prototype/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/prototype/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/prototype/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/prototype/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The Prototype pattern is available in TypeScript out of the box with a JavaScript’s native `Object.assign()` method.
 
 **Identification:** The prototype can be easily recognized by a `clone` or `copy` methods,etc.
 
-[](https://refactoring.guru/design-patterns/prototype/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Prototype** design pattern and focuses on the following questions:
@@ -3489,7 +2644,7 @@ This example illustrates the structure of the **Prototype** design pattern and f
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/prototype/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The example class that has cloning ability. We'll see how the values of field
@@ -3559,269 +2714,16 @@ function clientCode() {
 
 clientCode();
 
-#### [](https://refactoring.guru/design-patterns/prototype/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Primitive field values have been carried over to a clone. Yay!
 Simple component has been cloned. Yay!
 Component with back reference has been cloned. Yay!
 Component with back reference is linked to the clone. Yay!
 
-#### Read next
-
-[Singleton in TypeScript](https://refactoring.guru/design-patterns/singleton/typescript/example)
-
-#### Return
-
-[Factory Method in TypeScript](https://refactoring.guru/design-patterns/factory-method/typescript/example)
-
-## **Prototype** in Other Languages
-
-[](https://refactoring.guru/design-patterns/prototype/csharp/example "Prototype in C#")[](https://refactoring.guru/design-patterns/prototype/cpp/example "Prototype in C++")[](https://refactoring.guru/design-patterns/prototype/go/example "Prototype in Go")[](https://refactoring.guru/design-patterns/prototype/java/example "Prototype in Java")[](https://refactoring.guru/design-patterns/prototype/php/example "Prototype in PHP")[](https://refactoring.guru/design-patterns/prototype/python/example "Prototype in Python")[](https://refactoring.guru/design-patterns/prototype/ruby/example "Prototype in Ruby")[](https://refactoring.guru/design-patterns/prototype/rust/example "Prototype in Rust")[](https://refactoring.guru/design-patterns/prototype/swift/example "Prototype in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/prototype/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/prototype/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/prototype/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/prototype/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/prototype/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/prototype/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/prototype/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/prototype/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/prototype/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/prototype/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/singleton/typescript/example -->
 
 # Singleton in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/singleton/typescript/example#checkout)[](https://refactoring.guru/design-patterns/singleton/typescript/example#checkout)
 
 # **Singleton** in TypeScript
 
@@ -3830,28 +2732,10 @@ Pamplona, Spain, 31009
 Singleton has almost the same pros and cons as global variables. Although they’re super-handy, they break the modularity of your code.
 
 You can’t just use a class that depends on a Singleton in some other context, without carrying over the Singleton to the other context. Most of the time, this limitation comes up during the creation of unit tests.
-
-[Learn more about Singleton](https://refactoring.guru/design-patterns/singleton)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/singleton/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/singleton/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/singleton/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/singleton/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** A lot of developers consider the Singleton pattern an antipattern. That’s why its usage is on the decline in TypeScript code.
 
 **Identification:** Singleton can be recognized by a static creation method, which returns the same cached object.
 
-[](https://refactoring.guru/design-patterns/singleton/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Singleton** design pattern and focuses on the following questions:
@@ -3860,7 +2744,7 @@ This example illustrates the structure of the **Singleton** design pattern and f
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/singleton/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Singleton class defines an `instance` getter, that lets clients access
@@ -3916,298 +2800,23 @@ function clientCode() {
 
 clientCode();
 
-#### [](https://refactoring.guru/design-patterns/singleton/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Singleton works, both variables contain the same instance.
-
-#### Read next
-
-[Adapter in TypeScript](https://refactoring.guru/design-patterns/adapter/typescript/example)
-
-#### Return
-
-[Prototype in TypeScript](https://refactoring.guru/design-patterns/prototype/typescript/example)
-
-## **Singleton** in Other Languages
-
-[](https://refactoring.guru/design-patterns/singleton/csharp/example "Singleton in C#")[](https://refactoring.guru/design-patterns/singleton/cpp/example "Singleton in C++")[](https://refactoring.guru/design-patterns/singleton/go/example "Singleton in Go")[](https://refactoring.guru/design-patterns/singleton/java/example "Singleton in Java")[](https://refactoring.guru/design-patterns/singleton/php/example "Singleton in PHP")[](https://refactoring.guru/design-patterns/singleton/python/example "Singleton in Python")[](https://refactoring.guru/design-patterns/singleton/ruby/example "Singleton in Ruby")[](https://refactoring.guru/design-patterns/singleton/rust/example "Singleton in Rust")[](https://refactoring.guru/design-patterns/singleton/swift/example "Singleton in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/singleton/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/singleton/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/singleton/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/singleton/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/singleton/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/singleton/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/singleton/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/singleton/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/singleton/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/singleton/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
-
-### Structural patterns
-
 
 <!-- source: https://refactoring.guru/design-patterns/adapter/typescript/example -->
 
 # Adapter in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/adapter/typescript/example#checkout)[](https://refactoring.guru/design-patterns/adapter/typescript/example#checkout)
 
 # **Adapter** in TypeScript
 
 **Adapter** is a structural design pattern, which allows incompatible objects to collaborate.
 
 The Adapter acts as a wrapper between two objects. It catches calls for one object and transforms them to format and interface recognizable by the second object.
-
-[Learn more about Adapter](https://refactoring.guru/design-patterns/adapter)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/adapter/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/adapter/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/adapter/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/adapter/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The Adapter pattern is pretty common in TypeScript code. It’s very often used in systems based on some legacy code. In such cases, Adapters make legacy code work with modern classes.
 
 **Identification:** Adapter is recognizable by a constructor which takes an instance of a different abstract/interface type. When the adapter receives a call to any of its methods, it translates parameters to the appropriate format and then directs the call to one or several methods of the wrapped object.
 
-[](https://refactoring.guru/design-patterns/adapter/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Adapter** design pattern and focuses on the following questions:
@@ -4216,7 +2825,7 @@ This example illustrates the structure of the **Adapter** design pattern and foc
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/adapter/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Target defines the domain-specific interface used by the client code.
@@ -4279,7 +2888,7 @@ console.log('Client: But I can work with it via the Adapter:');
 const adapter = new Adapter(adaptee);
 clientCode(adapter);
 
-#### [](https://refactoring.guru/design-patterns/adapter/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Client: I can work just fine with the Target objects:
 Target: The default target's behavior.
@@ -4290,290 +2899,19 @@ Adaptee: .eetpadA eht fo roivaheb laicepS
 Client: But I can work with it via the Adapter:
 Adapter: (TRANSLATED) Special behavior of the Adaptee.
 
-#### Read next
-
-[Bridge in TypeScript](https://refactoring.guru/design-patterns/bridge/typescript/example)
-
-#### Return
-
-[Singleton in TypeScript](https://refactoring.guru/design-patterns/singleton/typescript/example)
-
-## **Adapter** in Other Languages
-
-[](https://refactoring.guru/design-patterns/adapter/csharp/example "Adapter in C#")[](https://refactoring.guru/design-patterns/adapter/cpp/example "Adapter in C++")[](https://refactoring.guru/design-patterns/adapter/go/example "Adapter in Go")[](https://refactoring.guru/design-patterns/adapter/java/example "Adapter in Java")[](https://refactoring.guru/design-patterns/adapter/php/example "Adapter in PHP")[](https://refactoring.guru/design-patterns/adapter/python/example "Adapter in Python")[](https://refactoring.guru/design-patterns/adapter/ruby/example "Adapter in Ruby")[](https://refactoring.guru/design-patterns/adapter/rust/example "Adapter in Rust")[](https://refactoring.guru/design-patterns/adapter/swift/example "Adapter in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/adapter/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/adapter/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/adapter/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/adapter/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/adapter/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/adapter/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/adapter/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/adapter/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/adapter/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/adapter/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/bridge/typescript/example -->
 
 # Bridge in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/bridge/typescript/example#checkout)[](https://refactoring.guru/design-patterns/bridge/typescript/example#checkout)
 
 # **Bridge** in TypeScript
 
 **Bridge** is a structural design pattern that divides business logic or huge class into separate class hierarchies that can be developed independently.
 
 One of these hierarchies (often called the Abstraction) will get a reference to an object of the second hierarchy (Implementation). The abstraction will be able to delegate some (sometimes, most) of its calls to the implementations object. Since all implementations will have a common interface, they’d be interchangeable inside the abstraction.
-
-[Learn more about Bridge](https://refactoring.guru/design-patterns/bridge)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/bridge/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/bridge/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/bridge/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/bridge/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The Bridge pattern is especially useful when dealing with cross-platform apps, supporting multiple types of database servers or working with several API providers of a certain kind (for example, cloud platforms, social networks,etc.)
 
 **Identification:** Bridge can be recognized by a clear distinction between some controlling entity and several different platforms that it relies on.
 
-[](https://refactoring.guru/design-patterns/bridge/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Bridge** design pattern and focuses on the following questions:
@@ -4582,7 +2920,7 @@ This example illustrates the structure of the **Bridge** design pattern and focu
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/bridge/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Abstraction defines the interface for the "control" part of the two class
@@ -4667,7 +3005,7 @@ implementation = new ConcreteImplementationB();
 abstraction = new ExtendedAbstraction(implementation);
 clientCode(abstraction);
 
-#### [](https://refactoring.guru/design-patterns/bridge/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Abstraction: Base operation with:
 ConcreteImplementationA: Here's the result on the platform A.
@@ -4675,290 +3013,19 @@ ConcreteImplementationA: Here's the result on the platform A.
 ExtendedAbstraction: Extended operation with:
 ConcreteImplementationB: Here's the result on the platform B.
 
-#### Read next
-
-[Composite in TypeScript](https://refactoring.guru/design-patterns/composite/typescript/example)
-
-#### Return
-
-[Adapter in TypeScript](https://refactoring.guru/design-patterns/adapter/typescript/example)
-
-## **Bridge** in Other Languages
-
-[](https://refactoring.guru/design-patterns/bridge/csharp/example "Bridge in C#")[](https://refactoring.guru/design-patterns/bridge/cpp/example "Bridge in C++")[](https://refactoring.guru/design-patterns/bridge/go/example "Bridge in Go")[](https://refactoring.guru/design-patterns/bridge/java/example "Bridge in Java")[](https://refactoring.guru/design-patterns/bridge/php/example "Bridge in PHP")[](https://refactoring.guru/design-patterns/bridge/python/example "Bridge in Python")[](https://refactoring.guru/design-patterns/bridge/ruby/example "Bridge in Ruby")[](https://refactoring.guru/design-patterns/bridge/rust/example "Bridge in Rust")[](https://refactoring.guru/design-patterns/bridge/swift/example "Bridge in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/bridge/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/bridge/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/bridge/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/bridge/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/bridge/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/bridge/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/bridge/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/bridge/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/bridge/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/bridge/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/composite/typescript/example -->
 
 # Composite in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/composite/typescript/example#checkout)[](https://refactoring.guru/design-patterns/composite/typescript/example#checkout)
 
 # **Composite** in TypeScript
 
 **Composite** is a structural design pattern that lets you compose objects into tree structures and then work with these structures as if they were individual objects.
 
 Composite became a pretty popular solution for the most problems that require building a tree structure. Composite’s great feature is the ability to run methods recursively over the whole tree structure and sum up the results.
-
-[Learn more about Composite](https://refactoring.guru/design-patterns/composite)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/composite/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/composite/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/composite/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/composite/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The Composite pattern is pretty common in TypeScript code. It’s often used to represent hierarchies of user interface components or the code that works with graphs.
 
 **Identification:** If you have an object tree, and each object of a tree is a part of the same class hierarchy, this is most likely a composite. If methods of these classes delegate the work to child objects of the tree and do it via the base class/interface of the hierarchy, this is definitely a composite.
 
-[](https://refactoring.guru/design-patterns/composite/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Composite** design pattern and focuses on the following questions:
@@ -4967,7 +3034,7 @@ This example illustrates the structure of the **Composite** design pattern and f
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/composite/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The base Component class declares common operations for both simple and
@@ -5126,7 +3193,7 @@ function clientCode2(component1: Component, component2: Component) {
 console.log('Client: I don\'t need to check the components classes even when managing the tree:');
 clientCode2(tree, simple);
 
-#### [](https://refactoring.guru/design-patterns/composite/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Client: I've got a simple component:
 RESULT: Leaf
@@ -5137,290 +3204,19 @@ RESULT: Branch(Branch(Leaf+Leaf)+Branch(Leaf))
 Client: I don't need to check the components classes even when managing the tree:
 RESULT: Branch(Branch(Leaf+Leaf)+Branch(Leaf)+Leaf)
 
-#### Read next
-
-[Decorator in TypeScript](https://refactoring.guru/design-patterns/decorator/typescript/example)
-
-#### Return
-
-[Bridge in TypeScript](https://refactoring.guru/design-patterns/bridge/typescript/example)
-
-## **Composite** in Other Languages
-
-[](https://refactoring.guru/design-patterns/composite/csharp/example "Composite in C#")[](https://refactoring.guru/design-patterns/composite/cpp/example "Composite in C++")[](https://refactoring.guru/design-patterns/composite/go/example "Composite in Go")[](https://refactoring.guru/design-patterns/composite/java/example "Composite in Java")[](https://refactoring.guru/design-patterns/composite/php/example "Composite in PHP")[](https://refactoring.guru/design-patterns/composite/python/example "Composite in Python")[](https://refactoring.guru/design-patterns/composite/ruby/example "Composite in Ruby")[](https://refactoring.guru/design-patterns/composite/rust/example "Composite in Rust")[](https://refactoring.guru/design-patterns/composite/swift/example "Composite in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/composite/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/composite/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/composite/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/composite/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/composite/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/composite/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/composite/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/composite/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/composite/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/composite/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/decorator/typescript/example -->
 
 # Decorator in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/decorator/typescript/example#checkout)[](https://refactoring.guru/design-patterns/decorator/typescript/example#checkout)
 
 # **Decorator** in TypeScript
 
 **Decorator** is a structural pattern that allows adding new behaviors to objects dynamically by placing them inside special wrapper objects, called _decorators_.
 
 Using decorators you can wrap objects countless number of times since both target objects and decorators follow the same interface. The resulting object will get a stacking behavior of all wrappers.
-
-[Learn more about Decorator](https://refactoring.guru/design-patterns/decorator)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/decorator/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/decorator/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/decorator/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/decorator/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The Decorator is pretty standard in TypeScript code, especially in code related to streams.
 
 **Identification:** Decorator can be recognized by creation methods or constructors that accept objects of the same class or interface as a current class.
 
-[](https://refactoring.guru/design-patterns/decorator/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Decorator** design pattern and focuses on the following questions:
@@ -5429,7 +3225,7 @@ This example illustrates the structure of the **Decorator** design pattern and f
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/decorator/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The base Component interface defines operations that can be altered by
@@ -5527,7 +3323,7 @@ const decorator2 = new ConcreteDecoratorB(decorator1);
 console.log('Client: Now I\'ve got a decorated component:');
 clientCode(decorator2);
 
-#### [](https://refactoring.guru/design-patterns/decorator/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Client: I've got a simple component:
 RESULT: ConcreteComponent
@@ -5535,290 +3331,19 @@ RESULT: ConcreteComponent
 Client: Now I've got a decorated component:
 RESULT: ConcreteDecoratorB(ConcreteDecoratorA(ConcreteComponent))
 
-#### Read next
-
-[Facade in TypeScript](https://refactoring.guru/design-patterns/facade/typescript/example)
-
-#### Return
-
-[Composite in TypeScript](https://refactoring.guru/design-patterns/composite/typescript/example)
-
-## **Decorator** in Other Languages
-
-[](https://refactoring.guru/design-patterns/decorator/csharp/example "Decorator in C#")[](https://refactoring.guru/design-patterns/decorator/cpp/example "Decorator in C++")[](https://refactoring.guru/design-patterns/decorator/go/example "Decorator in Go")[](https://refactoring.guru/design-patterns/decorator/java/example "Decorator in Java")[](https://refactoring.guru/design-patterns/decorator/php/example "Decorator in PHP")[](https://refactoring.guru/design-patterns/decorator/python/example "Decorator in Python")[](https://refactoring.guru/design-patterns/decorator/ruby/example "Decorator in Ruby")[](https://refactoring.guru/design-patterns/decorator/rust/example "Decorator in Rust")[](https://refactoring.guru/design-patterns/decorator/swift/example "Decorator in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/decorator/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/decorator/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/decorator/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/decorator/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/decorator/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/decorator/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/decorator/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/decorator/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/decorator/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/decorator/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/facade/typescript/example -->
 
 # Facade in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/facade/typescript/example#checkout)[](https://refactoring.guru/design-patterns/facade/typescript/example#checkout)
 
 # **Facade** in TypeScript
 
 **Facade** is a structural design pattern that provides a simplified (but limited) interface to a complex system of classes, library or framework.
 
 While Facade decreases the overall complexity of the application, it also helps to move unwanted dependencies to one place.
-
-[Learn more about Facade](https://refactoring.guru/design-patterns/facade)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/facade/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/facade/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/facade/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/facade/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The Facade pattern is commonly used in apps written in TypeScript. It’s especially handy when working with complex libraries and APIs.
 
 **Identification:** Facade can be recognized in a class that has a simple interface, but delegates most of the work to other classes. Usually, facades manage the full life cycle of objects they use.
 
-[](https://refactoring.guru/design-patterns/facade/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Facade** design pattern and focuses on the following questions:
@@ -5827,7 +3352,7 @@ This example illustrates the structure of the **Facade** design pattern and focu
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/facade/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Facade class provides a simple interface to the complex logic of one or
@@ -5923,7 +3448,7 @@ const subsystem2 = new Subsystem2();
 const facade = new Facade(subsystem1, subsystem2);
 clientCode(facade);
 
-#### [](https://refactoring.guru/design-patterns/facade/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Facade initializes subsystems:
 Subsystem1: Ready!
@@ -5932,290 +3457,19 @@ Facade orders subsystems to perform the action:
 Subsystem1: Go!
 Subsystem2: Fire!
 
-#### Read next
-
-[Flyweight in TypeScript](https://refactoring.guru/design-patterns/flyweight/typescript/example)
-
-#### Return
-
-[Decorator in TypeScript](https://refactoring.guru/design-patterns/decorator/typescript/example)
-
-## **Facade** in Other Languages
-
-[](https://refactoring.guru/design-patterns/facade/csharp/example "Facade in C#")[](https://refactoring.guru/design-patterns/facade/cpp/example "Facade in C++")[](https://refactoring.guru/design-patterns/facade/go/example "Facade in Go")[](https://refactoring.guru/design-patterns/facade/java/example "Facade in Java")[](https://refactoring.guru/design-patterns/facade/php/example "Facade in PHP")[](https://refactoring.guru/design-patterns/facade/python/example "Facade in Python")[](https://refactoring.guru/design-patterns/facade/ruby/example "Facade in Ruby")[](https://refactoring.guru/design-patterns/facade/rust/example "Facade in Rust")[](https://refactoring.guru/design-patterns/facade/swift/example "Facade in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/facade/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/facade/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/facade/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/facade/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/facade/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/facade/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/facade/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/facade/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/facade/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/facade/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/flyweight/typescript/example -->
 
 # Flyweight in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/flyweight/typescript/example#checkout)[](https://refactoring.guru/design-patterns/flyweight/typescript/example#checkout)
 
 # **Flyweight** in TypeScript
 
 **Flyweight** is a structural design pattern that allows programs to support vast quantities of objects by keeping their memory consumption low.
 
 The pattern achieves it by sharing parts of object state between multiple objects. In other words, the Flyweight saves RAM by caching the same data used by different objects.
-
-[Learn more about Flyweight](https://refactoring.guru/design-patterns/flyweight)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/flyweight/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/flyweight/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/flyweight/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/flyweight/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The Flyweight pattern has a single purpose: minimizing memory intake. If your program doesn’t struggle with a shortage of RAM, then you might just ignore this pattern for a while.
 
 **Identification:** Flyweight can be recognized by a creation method that returns cached objects instead of creating new.
 
-[](https://refactoring.guru/design-patterns/flyweight/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Flyweight** design pattern and focuses on the following questions:
@@ -6224,7 +3478,7 @@ This example illustrates the structure of the **Flyweight** design pattern and f
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/flyweight/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Flyweight stores a common portion of the state (also called intrinsic
@@ -6327,7 +3581,7 @@ addCarToPoliceDatabase(factory, 'CL234IR', 'James Doe', 'BMW', 'X1', 'red');
 
 factory.listFlyweights();
 
-#### [](https://refactoring.guru/design-patterns/flyweight/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 FlyweightFactory: I have 5 flyweights:
 Chevrolet_Camaro2018_pink
@@ -6352,290 +3606,19 @@ BMW_M5_red
 BMW_X6_white
 BMW_X1_red
 
-#### Read next
-
-[Proxy in TypeScript](https://refactoring.guru/design-patterns/proxy/typescript/example)
-
-#### Return
-
-[Facade in TypeScript](https://refactoring.guru/design-patterns/facade/typescript/example)
-
-## **Flyweight** in Other Languages
-
-[](https://refactoring.guru/design-patterns/flyweight/csharp/example "Flyweight in C#")[](https://refactoring.guru/design-patterns/flyweight/cpp/example "Flyweight in C++")[](https://refactoring.guru/design-patterns/flyweight/go/example "Flyweight in Go")[](https://refactoring.guru/design-patterns/flyweight/java/example "Flyweight in Java")[](https://refactoring.guru/design-patterns/flyweight/php/example "Flyweight in PHP")[](https://refactoring.guru/design-patterns/flyweight/python/example "Flyweight in Python")[](https://refactoring.guru/design-patterns/flyweight/ruby/example "Flyweight in Ruby")[](https://refactoring.guru/design-patterns/flyweight/rust/example "Flyweight in Rust")[](https://refactoring.guru/design-patterns/flyweight/swift/example "Flyweight in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/flyweight/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/flyweight/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/flyweight/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/flyweight/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/flyweight/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/flyweight/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/flyweight/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/flyweight/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/flyweight/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/flyweight/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/proxy/typescript/example -->
 
 # Proxy in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/proxy/typescript/example#checkout)[](https://refactoring.guru/design-patterns/proxy/typescript/example#checkout)
 
 # **Proxy** in TypeScript
 
 **Proxy** is a structural design pattern that provides an object that acts as a substitute for a real service object used by a client. A proxy receives client requests, does some work (access control, caching,etc.) and then passes the request to a service object.
 
 The proxy object has the same interface as a service, which makes it interchangeable with a real object when passed to a client.
-
-[Learn more about Proxy](https://refactoring.guru/design-patterns/proxy)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/proxy/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/proxy/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/proxy/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/proxy/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** While the Proxy pattern isn’t a frequent guest in most TypeScript applications, it’s still very handy in some special cases. It’s irreplaceable when you want to add some additional behaviors to an object of some existing class without changing the client code.
 
 **Identification:** Proxies delegate all of the real work to some other object. Each proxy method should, in the end, refer to a service object unless the proxy is a subclass of a service.
 
-[](https://refactoring.guru/design-patterns/proxy/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Proxy** design pattern and focuses on the following questions:
@@ -6644,7 +3627,7 @@ This example illustrates the structure of the **Proxy** design pattern and focus
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/proxy/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Subject interface declares common operations for both RealSubject and the
@@ -6731,7 +3714,7 @@ console.log('Client: Executing the same client code with a proxy:');
 const proxy = new Proxy(realSubject);
 clientCode(proxy);
 
-#### [](https://refactoring.guru/design-patterns/proxy/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Client: Executing the client code with a real subject:
 RealSubject: Handling request.
@@ -6741,294 +3724,19 @@ Proxy: Checking access prior to firing a real request.
 RealSubject: Handling request.
 Proxy: Logging the time of request.
 
-#### Read next
-
-[Chain of Responsibility in TypeScript](https://refactoring.guru/design-patterns/chain-of-responsibility/typescript/example)
-
-#### Return
-
-[Flyweight in TypeScript](https://refactoring.guru/design-patterns/flyweight/typescript/example)
-
-## **Proxy** in Other Languages
-
-[](https://refactoring.guru/design-patterns/proxy/csharp/example "Proxy in C#")[](https://refactoring.guru/design-patterns/proxy/cpp/example "Proxy in C++")[](https://refactoring.guru/design-patterns/proxy/go/example "Proxy in Go")[](https://refactoring.guru/design-patterns/proxy/java/example "Proxy in Java")[](https://refactoring.guru/design-patterns/proxy/php/example "Proxy in PHP")[](https://refactoring.guru/design-patterns/proxy/python/example "Proxy in Python")[](https://refactoring.guru/design-patterns/proxy/ruby/example "Proxy in Ruby")[](https://refactoring.guru/design-patterns/proxy/rust/example "Proxy in Rust")[](https://refactoring.guru/design-patterns/proxy/swift/example "Proxy in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/proxy/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/proxy/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/proxy/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/proxy/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/proxy/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/proxy/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/proxy/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/proxy/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/proxy/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/proxy/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
-
-### Behavioral patterns
-
-
 <!-- source: https://refactoring.guru/design-patterns/chain-of-responsibility/typescript/example -->
 
 # Chain of Responsibility in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/chain-of-responsibility/typescript/example#checkout)[](https://refactoring.guru/design-patterns/chain-of-responsibility/typescript/example#checkout)
 
 # **Chain of Responsibility** in TypeScript
 
 **Chain of Responsibility** is behavioral design pattern that allows passing request along the chain of potential handlers until one of them handles request.
 
 The pattern allows multiple objects to handle the request without coupling sender class to the concrete classes of the receivers. The chain can be composed dynamically at runtime with any handler that follows a standard handler interface.
-
-[Learn more about Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/chain-of-responsibility/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/chain-of-responsibility/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/chain-of-responsibility/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/chain-of-responsibility/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The Chain of Responsibility is pretty common in TypeScript. It’s mostly relevant when your code operates with chains of objects, such as filters, event chains,etc.
 
 **Identification:** The pattern is recognizable by behavioral methods of one group of objects that indirectly call the same methods in other objects, while all the objects follow the common interface.
 
-[](https://refactoring.guru/design-patterns/chain-of-responsibility/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Chain of Responsibility** design pattern and focuses on the following questions:
@@ -7037,7 +3745,7 @@ This example illustrates the structure of the **Chain of Responsibility** design
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/chain-of-responsibility/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Handler interface declares a method for building the chain of handlers.
@@ -7144,7 +3852,7 @@ console.log('');
 console.log('Subchain: Squirrel > Dog\n');
 clientCode(squirrel);
 
-#### [](https://refactoring.guru/design-patterns/chain-of-responsibility/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Chain: Monkey > Squirrel > Dog
 
@@ -7164,290 +3872,19 @@ Client: Who wants a Banana?
 Client: Who wants a Cup of coffee?
   Cup of coffee was left untouched.
 
-#### Read next
-
-[Command in TypeScript](https://refactoring.guru/design-patterns/command/typescript/example)
-
-#### Return
-
-[Proxy in TypeScript](https://refactoring.guru/design-patterns/proxy/typescript/example)
-
-## **Chain of Responsibility** in Other Languages
-
-[](https://refactoring.guru/design-patterns/chain-of-responsibility/csharp/example "Chain of Responsibility in C#")[](https://refactoring.guru/design-patterns/chain-of-responsibility/cpp/example "Chain of Responsibility in C++")[](https://refactoring.guru/design-patterns/chain-of-responsibility/go/example "Chain of Responsibility in Go")[](https://refactoring.guru/design-patterns/chain-of-responsibility/java/example "Chain of Responsibility in Java")[](https://refactoring.guru/design-patterns/chain-of-responsibility/php/example "Chain of Responsibility in PHP")[](https://refactoring.guru/design-patterns/chain-of-responsibility/python/example "Chain of Responsibility in Python")[](https://refactoring.guru/design-patterns/chain-of-responsibility/ruby/example "Chain of Responsibility in Ruby")[](https://refactoring.guru/design-patterns/chain-of-responsibility/rust/example "Chain of Responsibility in Rust")[](https://refactoring.guru/design-patterns/chain-of-responsibility/swift/example "Chain of Responsibility in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/chain-of-responsibility/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/chain-of-responsibility/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/chain-of-responsibility/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/chain-of-responsibility/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/chain-of-responsibility/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/chain-of-responsibility/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/chain-of-responsibility/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/chain-of-responsibility/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/chain-of-responsibility/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/chain-of-responsibility/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/command/typescript/example -->
 
 # Command in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/command/typescript/example#checkout)[](https://refactoring.guru/design-patterns/command/typescript/example#checkout)
 
 # **Command** in TypeScript
 
 **Command** is behavioral design pattern that converts requests or simple operations into objects.
 
 The conversion allows deferred or remote execution of commands, storing command history,etc.
-
-[Learn more about Command](https://refactoring.guru/design-patterns/command)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/command/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/command/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/command/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/command/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The Command pattern is pretty common in TypeScript code. Most often it’s used as an alternative for callbacks to parameterizing UI elements with actions. It’s also used for queueing tasks, tracking operations history,etc.
 
 **Identification:** The Command pattern is recognizable by behavioral methods in an abstract/interface type (sender) which invokes a method in an implementation of a different abstract/interface type (receiver) which has been encapsulated by the command implementation during its creation. Command classes are usually limited to specific actions.
 
-[](https://refactoring.guru/design-patterns/command/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Command** design pattern and focuses on the following questions:
@@ -7456,7 +3893,7 @@ This example illustrates the structure of the **Command** design pattern and foc
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/command/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Command interface declares a method for executing a command.
@@ -7583,7 +4020,7 @@ invoker.setOnFinish(new ComplexCommand(receiver, 'Send email', 'Save report'));
 
 invoker.doSomethingImportant();
 
-#### [](https://refactoring.guru/design-patterns/command/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Invoker: Does anybody want something done before I begin?
 SimpleCommand: See, I can do simple things like printing (Say Hi!)
@@ -7593,290 +4030,19 @@ ComplexCommand: Complex stuff should be done by a receiver object.
 Receiver: Working on (Send email.)
 Receiver: Also working on (Save report.)
 
-#### Read next
-
-[Iterator in TypeScript](https://refactoring.guru/design-patterns/iterator/typescript/example)
-
-#### Return
-
-[Chain of Responsibility in TypeScript](https://refactoring.guru/design-patterns/chain-of-responsibility/typescript/example)
-
-## **Command** in Other Languages
-
-[](https://refactoring.guru/design-patterns/command/csharp/example "Command in C#")[](https://refactoring.guru/design-patterns/command/cpp/example "Command in C++")[](https://refactoring.guru/design-patterns/command/go/example "Command in Go")[](https://refactoring.guru/design-patterns/command/java/example "Command in Java")[](https://refactoring.guru/design-patterns/command/php/example "Command in PHP")[](https://refactoring.guru/design-patterns/command/python/example "Command in Python")[](https://refactoring.guru/design-patterns/command/ruby/example "Command in Ruby")[](https://refactoring.guru/design-patterns/command/rust/example "Command in Rust")[](https://refactoring.guru/design-patterns/command/swift/example "Command in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/command/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/command/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/command/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/command/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/command/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/command/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/command/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/command/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/command/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/command/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/iterator/typescript/example -->
 
 # Iterator in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/iterator/typescript/example#checkout)[](https://refactoring.guru/design-patterns/iterator/typescript/example#checkout)
 
 # **Iterator** in TypeScript
 
 **Iterator** is a behavioral design pattern that allows sequential traversal through a complex data structure without exposing its internal details.
 
 Thanks to the Iterator, clients can go over elements of different collections in a similar fashion using a single iterator interface.
-
-[Learn more about Iterator](https://refactoring.guru/design-patterns/iterator)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/iterator/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/iterator/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/iterator/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/iterator/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The pattern is very common in TypeScript code. Many frameworks and libraries use it to provide a standard way for traversing their collections.
 
 **Identification:** Iterator is easy to recognize by the navigation methods (such as `next`, `previous` and others). Client code that uses iterators might not have direct access to the collection being traversed.
 
-[](https://refactoring.guru/design-patterns/iterator/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Iterator** design pattern and focuses on the following questions:
@@ -7885,7 +4051,7 @@ This example illustrates the structure of the **Iterator** design pattern and fo
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/iterator/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * Iterator Design Pattern
@@ -8026,7 +4192,7 @@ while (reverseIterator.valid()) {
     console.log(reverseIterator.next());
 }
 
-#### [](https://refactoring.guru/design-patterns/iterator/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Straight traversal:
 First
@@ -8038,288 +4204,17 @@ Third
 Second
 First
 
-#### Read next
-
-[Mediator in TypeScript](https://refactoring.guru/design-patterns/mediator/typescript/example)
-
-#### Return
-
-[Command in TypeScript](https://refactoring.guru/design-patterns/command/typescript/example)
-
-## **Iterator** in Other Languages
-
-[](https://refactoring.guru/design-patterns/iterator/csharp/example "Iterator in C#")[](https://refactoring.guru/design-patterns/iterator/cpp/example "Iterator in C++")[](https://refactoring.guru/design-patterns/iterator/go/example "Iterator in Go")[](https://refactoring.guru/design-patterns/iterator/java/example "Iterator in Java")[](https://refactoring.guru/design-patterns/iterator/php/example "Iterator in PHP")[](https://refactoring.guru/design-patterns/iterator/python/example "Iterator in Python")[](https://refactoring.guru/design-patterns/iterator/ruby/example "Iterator in Ruby")[](https://refactoring.guru/design-patterns/iterator/rust/example "Iterator in Rust")[](https://refactoring.guru/design-patterns/iterator/swift/example "Iterator in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/iterator/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/iterator/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/iterator/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/iterator/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/iterator/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/iterator/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/iterator/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/iterator/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/iterator/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/iterator/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/mediator/typescript/example -->
 
 # Mediator in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/mediator/typescript/example#checkout)[](https://refactoring.guru/design-patterns/mediator/typescript/example#checkout)
 
 # **Mediator** in TypeScript
 
 **Mediator** is a behavioral design pattern that reduces coupling between components of a program by making them communicate indirectly, through a special mediator object.
 
 The Mediator makes it easy to modify, extend and reuse individual components because they’re no longer dependent on the dozens of other classes.
-
-[Learn more about Mediator](https://refactoring.guru/design-patterns/mediator)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/mediator/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/mediator/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/mediator/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/mediator/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The most popular usage of the Mediator pattern in TypeScript code is facilitating communications between GUI components of an app. The synonym of the Mediator is the Controller part of MVC pattern.
 
-[](https://refactoring.guru/design-patterns/mediator/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Mediator** design pattern and focuses on the following questions:
@@ -8328,7 +4223,7 @@ This example illustrates the structure of the **Mediator** design pattern and fo
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/mediator/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Mediator interface declares a method used by components to notify the
@@ -8427,7 +4322,7 @@ console.log('');
 console.log('Client triggers operation D.');
 c2.doD();
 
-#### [](https://refactoring.guru/design-patterns/mediator/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Client triggers operation A.
 Component 1 does A.
@@ -8440,288 +4335,17 @@ Mediator reacts on D and triggers following operations:
 Component 1 does B.
 Component 2 does C.
 
-#### Read next
-
-[Memento in TypeScript](https://refactoring.guru/design-patterns/memento/typescript/example)
-
-#### Return
-
-[Iterator in TypeScript](https://refactoring.guru/design-patterns/iterator/typescript/example)
-
-## **Mediator** in Other Languages
-
-[](https://refactoring.guru/design-patterns/mediator/csharp/example "Mediator in C#")[](https://refactoring.guru/design-patterns/mediator/cpp/example "Mediator in C++")[](https://refactoring.guru/design-patterns/mediator/go/example "Mediator in Go")[](https://refactoring.guru/design-patterns/mediator/java/example "Mediator in Java")[](https://refactoring.guru/design-patterns/mediator/php/example "Mediator in PHP")[](https://refactoring.guru/design-patterns/mediator/python/example "Mediator in Python")[](https://refactoring.guru/design-patterns/mediator/ruby/example "Mediator in Ruby")[](https://refactoring.guru/design-patterns/mediator/rust/example "Mediator in Rust")[](https://refactoring.guru/design-patterns/mediator/swift/example "Mediator in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/mediator/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/mediator/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/mediator/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/mediator/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/mediator/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/mediator/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/mediator/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/mediator/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/mediator/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/mediator/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/memento/typescript/example -->
 
 # Memento in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/memento/typescript/example#checkout)[](https://refactoring.guru/design-patterns/memento/typescript/example#checkout)
 
 # **Memento** in TypeScript
 
 **Memento** is a behavioral design pattern that allows making snapshots of an object’s state and restoring it in future.
 
 The Memento doesn’t compromise the internal structure of the object it works with, as well as data kept inside the snapshots.
-
-[Learn more about Memento](https://refactoring.guru/design-patterns/memento)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/memento/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/memento/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/memento/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/memento/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The Memento’s principle can be achieved using serialization, which is quite common in TypeScript. While it’s not the only and the most efficient way to make snapshots of an object’s state, it still allows storing state backups while protecting the originator’s structure from other objects.
 
-[](https://refactoring.guru/design-patterns/memento/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Memento** design pattern and focuses on the following questions:
@@ -8730,7 +4354,7 @@ This example illustrates the structure of the **Memento** design pattern and foc
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/memento/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Originator holds some important state that may change over time. It also
@@ -8891,7 +4515,7 @@ caretaker.undo();
 console.log('\nClient: Once more!\n');
 caretaker.undo();
 
-#### [](https://refactoring.guru/design-patterns/memento/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Originator: My initial state is: Super-duper-super-puper-super.
 
@@ -8922,290 +4546,19 @@ Client: Once more!
 Caretaker: Restoring state to: 2019-02-17 15:14:05 / (qXqxgTcLS...)
 Originator: My state has changed to: qXqxgTcLSCeLYdcgElOghOFhPGfMxo
 
-#### Read next
-
-[Observer in TypeScript](https://refactoring.guru/design-patterns/observer/typescript/example)
-
-#### Return
-
-[Mediator in TypeScript](https://refactoring.guru/design-patterns/mediator/typescript/example)
-
-## **Memento** in Other Languages
-
-[](https://refactoring.guru/design-patterns/memento/csharp/example "Memento in C#")[](https://refactoring.guru/design-patterns/memento/cpp/example "Memento in C++")[](https://refactoring.guru/design-patterns/memento/go/example "Memento in Go")[](https://refactoring.guru/design-patterns/memento/java/example "Memento in Java")[](https://refactoring.guru/design-patterns/memento/php/example "Memento in PHP")[](https://refactoring.guru/design-patterns/memento/python/example "Memento in Python")[](https://refactoring.guru/design-patterns/memento/ruby/example "Memento in Ruby")[](https://refactoring.guru/design-patterns/memento/rust/example "Memento in Rust")[](https://refactoring.guru/design-patterns/memento/swift/example "Memento in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/memento/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/memento/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/memento/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/memento/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/memento/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/memento/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/memento/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/memento/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/memento/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/memento/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/observer/typescript/example -->
 
 # Observer in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/observer/typescript/example#checkout)[](https://refactoring.guru/design-patterns/observer/typescript/example#checkout)
 
 # **Observer** in TypeScript
 
 **Observer** is a behavioral design pattern that allows some objects to notify other objects about changes in their state.
 
 The Observer pattern provides a way to subscribe and unsubscribe to and from these events for any object that implements a subscriber interface.
-
-[Learn more about Observer](https://refactoring.guru/design-patterns/observer)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/observer/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/observer/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/observer/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/observer/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The Observer pattern is pretty common in TypeScript code, especially in the GUI components. It provides a way to react to events happening in other objects without coupling to their classes.
 
 **Identification:** The pattern can be recognized by subscription methods, that store objects in a list and by calls to the update method issued to objects in that list.
 
-[](https://refactoring.guru/design-patterns/observer/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Observer** design pattern and focuses on the following questions:
@@ -9214,7 +4567,7 @@ This example illustrates the structure of the **Observer** design pattern and fo
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/observer/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Subject interface declares a set of methods for managing subscribers.
@@ -9343,7 +4696,7 @@ subject.detach(observer2);
 
 subject.someBusinessLogic();
 
-#### [](https://refactoring.guru/design-patterns/observer/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Subject: Attached an observer.
 Subject: Attached an observer.
@@ -9363,290 +4716,19 @@ Subject: I'm doing something important.
 Subject: My state has just changed to: 5
 Subject: Notifying observers...
 
-#### Read next
-
-[State in TypeScript](https://refactoring.guru/design-patterns/state/typescript/example)
-
-#### Return
-
-[Memento in TypeScript](https://refactoring.guru/design-patterns/memento/typescript/example)
-
-## **Observer** in Other Languages
-
-[](https://refactoring.guru/design-patterns/observer/csharp/example "Observer in C#")[](https://refactoring.guru/design-patterns/observer/cpp/example "Observer in C++")[](https://refactoring.guru/design-patterns/observer/go/example "Observer in Go")[](https://refactoring.guru/design-patterns/observer/java/example "Observer in Java")[](https://refactoring.guru/design-patterns/observer/php/example "Observer in PHP")[](https://refactoring.guru/design-patterns/observer/python/example "Observer in Python")[](https://refactoring.guru/design-patterns/observer/ruby/example "Observer in Ruby")[](https://refactoring.guru/design-patterns/observer/rust/example "Observer in Rust")[](https://refactoring.guru/design-patterns/observer/swift/example "Observer in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/observer/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/observer/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/observer/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/observer/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/observer/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/observer/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/observer/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/observer/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/observer/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/observer/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/state/typescript/example -->
 
 # State in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/state/typescript/example#checkout)[](https://refactoring.guru/design-patterns/state/typescript/example#checkout)
 
 # **State** in TypeScript
 
 **State** is a behavioral design pattern that allows an object to change the behavior when its internal state changes.
 
 The pattern extracts state-related behaviors into separate state classes and forces the original object to delegate the work to an instance of these classes, instead of acting on its own.
-
-[Learn more about State](https://refactoring.guru/design-patterns/state)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/state/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/state/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/state/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/state/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The State pattern is commonly used in TypeScript to convert massive `switch`-base state machines into objects.
 
 **Identification:** State pattern can be recognized by methods that change their behavior depending on the objects’ state, controlled externally.
 
-[](https://refactoring.guru/design-patterns/state/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **State** design pattern and focuses on the following questions:
@@ -9655,7 +4737,7 @@ This example illustrates the structure of the **State** design pattern and focus
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/state/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Context defines the interface of interest to clients. It also maintains a
@@ -9746,7 +4828,7 @@ const context = new Context(new ConcreteStateA());
 context.request1();
 context.request2();
 
-#### [](https://refactoring.guru/design-patterns/state/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Context: Transition to ConcreteStateA.
 ConcreteStateA handles request1.
@@ -9756,290 +4838,19 @@ ConcreteStateB handles request2.
 ConcreteStateB wants to change the state of the context.
 Context: Transition to ConcreteStateA.
 
-#### Read next
-
-[Strategy in TypeScript](https://refactoring.guru/design-patterns/strategy/typescript/example)
-
-#### Return
-
-[Observer in TypeScript](https://refactoring.guru/design-patterns/observer/typescript/example)
-
-## **State** in Other Languages
-
-[](https://refactoring.guru/design-patterns/state/csharp/example "State in C#")[](https://refactoring.guru/design-patterns/state/cpp/example "State in C++")[](https://refactoring.guru/design-patterns/state/go/example "State in Go")[](https://refactoring.guru/design-patterns/state/java/example "State in Java")[](https://refactoring.guru/design-patterns/state/php/example "State in PHP")[](https://refactoring.guru/design-patterns/state/python/example "State in Python")[](https://refactoring.guru/design-patterns/state/ruby/example "State in Ruby")[](https://refactoring.guru/design-patterns/state/rust/example "State in Rust")[](https://refactoring.guru/design-patterns/state/swift/example "State in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/state/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/state/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/state/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/state/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/state/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/state/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/state/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/state/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/state/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/state/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/strategy/typescript/example -->
 
 # Strategy in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/strategy/typescript/example#checkout)[](https://refactoring.guru/design-patterns/strategy/typescript/example#checkout)
 
 # **Strategy** in TypeScript
 
 **Strategy** is a behavioral design pattern that turns a set of behaviors into objects and makes them interchangeable inside original context object.
 
 The original object, called context, holds a reference to a strategy object. The context delegates executing the behavior to the linked strategy object. In order to change the way the context performs its work, other objects may replace the currently linked strategy object with another one.
-
-[Learn more about Strategy](https://refactoring.guru/design-patterns/strategy)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/strategy/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/strategy/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/strategy/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/strategy/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The Strategy pattern is very common in TypeScript code. It’s often used in various frameworks to provide users a way to change the behavior of a class without extending it.
 
 **Identification:** Strategy pattern can be recognized by a method that lets a nested object do the actual work, as well as a setter that allows replacing that object with a different one.
 
-[](https://refactoring.guru/design-patterns/strategy/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Strategy** design pattern and focuses on the following questions:
@@ -10048,7 +4859,7 @@ This example illustrates the structure of the **Strategy** design pattern and fo
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/strategy/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Context defines the interface of interest to clients.
@@ -10133,7 +4944,7 @@ console.log('Client: Strategy is set to reverse sorting.');
 context.setStrategy(new ConcreteStrategyB());
 context.doSomeBusinessLogic();
 
-#### [](https://refactoring.guru/design-patterns/strategy/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Client: Strategy is set to normal sorting.
 Context: Sorting data using the strategy (not sure how it'll do it)
@@ -10143,288 +4954,17 @@ Client: Strategy is set to reverse sorting.
 Context: Sorting data using the strategy (not sure how it'll do it)
 e,d,c,b,a
 
-#### Read next
-
-[Template Method in TypeScript](https://refactoring.guru/design-patterns/template-method/typescript/example)
-
-#### Return
-
-[State in TypeScript](https://refactoring.guru/design-patterns/state/typescript/example)
-
-## **Strategy** in Other Languages
-
-[](https://refactoring.guru/design-patterns/strategy/csharp/example "Strategy in C#")[](https://refactoring.guru/design-patterns/strategy/cpp/example "Strategy in C++")[](https://refactoring.guru/design-patterns/strategy/go/example "Strategy in Go")[](https://refactoring.guru/design-patterns/strategy/java/example "Strategy in Java")[](https://refactoring.guru/design-patterns/strategy/php/example "Strategy in PHP")[](https://refactoring.guru/design-patterns/strategy/python/example "Strategy in Python")[](https://refactoring.guru/design-patterns/strategy/ruby/example "Strategy in Ruby")[](https://refactoring.guru/design-patterns/strategy/rust/example "Strategy in Rust")[](https://refactoring.guru/design-patterns/strategy/swift/example "Strategy in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/strategy/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/strategy/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/strategy/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/strategy/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/strategy/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/strategy/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/strategy/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/strategy/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/strategy/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/strategy/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/template-method/typescript/example -->
 
 # Template Method in TypeScript / Design Patterns
 
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/template-method/typescript/example#checkout)[](https://refactoring.guru/design-patterns/template-method/typescript/example#checkout)
-
 # **Template Method** in TypeScript
 
 **Template Method** is a behavioral design pattern that allows you to define a skeleton of an algorithm in a base class and let subclasses override the steps without changing the overall algorithm’s structure.
-
-[Learn more about Template Method](https://refactoring.guru/design-patterns/template-method)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/template-method/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/template-method/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/template-method/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/template-method/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** The Template Method pattern is quite common in TypeScript frameworks. Developers often use it to provide framework users with a simple means of extending standard functionality using inheritance.
 
 **Identification:** Template Method can be recognized if you see a method in base class that calls a bunch of other methods that are either abstract or empty.
 
-[](https://refactoring.guru/design-patterns/template-method/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Template Method** design pattern and focuses on the following questions:
@@ -10433,7 +4973,7 @@ This example illustrates the structure of the **Template Method** design pattern
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/template-method/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Abstract Class defines a template method that contains a skeleton of some
@@ -10538,7 +5078,7 @@ console.log('');
 console.log('Same client code can work with different subclasses:');
 clientCode(new ConcreteClass2());
 
-#### [](https://refactoring.guru/design-patterns/template-method/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 Same client code can work with different subclasses:
 AbstractClass says: I am doing the bulk of the work
@@ -10555,288 +5095,17 @@ ConcreteClass2 says: Overridden Hook1
 ConcreteClass2 says: Implemented Operation2
 AbstractClass says: But I am doing the bulk of the work anyway
 
-#### Read next
-
-[Visitor in TypeScript](https://refactoring.guru/design-patterns/visitor/typescript/example)
-
-#### Return
-
-[Strategy in TypeScript](https://refactoring.guru/design-patterns/strategy/typescript/example)
-
-## **Template Method** in Other Languages
-
-[](https://refactoring.guru/design-patterns/template-method/csharp/example "Template Method in C#")[](https://refactoring.guru/design-patterns/template-method/cpp/example "Template Method in C++")[](https://refactoring.guru/design-patterns/template-method/go/example "Template Method in Go")[](https://refactoring.guru/design-patterns/template-method/java/example "Template Method in Java")[](https://refactoring.guru/design-patterns/template-method/php/example "Template Method in PHP")[](https://refactoring.guru/design-patterns/template-method/python/example "Template Method in Python")[](https://refactoring.guru/design-patterns/template-method/ruby/example "Template Method in Ruby")[](https://refactoring.guru/design-patterns/template-method/rust/example "Template Method in Rust")[](https://refactoring.guru/design-patterns/template-method/swift/example "Template Method in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/template-method/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/template-method/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/template-method/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/template-method/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/template-method/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/template-method/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/template-method/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/template-method/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/template-method/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/template-method/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru
-
 <!-- source: https://refactoring.guru/design-patterns/visitor/typescript/example -->
 
 # Visitor in TypeScript / Design Patterns
-
-](https://gitbybit.com/)
-
-[](https://refactoring.guru/design-patterns/visitor/typescript/example#checkout)[](https://refactoring.guru/design-patterns/visitor/typescript/example#checkout)
 
 # **Visitor** in TypeScript
 
 **Visitor** is a behavioral design pattern that allows adding new behaviors to existing class hierarchy without altering any existing code.
 
 > Read why Visitors can’t be simply replaced with method overloading in our article [Visitor and Double Dispatch](https://refactoring.guru/design-patterns/visitor-double-dispatch).
-
-[Learn more about Visitor](https://refactoring.guru/design-patterns/visitor)
-
- Navigation 
-
-[Intro](https://refactoring.guru/design-patterns/visitor/typescript/example#)
-
-[Conceptual Example](https://refactoring.guru/design-patterns/visitor/typescript/example#example-0)
-
-[index](https://refactoring.guru/design-patterns/visitor/typescript/example#example-0--index-ts)
-
-[Output](https://refactoring.guru/design-patterns/visitor/typescript/example#example-0--Output-txt)
-
-**Complexity:**
-
-**Popularity:**
-
 **Usage examples:** Visitor isn’t a very common pattern because of its complexity and narrow applicability.
 
-[](https://refactoring.guru/design-patterns/visitor/typescript/example)
 ## Conceptual Example
 
 This example illustrates the structure of the **Visitor** design pattern and focuses on the following questions:
@@ -10845,7 +5114,7 @@ This example illustrates the structure of the **Visitor** design pattern and foc
 *   What roles do these classes play?
 *   In what way the elements of the pattern are related?
 
-#### [](https://refactoring.guru/design-patterns/visitor/typescript/example)**index.ts:** Conceptual example
+#### **index.ts:** Conceptual example
 
 /**
  * The Component interface declares an `accept` method that should take the base
@@ -10959,7 +5228,7 @@ console.log('It allows the same client code to work with different types of visi
 const visitor2 = new ConcreteVisitor2();
 clientCode(components, visitor2);
 
-#### [](https://refactoring.guru/design-patterns/visitor/typescript/example)**Output.txt:** Execution result
+#### **Output.txt:** Execution result
 
 The client code works with all visitors via the base Visitor interface:
 A + ConcreteVisitor1
@@ -10972,244 +5241,3 @@ B + ConcreteVisitor2
 #### Return
 
 [Template Method in TypeScript](https://refactoring.guru/design-patterns/template-method/typescript/example)
-
-## **Visitor** in Other Languages
-
-[](https://refactoring.guru/design-patterns/visitor/csharp/example "Visitor in C#")[](https://refactoring.guru/design-patterns/visitor/cpp/example "Visitor in C++")[](https://refactoring.guru/design-patterns/visitor/go/example "Visitor in Go")[](https://refactoring.guru/design-patterns/visitor/java/example "Visitor in Java")[](https://refactoring.guru/design-patterns/visitor/php/example "Visitor in PHP")[](https://refactoring.guru/design-patterns/visitor/python/example "Visitor in Python")[](https://refactoring.guru/design-patterns/visitor/ruby/example "Visitor in Ruby")[](https://refactoring.guru/design-patterns/visitor/rust/example "Visitor in Rust")[](https://refactoring.guru/design-patterns/visitor/swift/example "Visitor in Swift")
-
-[](https://refactoring.guru/design-patterns/book)
-
-[Archive with examples](https://refactoring.guru/design-patterns/book)
-
-Buy the eBook **Dive Into Design Patterns** and get the access to archive with dozens of detailed examples that can be opened right in your IDE.
-
-[Learn more…](https://refactoring.guru/design-patterns/book)
-
-[](https://refactoring.guru/)
-
-*   [Premium Content](https://refactoring.guru/store)
-    *   [Design Patterns eBook](https://refactoring.guru/design-patterns/book)
-    *   [Refactoring Course](https://refactoring.guru/refactoring/course)
-
-*   [Refactoring](https://refactoring.guru/refactoring)
-    *   [What is Refactoring](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Clean code](https://refactoring.guru/refactoring/what-is-refactoring)
-        *   [Technical debt](https://refactoring.guru/refactoring/technical-debt)
-        *   [When to refactor](https://refactoring.guru/refactoring/when)
-        *   [How to refactor](https://refactoring.guru/refactoring/how-to)
-
-    *   [Catalog](https://refactoring.guru/refactoring/catalog)
-    *   [Code Smells](https://refactoring.guru/refactoring/smells)
-        *   [Bloaters](https://refactoring.guru/refactoring/smells/bloaters)
-            *   [Long Method](https://refactoring.guru/smells/long-method)
-            *   [Large Class](https://refactoring.guru/smells/large-class)
-            *   [Primitive Obsession](https://refactoring.guru/smells/primitive-obsession)
-            *   [Long Parameter List](https://refactoring.guru/smells/long-parameter-list)
-            *   [Data Clumps](https://refactoring.guru/smells/data-clumps)
-
-        *   [Object-Orientation Abusers](https://refactoring.guru/refactoring/smells/oo-abusers)
-            *   [Switch Statements](https://refactoring.guru/smells/switch-statements)
-            *   [Temporary Field](https://refactoring.guru/smells/temporary-field)
-            *   [Refused Bequest](https://refactoring.guru/smells/refused-bequest)
-            *   [Alternative Classes with Different Interfaces](https://refactoring.guru/smells/alternative-classes-with-different-interfaces)
-
-        *   [Change Preventers](https://refactoring.guru/refactoring/smells/change-preventers)
-            *   [Divergent Change](https://refactoring.guru/smells/divergent-change)
-            *   [Shotgun Surgery](https://refactoring.guru/smells/shotgun-surgery)
-            *   [Parallel Inheritance Hierarchies](https://refactoring.guru/smells/parallel-inheritance-hierarchies)
-
-        *   [Dispensables](https://refactoring.guru/refactoring/smells/dispensables)
-            *   [Comments](https://refactoring.guru/smells/comments)
-            *   [Duplicate Code](https://refactoring.guru/smells/duplicate-code)
-            *   [Lazy Class](https://refactoring.guru/smells/lazy-class)
-            *   [Data Class](https://refactoring.guru/smells/data-class)
-            *   [Dead Code](https://refactoring.guru/smells/dead-code)
-            *   [Speculative Generality](https://refactoring.guru/smells/speculative-generality)
-
-        *   [Couplers](https://refactoring.guru/refactoring/smells/couplers)
-            *   [Feature Envy](https://refactoring.guru/smells/feature-envy)
-            *   [Inappropriate Intimacy](https://refactoring.guru/smells/inappropriate-intimacy)
-            *   [Message Chains](https://refactoring.guru/smells/message-chains)
-            *   [Middle Man](https://refactoring.guru/smells/middle-man)
-
-        *   [Other Smells](https://refactoring.guru/refactoring/smells/other)
-            *   [Incomplete Library Class](https://refactoring.guru/smells/incomplete-library-class)
-
-    *   [Refactorings](https://refactoring.guru/refactoring/techniques)
-        *   [Composing Methods](https://refactoring.guru/refactoring/techniques/composing-methods)
-            *   [Extract Method](https://refactoring.guru/extract-method)
-            *   [Inline Method](https://refactoring.guru/inline-method)
-            *   [Extract Variable](https://refactoring.guru/extract-variable)
-            *   [Inline Temp](https://refactoring.guru/inline-temp)
-            *   [Replace Temp with Query](https://refactoring.guru/replace-temp-with-query)
-            *   [Split Temporary Variable](https://refactoring.guru/split-temporary-variable)
-            *   [Remove Assignments to Parameters](https://refactoring.guru/remove-assignments-to-parameters)
-            *   [Replace Method with Method Object](https://refactoring.guru/replace-method-with-method-object)
-            *   [Substitute Algorithm](https://refactoring.guru/substitute-algorithm)
-
-        *   [Moving Features between Objects](https://refactoring.guru/refactoring/techniques/moving-features-between-objects)
-            *   [Move Method](https://refactoring.guru/move-method)
-            *   [Move Field](https://refactoring.guru/move-field)
-            *   [Extract Class](https://refactoring.guru/extract-class)
-            *   [Inline Class](https://refactoring.guru/inline-class)
-            *   [Hide Delegate](https://refactoring.guru/hide-delegate)
-            *   [Remove Middle Man](https://refactoring.guru/remove-middle-man)
-            *   [Introduce Foreign Method](https://refactoring.guru/introduce-foreign-method)
-            *   [Introduce Local Extension](https://refactoring.guru/introduce-local-extension)
-
-        *   [Organizing Data](https://refactoring.guru/refactoring/techniques/organizing-data)
-            *   [Self Encapsulate Field](https://refactoring.guru/self-encapsulate-field)
-            *   [Replace Data Value with Object](https://refactoring.guru/replace-data-value-with-object)
-            *   [Change Value to Reference](https://refactoring.guru/change-value-to-reference)
-            *   [Change Reference to Value](https://refactoring.guru/change-reference-to-value)
-            *   [Replace Array with Object](https://refactoring.guru/replace-array-with-object)
-            *   [Duplicate Observed Data](https://refactoring.guru/duplicate-observed-data)
-            *   [Change Unidirectional Association to Bidirectional](https://refactoring.guru/change-unidirectional-association-to-bidirectional)
-            *   [Change Bidirectional Association to Unidirectional](https://refactoring.guru/change-bidirectional-association-to-unidirectional)
-            *   [Replace Magic Number with Symbolic Constant](https://refactoring.guru/replace-magic-number-with-symbolic-constant)
-            *   [Encapsulate Field](https://refactoring.guru/encapsulate-field)
-            *   [Encapsulate Collection](https://refactoring.guru/encapsulate-collection)
-            *   [Replace Type Code with Class](https://refactoring.guru/replace-type-code-with-class)
-            *   [Replace Type Code with Subclasses](https://refactoring.guru/replace-type-code-with-subclasses)
-            *   [Replace Type Code with State/Strategy](https://refactoring.guru/replace-type-code-with-state-strategy)
-            *   [Replace Subclass with Fields](https://refactoring.guru/replace-subclass-with-fields)
-
-        *   [Simplifying Conditional Expressions](https://refactoring.guru/refactoring/techniques/simplifying-conditional-expressions)
-            *   [Decompose Conditional](https://refactoring.guru/decompose-conditional)
-            *   [Consolidate Conditional Expression](https://refactoring.guru/consolidate-conditional-expression)
-            *   [Consolidate Duplicate Conditional Fragments](https://refactoring.guru/consolidate-duplicate-conditional-fragments)
-            *   [Remove Control Flag](https://refactoring.guru/remove-control-flag)
-            *   [Replace Nested Conditional with Guard Clauses](https://refactoring.guru/replace-nested-conditional-with-guard-clauses)
-            *   [Replace Conditional with Polymorphism](https://refactoring.guru/replace-conditional-with-polymorphism)
-            *   [Introduce Null Object](https://refactoring.guru/introduce-null-object)
-            *   [Introduce Assertion](https://refactoring.guru/introduce-assertion)
-
-        *   [Simplifying Method Calls](https://refactoring.guru/refactoring/techniques/simplifying-method-calls)
-            *   [Rename Method](https://refactoring.guru/rename-method)
-            *   [Add Parameter](https://refactoring.guru/add-parameter)
-            *   [Remove Parameter](https://refactoring.guru/remove-parameter)
-            *   [Separate Query from Modifier](https://refactoring.guru/separate-query-from-modifier)
-            *   [Parameterize Method](https://refactoring.guru/parameterize-method)
-            *   [Replace Parameter with Explicit Methods](https://refactoring.guru/replace-parameter-with-explicit-methods)
-            *   [Preserve Whole Object](https://refactoring.guru/preserve-whole-object)
-            *   [Replace Parameter with Method Call](https://refactoring.guru/replace-parameter-with-method-call)
-            *   [Introduce Parameter Object](https://refactoring.guru/introduce-parameter-object)
-            *   [Remove Setting Method](https://refactoring.guru/remove-setting-method)
-            *   [Hide Method](https://refactoring.guru/hide-method)
-            *   [Replace Constructor with Factory Method](https://refactoring.guru/replace-constructor-with-factory-method)
-            *   [Replace Error Code with Exception](https://refactoring.guru/replace-error-code-with-exception)
-            *   [Replace Exception with Test](https://refactoring.guru/replace-exception-with-test)
-
-        *   [Dealing with Generalization](https://refactoring.guru/refactoring/techniques/dealing-with-generalization)
-            *   [Pull Up Field](https://refactoring.guru/pull-up-field)
-            *   [Pull Up Method](https://refactoring.guru/pull-up-method)
-            *   [Pull Up Constructor Body](https://refactoring.guru/pull-up-constructor-body)
-            *   [Push Down Method](https://refactoring.guru/push-down-method)
-            *   [Push Down Field](https://refactoring.guru/push-down-field)
-            *   [Extract Subclass](https://refactoring.guru/extract-subclass)
-            *   [Extract Superclass](https://refactoring.guru/extract-superclass)
-            *   [Extract Interface](https://refactoring.guru/extract-interface)
-            *   [Collapse Hierarchy](https://refactoring.guru/collapse-hierarchy)
-            *   [Form Template Method](https://refactoring.guru/form-template-method)
-            *   [Replace Inheritance with Delegation](https://refactoring.guru/replace-inheritance-with-delegation)
-            *   [Replace Delegation with Inheritance](https://refactoring.guru/replace-delegation-with-inheritance)
-
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-    *   [What is a Pattern](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [What's a design pattern?](https://refactoring.guru/design-patterns/what-is-pattern)
-        *   [History of patterns](https://refactoring.guru/design-patterns/history)
-        *   [Why should I learn patterns?](https://refactoring.guru/design-patterns/why-learn-patterns)
-        *   [Criticism of patterns](https://refactoring.guru/design-patterns/criticism)
-        *   [Classification of patterns](https://refactoring.guru/design-patterns/classification)
-
-    *   [Catalog](https://refactoring.guru/design-patterns/catalog)
-    *   [Creational Patterns](https://refactoring.guru/design-patterns/creational-patterns)
-        *   [Factory Method](https://refactoring.guru/design-patterns/factory-method)
-        *   [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-        *   [Builder](https://refactoring.guru/design-patterns/builder)
-        *   [Prototype](https://refactoring.guru/design-patterns/prototype)
-        *   [Singleton](https://refactoring.guru/design-patterns/singleton)
-
-    *   [Structural Patterns](https://refactoring.guru/design-patterns/structural-patterns)
-        *   [Adapter](https://refactoring.guru/design-patterns/adapter)
-        *   [Bridge](https://refactoring.guru/design-patterns/bridge)
-        *   [Composite](https://refactoring.guru/design-patterns/composite)
-        *   [Decorator](https://refactoring.guru/design-patterns/decorator)
-        *   [Facade](https://refactoring.guru/design-patterns/facade)
-        *   [Flyweight](https://refactoring.guru/design-patterns/flyweight)
-        *   [Proxy](https://refactoring.guru/design-patterns/proxy)
-
-    *   [Behavioral Patterns](https://refactoring.guru/design-patterns/behavioral-patterns)
-        *   [Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility)
-        *   [Command](https://refactoring.guru/design-patterns/command)
-        *   [Iterator](https://refactoring.guru/design-patterns/iterator)
-        *   [Mediator](https://refactoring.guru/design-patterns/mediator)
-        *   [Memento](https://refactoring.guru/design-patterns/memento)
-        *   [Observer](https://refactoring.guru/design-patterns/observer)
-        *   [State](https://refactoring.guru/design-patterns/state)
-        *   [Strategy](https://refactoring.guru/design-patterns/strategy)
-        *   [Template Method](https://refactoring.guru/design-patterns/template-method)
-        *   [Visitor](https://refactoring.guru/design-patterns/visitor)
-
-    *   [Code Examples](https://refactoring.guru/design-patterns/examples)
-        *   [C#](https://refactoring.guru/design-patterns/csharp)
-        *   [C++](https://refactoring.guru/design-patterns/cpp)
-        *   [Go](https://refactoring.guru/design-patterns/go)
-        *   [Java](https://refactoring.guru/design-patterns/java)
-        *   [PHP](https://refactoring.guru/design-patterns/php)
-        *   [Python](https://refactoring.guru/design-patterns/python)
-        *   [Ruby](https://refactoring.guru/design-patterns/ruby)
-        *   [Rust](https://refactoring.guru/design-patterns/rust)
-        *   [Swift](https://refactoring.guru/design-patterns/swift)
-        *   [TypeScript](https://refactoring.guru/design-patterns/typescript)
-
-[Sign in](https://refactoring.guru/login "Sign in")[Contact us](https://feedback.refactoring.guru/ "Contact us")
-
-[](https://refactoring.guru/)
-
-[Shop Now!](https://refactoring.guru/store)
-
-*   English[English](https://refactoring.guru/design-patterns/visitor/typescript/example "English")[Español](https://refactoring.guru/es/design-patterns/visitor/typescript/example "Español")[Français](https://refactoring.guru/fr/design-patterns/visitor/typescript/example "Français")[日本語](https://refactoring.guru/ja/design-patterns/visitor/typescript/example "日本語")[한국어](https://refactoring.guru/ko/design-patterns/visitor/typescript/example "한국어")[Polski](https://refactoring.guru/pl/design-patterns/visitor/typescript/example "Polski")[Português Brasileiro](https://refactoring.guru/pt-br/design-patterns/visitor/typescript/example "Português Brasileiro")[Русский](https://refactoring.guru/ru/design-patterns/visitor/typescript/example "Русский")[Українська](https://refactoring.guru/uk/design-patterns/visitor/typescript/example "Українська")[中文](https://refactoringguru.cn/design-patterns/visitor/typescript/example "中文") 
-*   [Contact us](https://feedback.refactoring.guru/?show_feedback_form_private=true "Contact us")
-*   [Sign in](https://refactoring.guru/login "Sign in")
-
-*   [Home](https://refactoring.guru/)
-*   [Refactoring](https://refactoring.guru/refactoring)
-*   [Design Patterns](https://refactoring.guru/design-patterns)
-*   [Premium Content](https://refactoring.guru/store)
-*   [Git Course](https://gitbybit.com/)
-*   [Forum](https://refactoring.userecho.com/)
-*   [Contact us](https://refactoring.userecho.com/)
-
-*   [](https://www.facebook.com/refactoring.guru)
-*   [](https://refactoring.guru/sendy/form)
-*   [](https://github.com/RefactoringGuru)
-
- 2014-2026 [Refactoring.Guru](https://refactoring.guru/). All rights reserved.
-
- Illustrations by [Dmitry Zhart](http://zhart.us/)
-
-*   [Terms & Conditions](https://refactoring.guru/terms)
-*   [Privacy Policy](https://refactoring.guru/privacy-policy)
-*   [Content Usage Policy](https://refactoring.guru/content-usage-policy)
-*   [About us](https://refactoring.guru/site-about)
-
-**Ukrainian office:**
-
- FOP Olga Skobeleva
-
- Abolmasova 7
-
-Kyiv, Ukraine, 02002
-
- Email: support@refactoring.guru 
-
-**Spanish office:**
-
- Oleksandr Shvets
-
- Avda Pamplona 64
-
-Pamplona, Spain, 31009
-
- Email: support@refactoring.guru

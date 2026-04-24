@@ -557,8 +557,6 @@ One final hint: it is almost always better to assign methods to global names exp
 
 <!-- source: https://python-patterns.guide/gang-of-four/ -->
 
-[![Image 1](https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0201633612&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=letsdisthemat-20&language=en_US)](https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/ref=as_li_ss_il?_encoding=UTF8&me=&qid=&dpID=51szD9HC9pL&preST=_SX218_BO1,204,203,200_QL40_&dpSrc=detail&linkCode=li3&tag=letsdisthemat-20&linkId=5b0ee039d41cf638afaaaca78e97b6ad&language=en_US)![Image 2](https://ir-na.amazon-adsystem.com/e/ir?t=letsdisthemat-20&language=en_US&l=li3&o=1&a=0201633612)
-
 It can be hard to remember, but object oriented programming was all the rage back in the roaring 1990s. Instead of talking about the power of first-class functions and general-purpose data structures, many programmers were festooning their code with virtual methods, superclasses, subclasses, and clever mixins. Programmers often found that language limitations and static types were locking them out of improvements they later wanted to make to their code.
 
 The “Gang of Four” rode to the rescue. Their book’s first and most fundamental pattern, blazoned across the page in italics, would — if practiced consistently — break programmers free of code that was hard-wired to concrete classes:
@@ -785,7 +783,6 @@ import matplotlib.pyplot as plt
 plt.plot(x, np.sin(x))
 plt.savefig('sine.png')
 
-![Image 1: ../../_images/sine.png](https://python-patterns.guide/_images/sine.png)
 What the pyplot interface has hidden from the caller is that more than a dozen objects had to be created for matplotlib to represent even this simple plot. Here, for example, are eight of the objects that were generated behind the scenes by the `plot()` call above:
 
 >>> plt.gcf()
@@ -3192,8 +3189,6 @@ Once its liabilities are weighed, the attempt to use runtime class generation as
 ---
 
 <!-- source: https://python-patterns.guide/fowler-refactoring/ -->
-
-[![Image 1](https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=0201485672&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=letsdisthemat-20&language=en_US)](https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672/ref=as_li_ss_il?ie=UTF8&linkCode=li3&tag=letsdisthemat-20&linkId=e549473394af986311bf51e95f7a8b81&language=en_US)![Image 2](https://ir-na.amazon-adsystem.com/e/ir?t=letsdisthemat-20&language=en_US&l=li3&o=1&a=0201485672)
 
 Martin Fowler’s _Refactoring: Improving the Design of Existing Code_ is more heavy focused on object oriented programming than will typically be useful for a Python codebase, but it is still valuable for its practical approach to code. Instead of comparing grand high-level architectures, its habit is to explain a pattern by starting down in the weeds of a tangled example and then finding an incremental way forward that keeps the code running while making stepwise improvements to its organization.
 
