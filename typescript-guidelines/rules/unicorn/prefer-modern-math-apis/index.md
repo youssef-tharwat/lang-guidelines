@@ -1,0 +1,33 @@
+
+### What it does
+
+Checks for usage of legacy patterns for mathematical operations.
+
+### Why is this bad?
+
+Modern JavaScript provides more concise and readable alternatives to legacy patterns.
+
+Currently, the following cases are checked:
+
+* Prefer `Math.log10(x)` over alternatives
+* Prefer `Math.hypot(…)` over alternatives
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+Math.log(x) * Math.LOG10E;
+Math.sqrt(a * a + b * b);
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+Math.log10(x);
+Math.hypot(a, b);
+```
+
+## How to use
+
+## References

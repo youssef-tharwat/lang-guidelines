@@ -1,0 +1,74 @@
+
+### What it does
+
+Choose between requiring either `Record` type or indexed signature types.
+
+These two types are equivalent, this rule enforces consistency in picking one style over the other:
+
+```ts
+type Foo = Record<string, unknown>;
+
+type Foo = {
+  [key: string]: unknown;
+};
+```
+
+### Why is this bad?
+
+Inconsistent style for indexed object types can harm readability in a project.
+
+### Examples
+
+Examples of **incorrect** code for this rule with
+`consistent-indexed-object-style: ["error", "record"]` (default):
+
+```ts
+interface Foo {
+  [key: string]: unknown;
+}
+type Foo = {
+  [key: string]: unknown;
+};
+```
+
+Examples of **correct** code for this rule with
+`consistent-indexed-object-style: ["error", "record"]` (default):
+
+```ts
+type Foo = Record<string, unknown>;
+```
+
+Examples of **incorrect** code for this rule with
+`consistent-indexed-object-style: ["error", "index-signature"]`:
+
+```ts
+type Foo = Record<string, unknown>;
+```
+
+Examples of **correct** code for this rule with
+`consistent-indexed-object-style: ["error", "index-signature"]`:
+
+```ts
+interface Foo {
+  [key: string]: unknown;
+}
+type Foo = {
+  [key: string]: unknown;
+};
+```
+
+## Configuration
+
+This rule accepts one of the following string values:
+
+### `"record"`
+
+When set to `record`, enforces the use of a `Record` for indexed object types, e.g. `Record<string, unknown>`.
+
+### `"index-signature"`
+
+When set to `index-signature`, enforces the use of indexed signature types, e.g. `{ [key: string]: unknown }`.
+
+## How to use
+
+## References

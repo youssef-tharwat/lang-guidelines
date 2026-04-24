@@ -1,0 +1,72 @@
+
+### What it does
+
+This rule expects that when you're using the callback pattern in Node.js you'll handle the error.
+
+### Why is this bad?
+
+In Node.js, a common pattern for dealing with asynchronous behavior is called the callback pattern.
+This pattern expects an `Error` object or `null` as the first argument of the callback.
+Forgetting to handle these errors can lead to some really strange behavior in your application.
+
+```js
+function loadData(err, data) {
+  doSomething(); // forgot to handle error
+}
+```
+
+### Examples
+
+Examples of **incorrect** code for this rule with the default `"err"` parameter name:
+
+```js
+function loadData(err, data) {
+  doSomething();
+}
+```
+
+Examples of **correct** code for this rule with the default `"err"` parameter name:
+
+```js
+function loadData(err, data) {
+  if (err) {
+    console.log(err.stack);
+  }
+  doSomething();
+}
+
+function generateError(err) {
+  if (err) {
+  }
+}
+```
+
+Examples of correct code for this rule with a sample `"error"` parameter name:
+
+```js
+function loadData(error, data) {
+  if (error) {
+    console.log(error.stack);
+  }
+  doSomething();
+}
+```
+
+## Configuration
+
+The rule takes a single string option: the name of the error parameter.
+
+This can be either:
+
+* an exact name (e.g. `"err"`, `"error"`)
+* a regexp pattern (e.g. `"^(err|error)$"`)
+
+If the configured name of the error variable begins with a `^` it is considered to be a regexp pattern.
+
+Default: `"err"`.
+
+type: `string`
+
+## How to use
+
+## References

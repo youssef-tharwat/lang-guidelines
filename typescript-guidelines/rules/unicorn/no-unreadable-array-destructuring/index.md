@@ -1,0 +1,34 @@
+
+### What it does
+
+Disallows destructuring values from an array in ways that are difficult to read.
+
+### Why is this bad?
+
+Destructuring can be very useful, but it can also make some code harder to read.
+This rule prevents ignoring consecutive values (e.g. `let [,,foo] = array`)
+when destructuring from an array.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+const [, , foo] = parts;
+const [, , ...rest] = parts;
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+const [foo] = parts;
+const foo = parts[3];
+const rest = parts.slice(2);
+
+// One is fine
+const [, foo] = parts;
+```
+
+## How to use
+
+## References

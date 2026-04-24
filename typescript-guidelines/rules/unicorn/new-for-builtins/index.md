@@ -1,0 +1,35 @@
+
+### What it does
+
+Enforces the use of `new` for the following builtins: `Object`, `Array`, `ArrayBuffer`, `BigInt64Array`,
+`BigUint64Array`, `DataView`, `Date`, `Error`, `Float32Array`, `Float64Array`, `Function`, `Int8Array`,
+`Int16Array`, `Int32Array`, `Map`, `WeakMap`, `Set`, `WeakSet`, `Promise`, `RegExp`, `Uint8Array`,
+`Uint16Array`, `Uint32Array`, `Uint8ClampedArray`, `SharedArrayBuffer`, `Proxy`, `WeakRef`, `FinalizationRegistry`.
+
+Disallows the use of `new` for the following builtins: `String`, `Number`, `Boolean`, `Symbol`, `BigInt`.
+
+### Why is this bad?
+
+Using `new` inconsistently can cause confusion. Constructors like `Array` and `RegExp` should always use `new`
+to ensure the expected instance type. Meanwhile, `String`, `Number`, `Boolean`, `Symbol`, and `BigInt` should not use `new`,
+as they create object wrappers instead of primitive values.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+const foo = new String("hello world");
+const bar = Array(1, 2, 3);
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+const foo = String("hello world");
+const bar = new Array(1, 2, 3);
+```
+
+## How to use
+
+## References

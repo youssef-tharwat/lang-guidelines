@@ -1,0 +1,27 @@
+
+### What it does
+
+Disallow default assignments that can never be used.
+
+### Why is this bad?
+
+A default assignment is redundant when the value can never be `undefined`.
+This adds runtime logic and noise without changing behavior.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```ts
+[1, 2, 3].map((a = 0) => a + 1);
+```
+
+Examples of **correct** code for this rule:
+
+```ts
+[1, 2, 3].map((a) => a + 1);
+```
+
+## How to use
+
+## References

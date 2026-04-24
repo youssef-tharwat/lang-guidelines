@@ -1,0 +1,39 @@
+
+### What it does
+
+When testing a specific function, this rule aims to enforce passing a named function to `describe()`
+instead of an equivalent hardcoded string.
+
+### Why is this bad?
+
+Tests that are related to a specific function, if the function being tested is renamed,
+the describe title will be not match anymore and can make confusion in the future. Using the function
+ensure a consistency even if the function is renamed.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+// myFunction.test.js
+import { myFunction } from "./myFunction";
+
+describe("myFunction", () => {
+  // ...
+});
+```
+
+Examples of **correct** code for this rule:
+
+```js
+// myFunction.test.js
+import { myFunction } from "./myFunction";
+
+describe(myFunction, () => {
+  // ...
+});
+```
+
+## How to use
+
+## References

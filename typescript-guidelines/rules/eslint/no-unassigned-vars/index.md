@@ -1,0 +1,35 @@
+
+### What it does
+
+Disallow let or var variables that are read but never assigned.
+
+### Why is this bad?
+
+This rule flags let or var declarations that are never assigned a value but are still read or used in the code.
+Since these variables will always be `undefined`, their usage is likely a programming mistake.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+let status;
+if (status === "ready") {
+  console.log("Ready!");
+}
+```
+
+Examples of **correct** code for this rule:
+
+```js
+let message = "hello";
+console.log(message);
+
+let user;
+user = getUser();
+console.log(user.name);
+```
+
+## How to use
+
+## References

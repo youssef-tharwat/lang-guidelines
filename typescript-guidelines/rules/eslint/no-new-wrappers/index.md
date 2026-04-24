@@ -1,0 +1,39 @@
+
+### What it does
+
+Disallow `new` operators with the `String`, `Number`, and `Boolean` objects.
+
+### Why is this bad?
+
+The first problem is that primitive wrapper objects are, in fact,
+objects. That means `typeof` will return `"object"` instead of `"string"`,
+`"number"`, or `"boolean"`. The second problem comes with boolean
+objects. Every object is truthy, that means an instance of `Boolean`
+always resolves to `true` even when its actual value is `false`.
+
+https://eslint.org/docs/latest/rules/no-new-wrappers
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+var stringObject = new String("Hello world");
+var numberObject = new Number(33);
+var booleanObject = new Boolean(false);
+var symbolObject = new Symbol("foo"); // symbol is not a constructor
+```
+
+Examples of **correct** code for this rule:
+
+```js
+var stringObject = "Hello world";
+var stringObject2 = String(value);
+var numberObject = Number(value);
+var booleanObject = Boolean(value);
+var symbolObject = Symbol("foo");
+```
+
+## How to use
+
+## References

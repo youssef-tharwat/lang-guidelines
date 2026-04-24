@@ -1,0 +1,71 @@
+
+### What it does
+
+Disallows the usage of `React.Children`, as it is considered a bad practice.
+
+### Why is this bad?
+
+Using `React.Children` is
+[discouraged by the React documentation](https://react.dev/reference/react/Children).
+It is an uncommon pattern and can lead to fragile code.
+
+It is recommended to use alternative approaches for handling children. See the
+[React documentation](https://react.dev/reference/react/Children#alternatives) for
+more information.
+
+::: tip
+Don't confuse `React.Children` with using the `children` prop (lowercase `c`), which is
+good and encouraged.
+:::
+
+Note that this rule is based on a combination of multiple rules from `@eslint-react/eslint-plugin`,
+including [`@eslint-react/no-children-count`](https://www.eslint-react.xyz/docs/rules/no-children-count)
+and [`@eslint-react/no-children-for-each`](https://www.eslint-react.xyz/docs/rules/no-children-for-each).
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+import { Children } from "react";
+
+Children.toArray(children);
+Children.map(children, (child) => <div>{child}</div>);
+Children.only(children);
+Children.count(children);
+Children.forEach(children, (child, index) => {});
+```
+
+```jsx
+import React from "react";
+
+function Table({ children }) {
+  const mappedChildren = React.Children.map(children, (child) => <tr>{child}</tr>);
+
+  return <table>{mappedChildren}</table>;
+}
+```
+
+```jsx
+import { Children } from "react";
+
+function RowList({ children }) {
+  return (
+    <>
+      <h1>Total rows: {Children.count(children)}</h1>
+    </>
+  );
+}
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+function Card({ children }) {
+  return <div className="card">{children}</div>;
+}
+```
+
+## How to use
+
+## References

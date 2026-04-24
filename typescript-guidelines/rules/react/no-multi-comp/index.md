@@ -1,0 +1,51 @@
+
+### What it does
+
+Prevents multiple React components from being defined in the same file.
+
+### Why is this bad?
+
+Declaring multiple components in a single file can make it harder to navigate
+and maintain the codebase. Each component should ideally be in its own file
+for better organization and reusability.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+function Foo({ name }) {
+  return <div>Hello {name}</div>;
+}
+
+function Bar({ name }) {
+  return <div>Hello again {name}</div>;
+}
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+function Foo({ name }) {
+  return <div>Hello {name}</div>;
+}
+```
+
+## Configuration
+
+### ignoreStateless
+
+type: `boolean`
+
+default: `false`
+
+When `true`, the rule will ignore stateless components and will allow you to have multiple
+stateless components in the same file. Or one stateful component and one-or-more stateless
+components in the same file.
+
+Stateless basically just means function components, including those created via
+`memo` and `forwardRef`.
+
+## How to use
+
+## References

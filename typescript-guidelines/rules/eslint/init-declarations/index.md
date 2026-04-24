@@ -1,0 +1,104 @@
+
+### What it does
+
+Require or disallow initialization in variable declarations.
+
+### Why is this bad?
+
+In JavaScript, variables can be assigned during declaration, or at any point afterwards using an assignment statement.
+For example, in the following code, `foo` is initialized during declaration, while `bar` is initialized later.
+
+```js
+var foo = 1;
+var bar;
+if (foo) {
+  bar = 1;
+} else {
+  bar = 2;
+}
+```
+
+### Examples
+
+Examples of incorrect code for the default `"always"` option:
+
+```js
+/* init-declarations: ["error", "always"] */
+function foo() {
+  var bar;
+  let baz;
+}
+```
+
+Examples of incorrect code for the `"never"` option:
+
+```js
+/* init-declarations: ["error", "never"] */
+function foo() {
+  var bar = 1;
+  let baz = 2;
+  for (var i = 0; i < 1; i++) {}
+}
+```
+
+Examples of correct code for the default `"always"` option:
+
+```js
+/* init-declarations: ["error", "always"] */
+
+function foo() {
+  var bar = 1;
+  let baz = 2;
+  const qux = 3;
+}
+```
+
+Examples of correct code for the `"never"` option:
+
+```js
+/* init-declarations: ["error", "never"] */
+
+function foo() {
+  var bar;
+  let baz;
+  const buzz = 1;
+}
+```
+
+Examples of correct code for the `"never", { "ignoreForLoopInit": true }` options:
+
+```js
+/* init-declarations: ["error", "never", { "ignoreForLoopInit": true }] */
+for (var i = 0; i < 1; i++) {}
+```
+
+## Configuration
+
+### The 1st option
+
+type: `"always" | "never"`
+
+#### `"always"`
+
+Requires that variables be initialized on declaration. This is the default behavior.
+
+#### `"never"`
+
+Disallows initialization during declaration.
+
+### The 2nd option
+
+This option is an object with the following properties:
+
+#### ignoreForLoopInit
+
+type: `boolean`
+
+default: `false`
+
+When set to `true`, allows uninitialized variables in the init expression of `for`, `for-in`, and `for-of` loops.
+Only applies when mode is set to `"never"`.
+
+## How to use
+
+## References

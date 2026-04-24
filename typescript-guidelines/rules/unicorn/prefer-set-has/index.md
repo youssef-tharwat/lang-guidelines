@@ -1,0 +1,33 @@
+
+### What it does
+
+Prefer `Set#has()` over `Array#includes()` when checking for existence or non-existence.
+
+### Why is this bad?
+
+`Set#has()` is faster than `Array#includes()`.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```js
+const array = [1, 2, 3];
+const hasValue = (value) => array.includes(value);
+```
+
+Examples of **correct** code for this rule:
+
+```js
+const set = new Set([1, 2, 3]);
+const hasValue = (value) => set.has(value);
+```
+
+```js
+const array = [1, 2, 3];
+const hasOne = array.includes(1);
+```
+
+## How to use
+
+## References

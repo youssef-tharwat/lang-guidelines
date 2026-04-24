@@ -1,0 +1,64 @@
+
+### What it does
+
+This rule enforces `defineProps` typing style which you should use `type-based` or `runtime` declaration.
+This rule only works in `<script setup>` with `lang="ts"`.
+
+### Why is this bad?
+
+Inconsistent code style can be confusing and make code harder to
+read through.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```vue
+// "vue/define-props-declaration": ["error", "type-based"]
+<script setup lang="ts">
+const props = defineProps({
+  kind: { type: String },
+});
+</script>
+
+// "vue/define-props-declaration": ["error", "runtime"]
+<script setup lang="ts">
+const props = defineProps<{
+  kind: string;
+}>();
+</script>
+```
+
+Examples of **correct** code for this rule:
+
+```vue
+// "vue/define-props-declaration": ["error", "type-based"]
+<script setup lang="ts">
+const props = defineProps<{
+  kind: string;
+}>();
+</script>
+
+// "vue/define-props-declaration": ["error", "runtime"]
+<script setup lang="ts">
+const props = defineProps({
+  kind: { type: String },
+});
+</script>
+```
+
+## Configuration
+
+This rule accepts one of the following string values:
+
+### `"type-based"`
+
+Enforce type-based declaration.
+
+### `"runtime"`
+
+Enforce runtime declaration.
+
+## How to use
+
+## References

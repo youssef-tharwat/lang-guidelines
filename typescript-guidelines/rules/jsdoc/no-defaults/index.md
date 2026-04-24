@@ -1,0 +1,45 @@
+
+### What it does
+
+This rule reports defaults being used on the relevant portion of `@param` or `@default`.
+It also optionally reports the presence of the square-bracketed optional arguments at all.
+
+### Why is this bad?
+
+The rule is intended to prevent the indication of defaults on tags
+where this would be redundant with ES2015 default parameters.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+/** @param {number} [foo="7"] */
+function quux(foo) {}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+/** @param {number} foo */
+function quux(foo) {}
+
+/** @param foo */
+function quux(foo) {}
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### noOptionalParamNames
+
+type: `boolean`
+
+default: `false`
+
+If true, report the presence of optional param names (square brackets) on `@param` tags.
+
+## How to use
+
+## References

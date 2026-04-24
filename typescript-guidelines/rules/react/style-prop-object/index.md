@@ -1,0 +1,56 @@
+
+### What it does
+
+Require that the value of the prop `style` be an object or a variable that is an object.
+
+### Why is this bad?
+
+The `style` prop expects an object mapping from style properties to values when using JSX.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+<div style="color: 'red'" />
+<div style={true} />
+<Hello style={true} />
+const styles = true;
+<div style={styles} />
+
+React.createElement("div", { style: "color: 'red'" });
+React.createElement("div", { style: true });
+React.createElement("Hello", { style: true });
+const styles = true;
+React.createElement("div", { style: styles });
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<div style={{ color: "red" }} />
+<Hello style={{ color: "red" }} />
+const styles = { color: "red" };
+<div style={styles} />
+
+React.createElement("div", { style: { color: 'red' }});
+React.createElement("Hello", { style: { color: 'red' }});
+const styles = { height: '100px' };
+React.createElement("div", { style: styles });
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### allow
+
+type: `string[]`
+
+default: `[]`
+
+List of component names on which to allow `style` prop values of any type.
+
+## How to use
+
+## References

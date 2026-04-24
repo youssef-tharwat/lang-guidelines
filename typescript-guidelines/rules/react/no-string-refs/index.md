@@ -1,0 +1,71 @@
+
+### What it does
+
+This rule prevents using the deprecated behavior of string literals in ref attributes.
+
+### Why is this bad?
+
+Using string literals in ref attributes has been deprecated since React 16.3.0.
+
+String refs are [removed entirely in React 19](https://react.dev/blog/2024/04/25/react-19-upgrade-guide#removed-string-refs),
+and so this rule can be disabled if on React 19+.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+var Hello = createReactClass({
+  render: function () {
+    return <div ref="hello">Hello, world.</div>;
+  },
+});
+
+var Hello = createReactClass({
+  componentDidMount: function () {
+    var component = this.refs.hello;
+    // ...do something with component
+  },
+  render: function () {
+    return <div ref="hello">Hello, world.</div>;
+  },
+});
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+var Hello = createReactClass({
+  componentDidMount: function () {
+    var component = this.hello;
+    // ...do something with component
+  },
+  render() {
+    return (
+      <div
+        ref={(c) => {
+          this.hello = c;
+        }}
+      >
+        Hello, world.
+      </div>
+    );
+  },
+});
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### noTemplateLiterals
+
+type: `boolean`
+
+default: `false`
+
+Disallow template literals in addition to string literals.
+
+## How to use
+
+## References

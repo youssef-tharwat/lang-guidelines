@@ -1,0 +1,65 @@
+
+### What it does
+
+Disallow variable or function declarations in nested blocks.
+
+### Why is this bad?
+
+A variable declaration is permitted anywhere a statement can go, even nested deeply inside other blocks.
+This is often undesirable due to variable hoisting, and moving declarations to the root of the program or function body can increase clarity.
+Note that block bindings (let, const) are not hoisted and therefore they are not affected by this rule.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```javascript
+if (test) {
+  function doSomethingElse() {}
+}
+```
+
+Examples of **correct** code for this rule:
+
+```javascript
+function doSomethingElse() {}
+if (test) {
+  // your code here
+}
+```
+
+## Configuration
+
+### The 1st option
+
+type: `"functions" | "both"`
+
+Determines what type of declarations to check.
+
+#### `"functions"`
+
+Disallows function declarations in nested blocks.
+
+#### `"both"`
+
+Disallows function and var declarations in nested blocks.
+
+### The 2nd option
+
+This option is an object with the following properties:
+
+#### blockScopedFunctions
+
+type: `"allow" | "disallow"`
+
+##### `"allow"`
+
+Allow function declarations in nested blocks in strict mode (ES6+ behavior).
+
+##### `"disallow"`
+
+Disallow function declarations in nested blocks regardless of strict mode.
+
+## How to use
+
+## References

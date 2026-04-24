@@ -1,0 +1,44 @@
+
+### What it does
+
+Enforce that `autoFocus` prop is not used on elements.
+
+### Why is this bad?
+
+Autofocusing elements can cause usability issues for sighted and
+non-sighted users alike. It can be disorienting when focus is shifted
+without user input and can interfere with assistive technologies.
+Users should control when and where focus moves on a page.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```jsx
+<div autoFocus />
+<div autoFocus="true" />
+<div autoFocus="false" />
+<div autoFocus={undefined} />
+```
+
+Examples of **correct** code for this rule:
+
+```jsx
+<div />
+```
+
+## Configuration
+
+This rule accepts a configuration object with the following properties:
+
+### ignoreNonDOM
+
+type: `boolean`
+
+default: `false`
+
+Determines if developer-created components are checked.
+
+## How to use
+
+## References

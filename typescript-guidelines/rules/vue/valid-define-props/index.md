@@ -1,0 +1,87 @@
+
+### What it does
+
+This rule checks whether `defineProps` compiler macro is valid.
+
+This rule reports `defineProps` compiler macros in the following cases:
+
+* `defineProps` is referencing locally declared variables.
+* `defineProps` has both a literal type and an argument. e.g. `defineProps<{ /*props*/ }>({ /*props*/ })`
+* `defineProps` has been called multiple times.
+* Props are defined in both `defineProps` and `export default {}`.
+* Props are not defined in either `defineProps` or `export default {}`.
+
+### Why is this bad?
+
+Misusing `defineProps` can lead to runtime errors, and lost type safety.
+Vue may still compile the code, but properties may break silently or be typed incorrectly.
+
+### Examples
+
+Examples of **incorrect** code for this rule:
+
+```vue
+<script setup>
+const def = { msg: String };
+defineProps(def);
+</script>
+```
+
+```vue
+<script setup lang="ts">
+defineProps<{ msg?: string }>({ msg: String });
+</script>
+```
+
+```vue
+<script setup>
+defineProps({ msg: String });
+defineProps({ count: Number });
+</script>
+```
+
+```vue
+<script>
+export default {
+  props: { msg: String },
+};
+</script>
+<script setup>
+defineProps({ count: Number });
+</script>
+```
+
+Examples of **correct** code for this rule:
+
+```vue
+<script setup>
+defineProps({ msg: String });
+</script>
+```
+
+```vue
+<script setup>
+defineProps(["msg"]);
+</script>
+```
+
+```vue
+<script setup lang="ts">
+defineProps<{ msg?: string }>();
+</script>
+```
+
+```vue
+<script>
+export default {
+  props: { msg: String },
+};
+</script>
+<script setup>
+defineProps();
+</script>
+```
+
+## How to use
+
+## References
