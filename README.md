@@ -1,12 +1,15 @@
 # lang-guidelines
 
-Three language-specific Agent Skills that enforce lint rules and idioms while an AI
-agent writes or edits code — not only during review.
+Three language-specific Agent Skills that enforce lint rules, design
+guidelines, and idiomatic patterns while an AI agent writes or edits code —
+not only during review.
 
-- **`rust-guidelines/`** — Microsoft's pragmatic Rust guidelines (2,437 rules concatenated).
-- **`python-guidelines/`** — 955 Ruff rules, tiered by severity, with ❌/✅ examples.
-- **`typescript-guidelines/`** — 720 Oxlint rules covering ESLint, typescript-eslint,
-  Unicorn, React, Next.js, Vue, JSX-a11y, Jest, Vitest, and more.
+- **`rust-guidelines/`** — Microsoft's Pragmatic Rust Guidelines
+  (2,437 sections: API design, errors, docs, FFI, safety, perf, crates).
+- **`python-guidelines/`** — 955 Ruff lint rules (tiered) + Google Python Style
+  Guide (design) + python-patterns.guide (Pythonic design patterns).
+- **`typescript-guidelines/`** — 720 Oxlint lint rules (tiered) + Google
+  TypeScript Style Guide (design).
 
 Each skill is a self-contained folder following the open
 [Agent Skills standard](https://agentskills.io). Works unchanged with
@@ -15,11 +18,11 @@ OpenHands, Goose, and [30+ other agents](https://agentskills.io/home).
 
 ## What the agent sees at trigger time
 
-| Skill | Always-loaded (tier 1+2) | On-demand | Framework-gated |
+| Skill | Always-loaded | On-demand | Framework-gated |
 |---|---|---|---|
 | `rust-guidelines` | `guidelines.txt` (~150 KB, 2437 sections) | — | — |
-| `python-guidelines` | `guidelines.txt` (161 KB, 642 rules) + `idioms.md` | `style.md` (73 KB, 275 rules), `rules/<slug>/index.md` | `frameworks/{airflow,django,fastapi,numpy,pandas}.md` |
-| `typescript-guidelines` | `guidelines.txt` (61 KB, 210 rules) + `idioms.md` | `style.md` (91 KB, 280 rules), `rules/<plugin>/<slug>/index.md` | `frameworks/{react,nextjs,vue,jest,vitest,jsdoc}.md` |
+| `python-guidelines` | `guidelines.txt` (161 KB, 642 lint rules) · `design.md` (116 KB, Google style guide) · `patterns.md` (226 KB, python-patterns.guide) · `idioms.md` | `style.md` (73 KB, 275 pedantic lint rules) · `rules/<slug>/index.md` | `frameworks/{airflow,django,fastapi,numpy,pandas}.md` |
+| `typescript-guidelines` | `guidelines.txt` (61 KB, 210 lint rules) · `design.md` (122 KB, Google style guide) · `idioms.md` | `style.md` (91 KB, 280 pedantic lint rules) · `rules/<plugin>/<slug>/index.md` | `frameworks/{react,nextjs,vue,jest,vitest,jsdoc}.md` |
 
 Each rule is rendered in a compact, imperative form:
 
@@ -39,17 +42,20 @@ rust-guidelines/
 
 python-guidelines/
 ├── SKILL.md
-├── guidelines.txt       # Tier 1 (correctness+security) + Tier 2 (modernization)
-├── idioms.md            # Positive patterns ("prefer X over Y")
+├── guidelines.txt       # Tier 1 (correctness+security) + Tier 2 (modernization) lint rules
+├── design.md            # Google Python Style Guide — design decisions
+├── patterns.md          # python-patterns.guide — Pythonic design patterns
+├── idioms.md            # Positive local patterns ("prefer X over Y")
 ├── style.md             # Tier 3 style/pedantic (load on demand)
 ├── frameworks/          # Gated by project stack (airflow, django, fastapi, numpy, pandas)
 └── rules/<slug>/index.md  # Full per-rule docs with examples + config
 
 typescript-guidelines/
 ├── SKILL.md
-├── guidelines.txt
-├── idioms.md
-├── style.md
+├── guidelines.txt       # Tier 1 + Tier 2 lint rules
+├── design.md            # Google TypeScript Style Guide — design decisions
+├── idioms.md            # Positive local patterns
+├── style.md             # Tier 3 style/pedantic (load on demand)
 ├── frameworks/          # react, nextjs, vue, jest, vitest, jsdoc
 └── rules/<plugin>/<slug>/index.md
 ```
@@ -110,19 +116,36 @@ Progressive disclosure keeps the context footprint minimal while making all
 
 ## Sources
 
-- Rust guidelines: [microsoft/rust-guidelines](https://github.com/microsoft/rust-guidelines) — Microsoft's Pragmatic Rust Guidelines
-- Python rules: [docs.astral.sh/ruff/rules/](https://docs.astral.sh/ruff/rules/) — Ruff
-- TypeScript/JS rules: [oxc.rs/docs/guide/usage/linter/rules](https://oxc.rs/docs/guide/usage/linter/rules) — Oxlint
+**Rust**
+- Guidelines (lint + design combined): [microsoft/rust-guidelines](https://github.com/microsoft/rust-guidelines) — Microsoft's Pragmatic Rust Guidelines
+
+**Python**
+- Lint rules: [docs.astral.sh/ruff/rules/](https://docs.astral.sh/ruff/rules/) — Ruff
+- Design guidelines: [google.github.io/styleguide/pyguide.html](https://google.github.io/styleguide/pyguide.html) — Google Python Style Guide
+- Design patterns: [python-patterns.guide](https://python-patterns.guide/) — Brandon Rhodes
+
+**TypeScript / JavaScript**
+- Lint rules: [oxc.rs/docs/guide/usage/linter/rules](https://oxc.rs/docs/guide/usage/linter/rules) — Oxlint
+- Design guidelines: [google.github.io/styleguide/tsguide.html](https://google.github.io/styleguide/tsguide.html) — Google TypeScript Style Guide
 
 Rule text, examples, and configuration are from the upstream documentation.
 The compiled `guidelines.txt` / `style.md` / framework files are derivative
-digests generated to fit in an agent's working context.
+digests generated to fit in an agent's working context. `design.md` and
+`patterns.md` are redistributed with attribution under each upstream's license
+(all Apache-2.0 or MIT-compatible).
 
 ## License
 
-Per-rule content is licensed under the upstream projects' terms
-(Rust guidelines: MIT; Ruff: MIT; Oxlint: MIT). The compiled digests,
-tiering, imperative rewrites, and skill scaffolding in this repo are MIT.
+Project scaffolding, compiled digests, tiering, and imperative rewrites in
+this repo are MIT. Per-source content retains its upstream license:
+
+- Rust guidelines — MIT (Microsoft)
+- Ruff rules — MIT
+- Oxlint rules — MIT
+- Google Python & TypeScript style guides — Apache 2.0
+- python-patterns.guide — content copyright Brandon Rhodes, redistributed here
+  for attribution and agent reference; canonical authoritative version lives
+  at the source URL.
 
 ## Contributing
 

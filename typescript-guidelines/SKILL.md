@@ -1,21 +1,30 @@
 ---
 name: typescript-guidelines
-description: Enforce TypeScript & JavaScript lint rules (Oxlint) for all TypeScript & JavaScript code generation and edits. Rules must be applied while writing code, not only in review. Triggers on any task that writes, edits, or refactors TypeScript & JavaScript code.
+description: Enforce TypeScript & JavaScript lint rules (Oxlint) and design guidelines (Google) for all TypeScript & JavaScript code generation and edits. Rules must be applied while writing code, not only in review. Triggers on any task that writes, edits, or refactors TypeScript & JavaScript code.
 ---
 
 # TypeScript & JavaScript Development Guidelines
 
-Every rule in `guidelines.txt` is a hard constraint. Apply them **while
-writing code**, not only during review. Source: Oxlint — <https://oxc.rs/docs/guide/usage/linter/rules> — covering eslint, typescript-eslint, unicorn, react, nextjs, jsx-a11y, jest, vitest, and more.
+Every rule in `guidelines.txt` and `design.md` is a hard constraint. Apply
+them **while writing code**, not only during review.
+
+Sources:
+- Lint rules — Oxlint: <https://oxc.rs/docs/guide/usage/linter/rules>
+  (covering eslint, typescript-eslint, unicorn, react, nextjs, jsx-a11y, jest, vitest, and more)
+- Design guidelines — Google TypeScript Style Guide: <https://google.github.io/styleguide/tsguide.html>
 
 ## Reading protocol
 
 Load files in this order; stop when the task's scope is satisfied.
 
-1. **Always**: `guidelines.txt` — 210 correctness + security + modernization rules. Never skip.
-2. **Always**: `idioms.md` — positive patterns (what to prefer, not just what to avoid).
-3. **If reviewing / matching a project style guide**: `style.md` — 280 style/pedantic rules.
-4. **Framework-gated**: `frameworks/<name>.md` — load only if the project's
+1. **Always**: `guidelines.txt` — 210 correctness + security + modernization lint rules.
+2. **Always**: `design.md` — Google TypeScript Style Guide (module system,
+   visibility, property access, enum vs const-enum, inference vs annotation,
+   naming, imports, array notation, built-in type modification policy).
+   Design decisions a linter cannot catch.
+3. **Always**: `idioms.md` — short positive patterns (what to prefer locally).
+4. **If reviewing / matching a project style guide**: `style.md` — 280 style/pedantic rules.
+5. **Framework-gated**: `frameworks/<name>.md` — load only if the project's
    manifest (`package.json`) depends on or imports the named framework.
 
    - `frameworks/jest.md` (59 rules)
@@ -24,7 +33,7 @@ Load files in this order; stop when the task's scope is satisfied.
    - `frameworks/react.md` (92 rules)
    - `frameworks/vitest.md` (23 rules)
    - `frameworks/vue.md` (17 rules)
-5. **On demand for edge cases**: `rules/<slug>/index.md` — full docs with
+6. **On demand for edge cases**: `rules/<slug>/index.md` — full docs with
    additional examples, configuration, and references.
 
 ## Rule format

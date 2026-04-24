@@ -29,7 +29,14 @@ from the following upstream projects and carries their respective licenses:
 
 - Rust guidelines — Microsoft Pragmatic Rust Guidelines, MIT
   https://github.com/microsoft/rust-guidelines
-- Python rules — Ruff, MIT
+- Python lint rules — Ruff, MIT
   https://docs.astral.sh/ruff/rules/
-- TypeScript & JavaScript rules — Oxlint / Oxc project, MIT
+- Python design guidelines — Google Python Style Guide, Apache 2.0
+  https://google.github.io/styleguide/pyguide.html
+- Python design patterns — python-patterns.guide by Brandon Rhodes,
+  redistributed with attribution
+  https://python-patterns.guide/
+- TypeScript & JavaScript lint rules — Oxlint / Oxc project, MIT
   https://oxc.rs/docs/guide/usage/linter/rules
+- TypeScript design guidelines — Google TypeScript Style Guide, Apache 2.0
+  https://google.github.io/styleguide/tsguide.html
