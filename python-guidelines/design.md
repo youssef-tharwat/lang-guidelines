@@ -8,10 +8,11 @@ Every rule below is a design-level constraint that a linter cannot fully
 enforce — module boundaries, exception scope, naming discipline, power-feature
 policy, type-annotation conventions, docstring canonical form, etc.
 
-Read this file **alongside** `guidelines.txt` (lint rules) and `idioms.md`
-(positive local patterns). Use it for architectural decisions: import shape,
-public API surface, error handling, concurrency, metaclasses, mutable global
-state, decorators, generators, default arguments, properties, truthiness.
+Read this file **alongside** `guidelines.txt` (lint rules) and
+`patterns.md` (design patterns + Python-native idioms). Use it for
+architectural decisions: import shape, public API surface, error handling,
+concurrency, metaclasses, mutable global state, decorators, generators,
+default arguments, properties, truthiness.
 
 ---
 

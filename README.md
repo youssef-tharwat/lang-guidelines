@@ -21,23 +21,21 @@ OpenHands, Goose, and [30+ other agents](https://agentskills.io/home).
 
 ## What a skill gives the agent
 
-Each skill packages four conceptual layers of knowledge, from the most
+Each skill packages three conceptual layers of knowledge, from the most
 mechanical to the most architectural. An agent that loads the skill writes
-code informed by **all four layers at once**.
+code informed by **all three layers at once**.
 
 ```mermaid
-flowchart TB
-    L4[<b>PATTERNS</b><br/>reusable solutions to recurring design problems<br/><i>builder, strategy, newtype, RAII guards, typestate, GoF…</i>]
-    L3[<b>DESIGN</b><br/>architectural decisions the compiler cannot make<br/><i>module boundaries, API shape, error philosophy, docs, crates</i>]
-    L2[<b>IDIOMS</b><br/>local positive patterns — "prefer X over Y"<br/><i>Path over os.path · const over let · Default over custom ctor</i>]
-    L1[<b>LINT</b><br/>mechanical correctness + security<br/><i>the things a linter or compiler can mechanically check</i>]
+flowchart LR
+    L1[<b>LINT</b><br/>mechanical correctness + security<br/><i>the things a linter or<br/>compiler can mechanically check</i>]
+    L2[<b>DESIGN</b><br/>architectural decisions<br/>the compiler cannot make<br/><i>module boundaries, API shape,<br/>error philosophy, docs, crates</i>]
+    L3[<b>PATTERNS</b><br/>reusable solutions to<br/>recurring design problems<br/><i>builder, strategy, newtype,<br/>RAII guards, typestate, GoF…</i>]
 
-    L1 --> L2 --> L3 --> L4
+    L1 --> L2 --> L3
 
     style L1 fill:#bf8700,stroke:#9a6700,color:#fff
-    style L2 fill:#0969da,stroke:#054d9e,color:#fff
-    style L3 fill:#8250df,stroke:#5a1fb0,color:#fff
-    style L4 fill:#1a7f37,stroke:#116329,color:#fff
+    style L2 fill:#8250df,stroke:#5a1fb0,color:#fff
+    style L3 fill:#1a7f37,stroke:#116329,color:#fff
 ```
 
 *The layers are cumulative: fixing every lint violation does not produce
@@ -48,51 +46,52 @@ layers above.*
 
 Different languages have different canonical sources for each layer. Rust
 delegates the bottom layer to `rustc` + `clippy` — this repo covers
-everything above that.
+everything above that. Every cell below is sourced from a named upstream
+— no hand-authored material.
 
 ```mermaid
 flowchart LR
     subgraph Rust["🦀 rust-guidelines"]
         direction TB
         R_L1[Lint<br/><i>delegated to<br/>rustc + clippy</i>]:::delegate
-        R_L2[Idioms<br/><i>rust-unofficial<br/>idioms section</i>]
-        R_L3[Design<br/><i>Microsoft Pragmatic<br/>Rust Guidelines</i>]
-        R_L4[Patterns<br/><i>rust-unofficial patterns<br/>+ refactoring.guru 22 GoF</i>]
-        R_L1 --- R_L2 --- R_L3 --- R_L4
+        R_L2[Design<br/><i>Microsoft Pragmatic<br/>Rust Guidelines</i>]
+        R_L3[Patterns<br/><i>rust-unofficial<br/>idioms + patterns<br/>+ refactoring.guru 22 GoF</i>]
+        R_L1 --- R_L2 --- R_L3
     end
 
     subgraph Python["🐍 python-guidelines"]
         direction TB
         P_L1[Lint<br/><i>Ruff<br/>955 rules</i>]
-        P_L2[Idioms<br/><i>hand-authored<br/>idioms.md</i>]
-        P_L3[Design<br/><i>Google Python<br/>Style Guide</i>]
-        P_L4[Patterns<br/><i>python-patterns.guide<br/>Brandon Rhodes</i>]
-        P_L1 --- P_L2 --- P_L3 --- P_L4
+        P_L2[Design<br/><i>Google Python<br/>Style Guide</i>]
+        P_L3[Patterns<br/><i>python-patterns.guide<br/>Brandon Rhodes</i>]
+        P_L1 --- P_L2 --- P_L3
     end
 
     subgraph TypeScript["🟦 typescript-guidelines"]
         direction TB
         T_L1[Lint<br/><i>Oxlint<br/>720 rules</i>]
-        T_L2[Idioms<br/><i>hand-authored<br/>idioms.md</i>]
-        T_L3[Design<br/><i>Google TypeScript<br/>Style Guide</i>]
-        T_L4[Patterns<br/><i>Systemic TypeScript<br/>+ refactoring.guru 22 GoF</i>]
-        T_L1 --- T_L2 --- T_L3 --- T_L4
+        T_L2[Design<br/><i>Google TypeScript<br/>Style Guide</i>]
+        T_L3[Patterns<br/><i>Systemic TypeScript<br/>+ refactoring.guru 22 GoF</i>]
+        T_L1 --- T_L2 --- T_L3
     end
 
     classDef delegate fill:#30363d,stroke:#6e7681,color:#8b949e,stroke-dasharray:4 4
 ```
 
-*Every cell above is a separate file in the skill folder. `guidelines.txt`
-and `style.md` feed the lint layer; `idioms.md`, `design.md`, and
-`patterns.md` feed the three conceptual layers above it.*
+*Every cell is a separate file in the skill folder. `guidelines.txt` +
+`style.md` feed the lint layer; `design.md` feeds design; `patterns.md`
+feeds patterns. Idiomatic "prefer X over Y" advice lives inside
+`patterns.md` (Python's sentinel/module-globals/prebound-methods sections,
+TypeScript's Systemic TS systemic-* chapters, Rust's rust-unofficial
+idioms section).*
 
 ## What the agent sees at trigger time
 
 | Skill | Always-loaded | On-demand | Framework-gated |
 |---|---|---|---|
 | `rust-guidelines` | `guidelines.txt` (90 KB, Microsoft design guide) · `patterns.md` (277 KB, rust-unofficial + 22 GoF) | — | — |
-| `python-guidelines` | `guidelines.txt` (161 KB, 642 lint rules) · `design.md` (116 KB, Google style guide) · `patterns.md` (225 KB, python-patterns.guide) · `idioms.md` | `style.md` (73 KB, 275 pedantic lint rules) · `rules/<slug>/index.md` | `frameworks/{airflow,django,fastapi,numpy,pandas}.md` |
-| `typescript-guidelines` | `guidelines.txt` (61 KB, 210 lint rules) · `design.md` (104 KB, Google style guide) · `patterns.md` (190 KB, Systemic TS + 22 GoF patterns) · `idioms.md` | `style.md` (91 KB, 280 pedantic lint rules) · `rules/<plugin>/<slug>/index.md` | `frameworks/{react,nextjs,vue,jest,vitest,jsdoc}.md` |
+| `python-guidelines` | `guidelines.txt` (161 KB, 642 lint rules) · `design.md` (116 KB, Google style guide) · `patterns.md` (225 KB, python-patterns.guide) | `style.md` (73 KB, 275 pedantic lint rules) · `rules/<slug>/index.md` | `frameworks/{airflow,django,fastapi,numpy,pandas}.md` |
+| `typescript-guidelines` | `guidelines.txt` (61 KB, 210 lint rules) · `design.md` (104 KB, Google style guide) · `patterns.md` (190 KB, Systemic TS + 22 GoF patterns) | `style.md` (91 KB, 280 pedantic lint rules) · `rules/<plugin>/<slug>/index.md` | `frameworks/{react,nextjs,vue,jest,vitest,jsdoc}.md` |
 
 Each rule is rendered in a compact, imperative form:
 
@@ -115,8 +114,7 @@ python-guidelines/
 ├── SKILL.md
 ├── guidelines.txt       # Tier 1 (correctness+security) + Tier 2 (modernization) lint rules
 ├── design.md            # Google Python Style Guide — design decisions
-├── patterns.md          # python-patterns.guide — Pythonic design patterns
-├── idioms.md            # Positive local patterns ("prefer X over Y")
+├── patterns.md          # python-patterns.guide — Pythonic design patterns + native idioms
 ├── style.md             # Tier 3 style/pedantic (load on demand)
 ├── frameworks/          # Gated by project stack (airflow, django, fastapi, numpy, pandas)
 └── rules/<slug>/index.md  # Full per-rule docs with examples + config
@@ -126,7 +124,6 @@ typescript-guidelines/
 ├── guidelines.txt       # Tier 1 + Tier 2 lint rules
 ├── design.md            # Google TypeScript Style Guide — design decisions
 ├── patterns.md          # Systemic TS (Alandev) + 22 GoF patterns (refactoring.guru)
-├── idioms.md            # Positive local patterns
 ├── style.md             # Tier 3 style/pedantic (load on demand)
 ├── frameworks/          # react, nextjs, vue, jest, vitest, jsdoc
 └── rules/<plugin>/<slug>/index.md
@@ -192,10 +189,10 @@ cp -R typescript-guidelines <agent-skills-dir>/
    Tier-1 files for that skill:
    - `guidelines.txt` (lint rules, except for `rust-guidelines` where it
      holds design rules since the compiler covers lint).
-   - `design.md` (architectural guidelines; Python + TypeScript only).
-   - `patterns.md` (reusable design patterns; all three skills).
-   - `idioms.md` (positive local patterns; Python + TypeScript only —
-     rust-unofficial's idioms section is inlined in `patterns.md`).
+   - `design.md` (architectural guidelines; Python + TypeScript only —
+     Rust's design layer is `guidelines.txt` itself).
+   - `patterns.md` (reusable design patterns and language-native idioms;
+     all three skills).
 4. For style reviews or framework-specific work, the agent loads `style.md`
    or `frameworks/<name>.md` on demand.
 5. For rule edge cases, the agent greps `rules/<slug>/index.md` for the

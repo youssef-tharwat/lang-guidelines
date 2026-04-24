@@ -9,9 +9,10 @@ enforce — module system choice, visibility and property access, built-in type
 modification policy, enum vs const-enum, type inference vs annotation,
 naming discipline, import strategies, array notation, and more.
 
-Read this file **alongside** `guidelines.txt` (Oxlint rules) and `idioms.md`
-(positive local patterns). Use it for architectural decisions: module
-boundaries, type-system discipline, public API surface, mutation policy.
+Read this file **alongside** `guidelines.txt` (Oxlint rules) and
+`patterns.md` (Systemic TypeScript + GoF patterns, which also carries the
+idiom layer). Use it for architectural decisions: module boundaries,
+type-system discipline, public API surface, mutation policy.
 
 ---
 

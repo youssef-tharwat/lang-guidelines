@@ -28,9 +28,8 @@ Load files in this order; stop when the task's scope is satisfied.
    systemic patterns to prefer: throwless pact, closure-over-class, runtime
    validation, agency) + all 22 Gang-of-Four patterns adapted to TypeScript
    (intent, identification, TS example).
-4. **Always**: `idioms.md` — short positive patterns (what to prefer locally).
-5. **If reviewing / matching a project style guide**: `style.md` — 280 style/pedantic rules.
-6. **Framework-gated**: `frameworks/<name>.md` — load only if the project's
+4. **If reviewing / matching a project style guide**: `style.md` — 280 style/pedantic rules.
+5. **Framework-gated**: `frameworks/<name>.md` — load only if the project's
    manifest (`package.json`) depends on or imports the named framework.
 
    - `frameworks/jest.md` (59 rules)
@@ -39,7 +38,7 @@ Load files in this order; stop when the task's scope is satisfied.
    - `frameworks/react.md` (92 rules)
    - `frameworks/vitest.md` (23 rules)
    - `frameworks/vue.md` (17 rules)
-7. **On demand for edge cases**: `rules/<slug>/index.md` — full docs with
+6. **On demand for edge cases**: `rules/<slug>/index.md` — full docs with
    additional examples, configuration, and references.
 
 ## Rule format

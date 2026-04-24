@@ -22,11 +22,11 @@ Load files in this order; stop when the task's scope is satisfied.
    exception scope, naming, power-feature policy, type annotations, docstrings).
    Design decisions a linter cannot catch.
 3. **Always**: `patterns.md` — Pythonic adaptations of classical design
-   patterns. Use when choosing between architectural alternatives (singleton,
-   factory, composite, iterator, composition-over-inheritance, etc.).
-4. **Always**: `idioms.md` — short positive patterns (what to prefer locally).
-5. **If reviewing / matching a project style guide**: `style.md` — 275 style/pedantic rules.
-6. **Framework-gated**: `frameworks/<name>.md` — load only if the project's
+   patterns, plus Python-native idioms (sentinel objects, module globals,
+   prebound methods). Use when choosing between architectural alternatives
+   (singleton, factory, composite, iterator, composition-over-inheritance).
+4. **If reviewing / matching a project style guide**: `style.md` — 275 style/pedantic rules.
+5. **Framework-gated**: `frameworks/<name>.md` — load only if the project's
    manifest (`pyproject.toml`, `requirements*.txt`) depends on or imports the named framework.
 
    - `frameworks/airflow.md` (11 rules)
@@ -34,7 +34,7 @@ Load files in this order; stop when the task's scope is satisfied.
    - `frameworks/fastapi.md` (3 rules)
    - `frameworks/numpy.md` (4 rules)
    - `frameworks/pandas.md` (13 rules)
-7. **On demand for edge cases**: `rules/<slug>/index.md` — full docs with
+6. **On demand for edge cases**: `rules/<slug>/index.md` — full docs with
    additional examples, configuration, and references.
 
 ## Rule format
