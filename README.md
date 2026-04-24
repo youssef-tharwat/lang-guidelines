@@ -42,93 +42,6 @@ flowchart LR
 good code — it produces mechanically-correct code. Good code requires the
 layers above.*
 
-## How each skill fills the layers
-
-Different languages have different canonical sources for each layer. Rust
-delegates the bottom layer to `rustc` + `clippy` — this repo covers
-everything above that. Every cell below is sourced from a named upstream
-— no hand-authored material.
-
-```mermaid
-flowchart LR
-    subgraph Rust["🦀 rust-guidelines"]
-        direction TB
-        R_L1[Lint<br/><i>delegated to<br/>rustc + clippy</i>]:::delegate
-        R_L2[Design<br/><i>Microsoft Pragmatic<br/>Rust Guidelines</i>]
-        R_L3[Patterns<br/><i>rust-unofficial<br/>idioms + patterns<br/>+ refactoring.guru 22 GoF</i>]
-        R_L1 --- R_L2 --- R_L3
-    end
-
-    subgraph Python["🐍 python-guidelines"]
-        direction TB
-        P_L1[Lint<br/><i>Ruff<br/>955 rules</i>]
-        P_L2[Design<br/><i>Google Python<br/>Style Guide</i>]
-        P_L3[Patterns<br/><i>python-patterns.guide<br/>Brandon Rhodes</i>]
-        P_L1 --- P_L2 --- P_L3
-    end
-
-    subgraph TypeScript["🟦 typescript-guidelines"]
-        direction TB
-        T_L1[Lint<br/><i>Oxlint<br/>720 rules</i>]
-        T_L2[Design<br/><i>Google TypeScript<br/>Style Guide</i>]
-        T_L3[Patterns<br/><i>Systemic TypeScript<br/>+ refactoring.guru 22 GoF</i>]
-        T_L1 --- T_L2 --- T_L3
-    end
-
-    classDef delegate fill:#30363d,stroke:#6e7681,color:#8b949e,stroke-dasharray:4 4
-```
-
-*Every cell is a separate file in the skill folder. `guidelines.txt` +
-`style.md` feed the lint layer; `design.md` feeds design; `patterns.md`
-feeds patterns. Idiomatic "prefer X over Y" advice lives inside
-`patterns.md` (Python's sentinel/module-globals/prebound-methods sections,
-TypeScript's Systemic TS systemic-* chapters, Rust's rust-unofficial
-idioms section).*
-
-## What the agent sees at trigger time
-
-| Skill | Always-loaded | On-demand | Framework-gated |
-|---|---|---|---|
-| `rust-guidelines` | `guidelines.txt` (90 KB, Microsoft design guide) · `patterns.md` (277 KB, rust-unofficial + 22 GoF) | — | — |
-| `python-guidelines` | `guidelines.txt` (161 KB, 642 lint rules) · `design.md` (116 KB, Google style guide) · `patterns.md` (225 KB, python-patterns.guide) | `style.md` (73 KB, 275 pedantic lint rules) · `rules/<slug>/index.md` | `frameworks/{airflow,django,fastapi,numpy,pandas}.md` |
-| `typescript-guidelines` | `guidelines.txt` (61 KB, 210 lint rules) · `design.md` (104 KB, Google style guide) · `patterns.md` (190 KB, Systemic TS + 22 GoF patterns) | `style.md` (91 KB, 280 pedantic lint rules) · `rules/<plugin>/<slug>/index.md` | `frameworks/{react,nextjs,vue,jest,vitest,jsdoc}.md` |
-
-Each rule is rendered in a compact, imperative form:
-
-```
-### no-console (eslint)
-Do not use console methods in production code.
-❌ console.log("debug", user)
-✅ logger.debug({ user }, "debug")
-```
-
-## Layout
-
-```
-rust-guidelines/
-├── SKILL.md
-├── guidelines.txt       # Microsoft Pragmatic Rust Guidelines — design layer
-└── patterns.md          # rust-unofficial + refactoring.guru 22 GoF patterns
-
-python-guidelines/
-├── SKILL.md
-├── guidelines.txt       # Tier 1 (correctness+security) + Tier 2 (modernization) lint rules
-├── design.md            # Google Python Style Guide — design decisions
-├── patterns.md          # python-patterns.guide — Pythonic design patterns + native idioms
-├── style.md             # Tier 3 style/pedantic (load on demand)
-├── frameworks/          # Gated by project stack (airflow, django, fastapi, numpy, pandas)
-└── rules/<slug>/index.md  # Full per-rule docs with examples + config
-
-typescript-guidelines/
-├── SKILL.md
-├── guidelines.txt       # Tier 1 + Tier 2 lint rules
-├── design.md            # Google TypeScript Style Guide — design decisions
-├── patterns.md          # Systemic TS (Alandev) + 22 GoF patterns (refactoring.guru)
-├── style.md             # Tier 3 style/pedantic (load on demand)
-├── frameworks/          # react, nextjs, vue, jest, vitest, jsdoc
-└── rules/<plugin>/<slug>/index.md
-```
-
 ## Install
 
 ### Recommended — `skills` CLI ([skills.sh](https://skills.sh/))
@@ -179,6 +92,56 @@ cp -R python-guidelines     <agent-skills-dir>/
 cp -R typescript-guidelines <agent-skills-dir>/
 ```
 
+## What's inside
+
+Sizes, layout, and the compact rule format.
+
+### What the agent sees at trigger time
+
+| Skill | Always-loaded | On-demand | Framework-gated |
+|---|---|---|---|
+| `rust-guidelines` | `guidelines.txt` (90 KB, Microsoft design guide) · `patterns.md` (277 KB, rust-unofficial + 22 GoF) | — | — |
+| `python-guidelines` | `guidelines.txt` (161 KB, 642 lint rules) · `design.md` (116 KB, Google style guide) · `patterns.md` (225 KB, python-patterns.guide) | `style.md` (73 KB, 275 pedantic lint rules) · `rules/<slug>/index.md` | `frameworks/{airflow,django,fastapi,numpy,pandas}.md` |
+| `typescript-guidelines` | `guidelines.txt` (61 KB, 210 lint rules) · `design.md` (104 KB, Google style guide) · `patterns.md` (190 KB, Systemic TS + 22 GoF patterns) | `style.md` (91 KB, 280 pedantic lint rules) · `rules/<plugin>/<slug>/index.md` | `frameworks/{react,nextjs,vue,jest,vitest,jsdoc}.md` |
+
+### Folder layout
+
+```
+rust-guidelines/
+├── SKILL.md
+├── guidelines.txt       # Microsoft Pragmatic Rust Guidelines — design layer
+└── patterns.md          # rust-unofficial + refactoring.guru 22 GoF patterns
+
+python-guidelines/
+├── SKILL.md
+├── guidelines.txt       # Tier 1 (correctness+security) + Tier 2 (modernization) lint rules
+├── design.md            # Google Python Style Guide — design decisions
+├── patterns.md          # python-patterns.guide — Pythonic design patterns + native idioms
+├── style.md             # Tier 3 style/pedantic (load on demand)
+├── frameworks/          # Gated by project stack (airflow, django, fastapi, numpy, pandas)
+└── rules/<slug>/index.md  # Full per-rule docs with examples + config
+
+typescript-guidelines/
+├── SKILL.md
+├── guidelines.txt       # Tier 1 + Tier 2 lint rules
+├── design.md            # Google TypeScript Style Guide — design decisions
+├── patterns.md          # Systemic TS (Alandev) + 22 GoF patterns (refactoring.guru)
+├── style.md             # Tier 3 style/pedantic (load on demand)
+├── frameworks/          # react, nextjs, vue, jest, vitest, jsdoc
+└── rules/<plugin>/<slug>/index.md
+```
+
+### Rule format
+
+Each rule in the compiled files follows a compact, imperative shape:
+
+```
+### no-console (eslint)
+Do not use console methods in production code.
+❌ console.log("debug", user)
+✅ logger.debug({ user }, "debug")
+```
+
 ## How the agent uses a skill
 
 1. At startup the agent reads every skill's `name` and `description` from
@@ -202,7 +165,43 @@ Progressive disclosure keeps the context footprint minimal while making
 ~1,700 lint rules + ~50 Microsoft design rules + ~150 concatenated pattern
 sections fully reachable.
 
-## Sources
+## Source attribution
+
+Different languages have different canonical sources for each layer. Rust
+delegates the bottom layer to `rustc` + `clippy` — this repo covers
+everything above that. Every cell below is sourced from a named upstream
+— no hand-authored material.
+
+```mermaid
+flowchart LR
+    subgraph Rust["🦀 rust-guidelines"]
+        direction TB
+        R_L1[Lint<br/><i>delegated to<br/>rustc + clippy</i>]:::delegate
+        R_L2[Design<br/><i>Microsoft Pragmatic<br/>Rust Guidelines</i>]
+        R_L3[Patterns<br/><i>rust-unofficial<br/>idioms + patterns<br/>+ refactoring.guru 22 GoF</i>]
+        R_L1 --- R_L2 --- R_L3
+    end
+
+    subgraph Python["🐍 python-guidelines"]
+        direction TB
+        P_L1[Lint<br/><i>Ruff<br/>955 rules</i>]
+        P_L2[Design<br/><i>Google Python<br/>Style Guide</i>]
+        P_L3[Patterns<br/><i>python-patterns.guide<br/>Brandon Rhodes</i>]
+        P_L1 --- P_L2 --- P_L3
+    end
+
+    subgraph TypeScript["🟦 typescript-guidelines"]
+        direction TB
+        T_L1[Lint<br/><i>Oxlint<br/>720 rules</i>]
+        T_L2[Design<br/><i>Google TypeScript<br/>Style Guide</i>]
+        T_L3[Patterns<br/><i>Systemic TypeScript<br/>+ refactoring.guru 22 GoF</i>]
+        T_L1 --- T_L2 --- T_L3
+    end
+
+    classDef delegate fill:#30363d,stroke:#6e7681,color:#8b949e,stroke-dasharray:4 4
+```
+
+### Full source list
 
 **Rust**
 - Design guidelines: [microsoft/rust-guidelines](https://github.com/microsoft/rust-guidelines) — Microsoft's Pragmatic Rust Guidelines
