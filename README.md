@@ -111,33 +111,45 @@ typescript-guidelines/
 
 ## Install
 
-Each of these agents auto-discovers any folder containing a `SKILL.md`. Pick
-your client below.
+### Recommended — `skills` CLI ([skills.sh](https://skills.sh/))
 
-### Claude Code (`~/.claude/skills/`)
+The open-ecosystem CLI from Vercel Labs supports 45+ agents (Claude Code,
+Codex, Cursor, Gemini, OpenCode, Copilot, Goose, Windsurf, Amp, Kiro,
+Factory Droid, Roo, Cline, …). One command per project or global:
+
+```bash
+# Install all three skills globally (symlinked, easy updates)
+npx skills add youssef-tharwat/lang-guidelines --all -g
+
+# Or install just one
+npx skills add youssef-tharwat/lang-guidelines --skill python-guidelines -g
+
+# Or scope to a single project
+cd my-project
+npx skills add youssef-tharwat/lang-guidelines --all
+
+# Target specific agents
+npx skills add youssef-tharwat/lang-guidelines --all -a claude-code -a cursor
+```
+
+Browse the live leaderboard at <https://skills.sh/> or search for the repo at
+`skills.sh/youssef-tharwat/lang-guidelines` once install telemetry accumulates.
+
+### Manual — `git clone` + symlinks
+
+For agents not yet supported by the CLI, or for custom install locations:
 
 ```bash
 git clone https://github.com/youssef-tharwat/lang-guidelines ~/src/lang-guidelines
+
+# Claude Code
 ln -s ~/src/lang-guidelines/rust-guidelines       ~/.claude/skills/rust-guidelines
 ln -s ~/src/lang-guidelines/python-guidelines     ~/.claude/skills/python-guidelines
 ln -s ~/src/lang-guidelines/typescript-guidelines ~/.claude/skills/typescript-guidelines
+
+# Gemini CLI (~/.gemini/skills/), Codex, OpenCode, … — same pattern, different target dir.
+# See per-agent docs at https://agentskills.io/home.
 ```
-
-Or place the folders under a project's `.claude/skills/` to scope them per-repo.
-
-### Gemini CLI
-
-```bash
-# Per docs: place inside ~/.gemini/skills/
-ln -s $PWD/rust-guidelines       ~/.gemini/skills/rust-guidelines
-ln -s $PWD/python-guidelines     ~/.gemini/skills/python-guidelines
-ln -s $PWD/typescript-guidelines ~/.gemini/skills/typescript-guidelines
-```
-
-### Cursor / VS Code + Copilot / OpenCode / Codex / Goose / …
-
-Each client exposes a skills directory; symlink the skill folders in. See the
-per-agent docs linked from <https://agentskills.io/home>.
 
 ### Direct copy (any agent)
 
