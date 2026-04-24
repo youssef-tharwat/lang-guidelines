@@ -4,8 +4,10 @@ Three language-specific Agent Skills that enforce lint rules, design
 guidelines, and idiomatic patterns while an AI agent writes or edits code —
 not only during review.
 
-- **`rust-guidelines/`** — Microsoft's Pragmatic Rust Guidelines
-  (2,437 sections: API design, errors, docs, FFI, safety, perf, crates).
+- **`rust-guidelines/`** — Microsoft's Pragmatic Rust Guidelines (design) +
+  rust-unofficial patterns (idioms, design patterns, anti-patterns) + 22
+  Gang-of-Four patterns adapted to Rust (refactoring.guru). Mechanical /
+  style / correctness checks are left to `rustc` + `clippy`.
 - **`python-guidelines/`** — 955 Ruff lint rules (tiered) + Google Python Style
   Guide (design) + python-patterns.guide (Pythonic design patterns).
 - **`typescript-guidelines/`** — 720 Oxlint lint rules (tiered) + Google
@@ -54,6 +56,8 @@ And the source-to-skill mapping — where each always-loaded file comes from:
 flowchart LR
     subgraph Rust
         R1[microsoft/rust-guidelines] --> RG[rust-guidelines/<br/>guidelines.txt]
+        R2[rust-unofficial<br/>patterns] --> RP[rust-guidelines/<br/>patterns.md]
+        R3[refactoring.guru<br/>22 GoF in Rust] --> RP
     end
     subgraph Python
         P1[Ruff<br/>docs.astral.sh/ruff] --> PG[python-guidelines/<br/>guidelines.txt]
@@ -72,7 +76,7 @@ flowchart LR
 
 | Skill | Always-loaded | On-demand | Framework-gated |
 |---|---|---|---|
-| `rust-guidelines` | `guidelines.txt` (~150 KB, 2437 sections) | — | — |
+| `rust-guidelines` | `guidelines.txt` (90 KB, Microsoft design guide) · `patterns.md` (277 KB, rust-unofficial + 22 GoF) | — | — |
 | `python-guidelines` | `guidelines.txt` (161 KB, 642 lint rules) · `design.md` (116 KB, Google style guide) · `patterns.md` (225 KB, python-patterns.guide) · `idioms.md` | `style.md` (73 KB, 275 pedantic lint rules) · `rules/<slug>/index.md` | `frameworks/{airflow,django,fastapi,numpy,pandas}.md` |
 | `typescript-guidelines` | `guidelines.txt` (61 KB, 210 lint rules) · `design.md` (104 KB, Google style guide) · `patterns.md` (190 KB, Systemic TS + 22 GoF patterns) · `idioms.md` | `style.md` (91 KB, 280 pedantic lint rules) · `rules/<plugin>/<slug>/index.md` | `frameworks/{react,nextjs,vue,jest,vitest,jsdoc}.md` |
 
@@ -90,7 +94,8 @@ Do not use console methods in production code.
 ```
 rust-guidelines/
 ├── SKILL.md
-└── guidelines.txt
+├── guidelines.txt       # Microsoft Pragmatic Rust Guidelines — design layer
+└── patterns.md          # rust-unofficial + refactoring.guru 22 GoF patterns
 
 python-guidelines/
 ├── SKILL.md
@@ -182,7 +187,10 @@ Progressive disclosure keeps the context footprint minimal while making all
 ## Sources
 
 **Rust**
-- Guidelines (lint + design combined): [microsoft/rust-guidelines](https://github.com/microsoft/rust-guidelines) — Microsoft's Pragmatic Rust Guidelines
+- Design guidelines: [microsoft/rust-guidelines](https://github.com/microsoft/rust-guidelines) — Microsoft's Pragmatic Rust Guidelines
+- Community patterns: [rust-unofficial.github.io/patterns](https://rust-unofficial.github.io/patterns/) — Rust idioms, design patterns, anti-patterns, functional patterns
+- Classical patterns: [refactoring.guru/design-patterns/rust](https://refactoring.guru/design-patterns/rust) — 22 Gang-of-Four patterns with Rust examples
+- **Mechanical checks**: delegated to [`rustc`](https://doc.rust-lang.org/rustc/) + [`clippy`](https://doc.rust-lang.org/clippy/) — this skill is design-only by design.
 
 **Python**
 - Lint rules: [docs.astral.sh/ruff/rules/](https://docs.astral.sh/ruff/rules/) — Ruff

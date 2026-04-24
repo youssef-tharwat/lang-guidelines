@@ -29,6 +29,12 @@ from the following upstream projects and carries their respective licenses:
 
 - Rust guidelines — Microsoft Pragmatic Rust Guidelines, MIT
   https://github.com/microsoft/rust-guidelines
+- Rust community patterns — rust-unofficial/patterns, MPL-2.0
+  https://rust-unofficial.github.io/patterns/
+- Rust Gang-of-Four patterns — refactoring.guru, Creative Commons
+  Attribution-ShareAlike (CC BY-SA); per-pattern example code retains
+  its source licensing
+  https://refactoring.guru/design-patterns/rust
 - Python lint rules — Ruff, MIT
   https://docs.astral.sh/ruff/rules/
 - Python design guidelines — Google Python Style Guide, Apache 2.0
