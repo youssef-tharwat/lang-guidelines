@@ -6,7 +6,7 @@ description: Enforce TypeScript & JavaScript lint rules (Oxlint) for all TypeScr
 # TypeScript & JavaScript Development Guidelines
 
 Every rule in `guidelines.txt` is a hard constraint. Apply them **while
-writing code**, not only during review. Source: Oxlint (oxc.rs) covering eslint, typescript-eslint, unicorn, react, nextjs, jsx-a11y, jest, vitest, and more.
+writing code**, not only during review. Source: Oxlint — <https://oxc.rs/docs/guide/usage/linter/rules> — covering eslint, typescript-eslint, unicorn, react, nextjs, jsx-a11y, jest, vitest, and more.
 
 ## Reading protocol
 

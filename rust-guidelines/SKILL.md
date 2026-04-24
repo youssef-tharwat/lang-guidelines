@@ -6,6 +6,7 @@ description: Enforce Microsoft Rust guidelines for all Rust code generation and 
 # Rust Development
 
 Apply the rules in guidelines.txt when generating or modifying Rust code.
+Source: <https://github.com/microsoft/rust-guidelines>.
 
 ## Instructions
 

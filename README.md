@@ -110,9 +110,9 @@ Progressive disclosure keeps the context footprint minimal while making all
 
 ## Sources
 
-- Rust guidelines: [Microsoft's Pragmatic Rust Guidelines](https://microsoft.github.io/rust-guidelines/)
-- Python rules: [Ruff](https://docs.astral.sh/ruff/rules/) (docs.astral.sh/ruff)
-- TypeScript/JS rules: [Oxlint](https://oxc.rs/docs/guide/usage/linter/rules) (oxc.rs)
+- Rust guidelines: [microsoft/rust-guidelines](https://github.com/microsoft/rust-guidelines) — Microsoft's Pragmatic Rust Guidelines
+- Python rules: [docs.astral.sh/ruff/rules/](https://docs.astral.sh/ruff/rules/) — Ruff
+- TypeScript/JS rules: [oxc.rs/docs/guide/usage/linter/rules](https://oxc.rs/docs/guide/usage/linter/rules) — Oxlint
 
 Rule text, examples, and configuration are from the upstream documentation.
 The compiled `guidelines.txt` / `style.md` / framework files are derivative

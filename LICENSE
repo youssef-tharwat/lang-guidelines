@@ -28,8 +28,8 @@ compiled `guidelines.txt`, `style.md`, and `frameworks/*.md` files, is sourced
 from the following upstream projects and carries their respective licenses:
 
 - Rust guidelines — Microsoft Pragmatic Rust Guidelines, MIT
-  https://microsoft.github.io/rust-guidelines/
+  https://github.com/microsoft/rust-guidelines
 - Python rules — Ruff, MIT
-  https://docs.astral.sh/ruff/
+  https://docs.astral.sh/ruff/rules/
 - TypeScript & JavaScript rules — Oxlint / Oxc project, MIT
-  https://oxc.rs/
+  https://oxc.rs/docs/guide/usage/linter/rules

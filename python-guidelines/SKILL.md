@@ -6,7 +6,7 @@ description: Enforce Python lint rules (Ruff) for all Python code generation and
 # Python Development Guidelines
 
 Every rule in `guidelines.txt` is a hard constraint. Apply them **while
-writing code**, not only during review. Source: Ruff (docs.astral.sh/ruff).
+writing code**, not only during review. Source: Ruff — <https://docs.astral.sh/ruff/rules/>.
 
 ## Reading protocol
 
