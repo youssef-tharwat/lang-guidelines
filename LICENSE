@@ -40,3 +40,10 @@ from the following upstream projects and carries their respective licenses:
   https://oxc.rs/docs/guide/usage/linter/rules
 - TypeScript design guidelines — Google TypeScript Style Guide, Apache 2.0
   https://google.github.io/styleguide/tsguide.html
+- TypeScript systemic architecture — Systemic TypeScript by Vincent
+  Alandev, redistributed with attribution
+  https://valand.dev/systemic-ts
+- TypeScript design patterns — refactoring.guru, Creative Commons
+  Attribution-ShareAlike (CC BY-SA); per-pattern example code retains its
+  source licensing
+  https://refactoring.guru/design-patterns/typescript

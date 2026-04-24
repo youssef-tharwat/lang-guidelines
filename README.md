@@ -9,7 +9,8 @@ not only during review.
 - **`python-guidelines/`** — 955 Ruff lint rules (tiered) + Google Python Style
   Guide (design) + python-patterns.guide (Pythonic design patterns).
 - **`typescript-guidelines/`** — 720 Oxlint lint rules (tiered) + Google
-  TypeScript Style Guide (design).
+  TypeScript Style Guide (design) + Systemic TypeScript (Vincent Alandev)
+  + 22 Gang-of-Four patterns adapted to TypeScript (refactoring.guru).
 
 Each skill is a self-contained folder following the open
 [Agent Skills standard](https://agentskills.io). Works unchanged with
@@ -31,7 +32,7 @@ flowchart TD
     D --> E[<b>Always-load</b> — before writing code]
     E --> E1[<code>guidelines.txt</code><br/><i>lint rules<br/>Tier 1+2</i>]
     E --> E2[<code>design.md</code><br/><i>Google style guide<br/>architecture &amp; API shape</i>]
-    E --> E3[<code>patterns.md</code><br/><i>Pythonic design patterns<br/>Python only</i>]
+    E --> E3[<code>patterns.md</code><br/><i>Python: Pythonic GoF<br/>TypeScript: Systemic TS + GoF</i>]
     E --> E4[<code>idioms.md</code><br/><i>local positive patterns</i>]
     E1 & E2 & E3 & E4 --> F[Write / edit code<br/><b>apply every rule upfront</b>]
     F --> G{Extra context<br/>needed?}
@@ -62,6 +63,8 @@ flowchart LR
     subgraph TypeScript
         T1[Oxlint / oxc.rs] --> TG[typescript-guidelines/<br/>guidelines.txt]
         T2[Google TypeScript<br/>Style Guide] --> TD[typescript-guidelines/<br/>design.md]
+        T3[Systemic TypeScript<br/>Alandev] --> TP[typescript-guidelines/<br/>patterns.md]
+        T4[refactoring.guru<br/>22 GoF patterns] --> TP
     end
 ```
 
@@ -71,7 +74,7 @@ flowchart LR
 |---|---|---|---|
 | `rust-guidelines` | `guidelines.txt` (~150 KB, 2437 sections) | — | — |
 | `python-guidelines` | `guidelines.txt` (161 KB, 642 lint rules) · `design.md` (116 KB, Google style guide) · `patterns.md` (226 KB, python-patterns.guide) · `idioms.md` | `style.md` (73 KB, 275 pedantic lint rules) · `rules/<slug>/index.md` | `frameworks/{airflow,django,fastapi,numpy,pandas}.md` |
-| `typescript-guidelines` | `guidelines.txt` (61 KB, 210 lint rules) · `design.md` (122 KB, Google style guide) · `idioms.md` | `style.md` (91 KB, 280 pedantic lint rules) · `rules/<plugin>/<slug>/index.md` | `frameworks/{react,nextjs,vue,jest,vitest,jsdoc}.md` |
+| `typescript-guidelines` | `guidelines.txt` (61 KB, 210 lint rules) · `design.md` (122 KB, Google style guide) · `patterns.md` (597 KB, Systemic TS + 22 GoF patterns) · `idioms.md` | `style.md` (91 KB, 280 pedantic lint rules) · `rules/<plugin>/<slug>/index.md` | `frameworks/{react,nextjs,vue,jest,vitest,jsdoc}.md` |
 
 Each rule is rendered in a compact, imperative form:
 
@@ -103,6 +106,7 @@ typescript-guidelines/
 ├── SKILL.md
 ├── guidelines.txt       # Tier 1 + Tier 2 lint rules
 ├── design.md            # Google TypeScript Style Guide — design decisions
+├── patterns.md          # Systemic TS (Alandev) + 22 GoF patterns (refactoring.guru)
 ├── idioms.md            # Positive local patterns
 ├── style.md             # Tier 3 style/pedantic (load on demand)
 ├── frameworks/          # react, nextjs, vue, jest, vitest, jsdoc
@@ -188,6 +192,9 @@ Progressive disclosure keeps the context footprint minimal while making all
 **TypeScript / JavaScript**
 - Lint rules: [oxc.rs/docs/guide/usage/linter/rules](https://oxc.rs/docs/guide/usage/linter/rules) — Oxlint
 - Design guidelines: [google.github.io/styleguide/tsguide.html](https://google.github.io/styleguide/tsguide.html) — Google TypeScript Style Guide
+- Systemic architecture: [valand.dev/systemic-ts](https://valand.dev/systemic-ts) — Systemic TypeScript by Vincent Alandev
+- Design patterns: [refactoring.guru/design-patterns/typescript](https://refactoring.guru/design-patterns/typescript) — 22 GoF patterns with TS examples
+- Further reading: [sbcode.net/typescript/](https://sbcode.net/typescript/), [torokmark/design_patterns_in_typescript](https://github.com/torokmark/design_patterns_in_typescript)
 
 Rule text, examples, and configuration are from the upstream documentation.
 The compiled `guidelines.txt` / `style.md` / framework files are derivative
