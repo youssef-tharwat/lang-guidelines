@@ -62,7 +62,7 @@ your client below.
 ### Claude Code (`~/.claude/skills/`)
 
 ```bash
-git clone https://github.com/<your-user>/lang-guidelines ~/src/lang-guidelines
+git clone https://github.com/youssef-tharwat/lang-guidelines ~/src/lang-guidelines
 ln -s ~/src/lang-guidelines/rust-guidelines       ~/.claude/skills/rust-guidelines
 ln -s ~/src/lang-guidelines/python-guidelines     ~/.claude/skills/python-guidelines
 ln -s ~/src/lang-guidelines/typescript-guidelines ~/.claude/skills/typescript-guidelines
