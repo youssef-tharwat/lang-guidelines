@@ -16,6 +16,55 @@ Each skill is a self-contained folder following the open
 Claude Code, Codex, Gemini CLI, Cursor, VS Code, GitHub Copilot, OpenCode,
 OpenHands, Goose, and [30+ other agents](https://agentskills.io/home).
 
+## How it works
+
+Skills use **progressive disclosure**: metadata is always in context, the
+body loads on trigger, and supporting files load on demand. The agent picks
+up architectural guidance *before* writing any code, not during review.
+
+```mermaid
+flowchart TD
+    A([Agent starts]) --> B[Scan every SKILL.md frontmatter<br/><i>name + description only — ~100 words/skill</i>]
+    B --> C{User task matches<br/>a description?}
+    C -->|no| Z([Skill idle])
+    C -->|yes — load full SKILL.md| D[Read SKILL.md<br/>reading protocol]
+    D --> E[<b>Always-load</b> — before writing code]
+    E --> E1[<code>guidelines.txt</code><br/><i>lint rules<br/>Tier 1+2</i>]
+    E --> E2[<code>design.md</code><br/><i>Google style guide<br/>architecture &amp; API shape</i>]
+    E --> E3[<code>patterns.md</code><br/><i>Pythonic design patterns<br/>Python only</i>]
+    E --> E4[<code>idioms.md</code><br/><i>local positive patterns</i>]
+    E1 & E2 & E3 & E4 --> F[Write / edit code<br/><b>apply every rule upfront</b>]
+    F --> G{Extra context<br/>needed?}
+    G -->|style review or strict<br/>project style guide| H[<code>style.md</code><br/><i>Tier 3 pedantic rules</i>]
+    G -->|project uses a<br/>specific framework| I[<code>frameworks/NAME.md</code><br/><i>React, Next, Django, …</i>]
+    G -->|rule edge case<br/>or config question| J[<code>rules/SLUG/index.md</code><br/><i>full upstream doc</i>]
+    G -->|none| K([Ship diff])
+    H & I & J --> K
+
+    style E fill:#1f6feb,stroke:#0b4cb3,color:#fff
+    style F fill:#2da44e,stroke:#1a7f37,color:#fff
+    style C fill:#bf8700,stroke:#9a6700,color:#fff
+    style G fill:#bf8700,stroke:#9a6700,color:#fff
+```
+
+And the source-to-skill mapping — where each always-loaded file comes from:
+
+```mermaid
+flowchart LR
+    subgraph Rust
+        R1[microsoft/rust-guidelines] --> RG[rust-guidelines/<br/>guidelines.txt]
+    end
+    subgraph Python
+        P1[Ruff<br/>docs.astral.sh/ruff] --> PG[python-guidelines/<br/>guidelines.txt]
+        P2[Google Python<br/>Style Guide] --> PD[python-guidelines/<br/>design.md]
+        P3[python-patterns.guide<br/>Brandon Rhodes] --> PP[python-guidelines/<br/>patterns.md]
+    end
+    subgraph TypeScript
+        T1[Oxlint / oxc.rs] --> TG[typescript-guidelines/<br/>guidelines.txt]
+        T2[Google TypeScript<br/>Style Guide] --> TD[typescript-guidelines/<br/>design.md]
+    end
+```
+
 ## What the agent sees at trigger time
 
 | Skill | Always-loaded | On-demand | Framework-gated |
