@@ -19,58 +19,72 @@ Each skill is a self-contained folder following the open
 Claude Code, Codex, Gemini CLI, Cursor, VS Code, GitHub Copilot, OpenCode,
 OpenHands, Goose, and [30+ other agents](https://agentskills.io/home).
 
-## How it works
+## What a skill gives the agent
 
-Skills use **progressive disclosure**: metadata is always in context, the
-body loads on trigger, and supporting files load on demand. The agent picks
-up architectural guidance *before* writing any code, not during review.
+Each skill packages four conceptual layers of knowledge, from the most
+mechanical to the most architectural. An agent that loads the skill writes
+code informed by **all four layers at once**.
 
 ```mermaid
-flowchart TD
-    A([Agent starts]) --> B[Scan every SKILL.md frontmatter<br/><i>name + description only — ~100 words/skill</i>]
-    B --> C{User task matches<br/>a description?}
-    C -->|no| Z([Skill idle])
-    C -->|yes — load full SKILL.md| D[Read SKILL.md<br/>reading protocol]
-    D --> E[<b>Always-load</b> — before writing code]
-    E --> E1[<code>guidelines.txt</code><br/><i>lint rules<br/>Tier 1+2</i>]
-    E --> E2[<code>design.md</code><br/><i>Google style guide<br/>architecture &amp; API shape</i>]
-    E --> E3[<code>patterns.md</code><br/><i>Python: Pythonic GoF<br/>TypeScript: Systemic TS + GoF</i>]
-    E --> E4[<code>idioms.md</code><br/><i>local positive patterns</i>]
-    E1 & E2 & E3 & E4 --> F[Write / edit code<br/><b>apply every rule upfront</b>]
-    F --> G{Extra context<br/>needed?}
-    G -->|style review or strict<br/>project style guide| H[<code>style.md</code><br/><i>Tier 3 pedantic rules</i>]
-    G -->|project uses a<br/>specific framework| I[<code>frameworks/NAME.md</code><br/><i>React, Next, Django, …</i>]
-    G -->|rule edge case<br/>or config question| J[<code>rules/SLUG/index.md</code><br/><i>full upstream doc</i>]
-    G -->|none| K([Ship diff])
-    H & I & J --> K
+flowchart TB
+    L4[<b>PATTERNS</b><br/>reusable solutions to recurring design problems<br/><i>builder, strategy, newtype, RAII guards, typestate, GoF…</i>]
+    L3[<b>DESIGN</b><br/>architectural decisions the compiler cannot make<br/><i>module boundaries, API shape, error philosophy, docs, crates</i>]
+    L2[<b>IDIOMS</b><br/>local positive patterns — "prefer X over Y"<br/><i>Path over os.path · const over let · Default over custom ctor</i>]
+    L1[<b>LINT</b><br/>mechanical correctness + security<br/><i>the things a linter or compiler can mechanically check</i>]
 
-    style E fill:#1f6feb,stroke:#0b4cb3,color:#fff
-    style F fill:#2da44e,stroke:#1a7f37,color:#fff
-    style C fill:#bf8700,stroke:#9a6700,color:#fff
-    style G fill:#bf8700,stroke:#9a6700,color:#fff
+    L1 --> L2 --> L3 --> L4
+
+    style L1 fill:#bf8700,stroke:#9a6700,color:#fff
+    style L2 fill:#0969da,stroke:#054d9e,color:#fff
+    style L3 fill:#8250df,stroke:#5a1fb0,color:#fff
+    style L4 fill:#1a7f37,stroke:#116329,color:#fff
 ```
 
-And the source-to-skill mapping — where each always-loaded file comes from:
+*The layers are cumulative: fixing every lint violation does not produce
+good code — it produces mechanically-correct code. Good code requires the
+layers above.*
+
+## How each skill fills the layers
+
+Different languages have different canonical sources for each layer. Rust
+delegates the bottom layer to `rustc` + `clippy` — this repo covers
+everything above that.
 
 ```mermaid
 flowchart LR
-    subgraph Rust
-        R1[microsoft/rust-guidelines] --> RG[rust-guidelines/<br/>guidelines.txt]
-        R2[rust-unofficial<br/>patterns] --> RP[rust-guidelines/<br/>patterns.md]
-        R3[refactoring.guru<br/>22 GoF in Rust] --> RP
+    subgraph Rust["🦀 rust-guidelines"]
+        direction TB
+        R_L1[Lint<br/><i>delegated to<br/>rustc + clippy</i>]:::delegate
+        R_L2[Idioms<br/><i>rust-unofficial<br/>idioms section</i>]
+        R_L3[Design<br/><i>Microsoft Pragmatic<br/>Rust Guidelines</i>]
+        R_L4[Patterns<br/><i>rust-unofficial patterns<br/>+ refactoring.guru 22 GoF</i>]
+        R_L1 --- R_L2 --- R_L3 --- R_L4
     end
-    subgraph Python
-        P1[Ruff<br/>docs.astral.sh/ruff] --> PG[python-guidelines/<br/>guidelines.txt]
-        P2[Google Python<br/>Style Guide] --> PD[python-guidelines/<br/>design.md]
-        P3[python-patterns.guide<br/>Brandon Rhodes] --> PP[python-guidelines/<br/>patterns.md]
+
+    subgraph Python["🐍 python-guidelines"]
+        direction TB
+        P_L1[Lint<br/><i>Ruff<br/>955 rules</i>]
+        P_L2[Idioms<br/><i>hand-authored<br/>idioms.md</i>]
+        P_L3[Design<br/><i>Google Python<br/>Style Guide</i>]
+        P_L4[Patterns<br/><i>python-patterns.guide<br/>Brandon Rhodes</i>]
+        P_L1 --- P_L2 --- P_L3 --- P_L4
     end
-    subgraph TypeScript
-        T1[Oxlint / oxc.rs] --> TG[typescript-guidelines/<br/>guidelines.txt]
-        T2[Google TypeScript<br/>Style Guide] --> TD[typescript-guidelines/<br/>design.md]
-        T3[Systemic TypeScript<br/>Alandev] --> TP[typescript-guidelines/<br/>patterns.md]
-        T4[refactoring.guru<br/>22 GoF patterns] --> TP
+
+    subgraph TypeScript["🟦 typescript-guidelines"]
+        direction TB
+        T_L1[Lint<br/><i>Oxlint<br/>720 rules</i>]
+        T_L2[Idioms<br/><i>hand-authored<br/>idioms.md</i>]
+        T_L3[Design<br/><i>Google TypeScript<br/>Style Guide</i>]
+        T_L4[Patterns<br/><i>Systemic TypeScript<br/>+ refactoring.guru 22 GoF</i>]
+        T_L1 --- T_L2 --- T_L3 --- T_L4
     end
+
+    classDef delegate fill:#30363d,stroke:#6e7681,color:#8b949e,stroke-dasharray:4 4
 ```
+
+*Every cell above is a separate file in the skill folder. `guidelines.txt`
+and `style.md` feed the lint layer; `idioms.md`, `design.md`, and
+`patterns.md` feed the three conceptual layers above it.*
 
 ## What the agent sees at trigger time
 
