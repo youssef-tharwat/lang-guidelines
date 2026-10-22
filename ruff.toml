@@ -1,0 +1,10 @@
+# Python in this repo is the skill compiler (build/) and the eval tooling (evals/).
+line-length = 120
+target-version = "py311"
+# The skill folders hold generated docs and a bundled ruff.toml for users' projects, not code to lint.
+extend-exclude = ["rust-guidelines", "python-guidelines", "typescript-guidelines", "sources"]
+
+[lint]
+select = ["ALL"]
+# D203/D213 contradict D211/D212; COM812/ISC001 conflict with the formatter.
+ignore = ["D203", "D213", "COM812", "ISC001"]

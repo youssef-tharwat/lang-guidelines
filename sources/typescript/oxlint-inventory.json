@@ -1,0 +1,4361 @@
+{
+ "oxlint_version": "1.89.0",
+ "command": "oxlint --rules --format json",
+ "rules": [
+  {
+   "scope": "eslint",
+   "rule": "accessor-pairs",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "array-callback-return",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "arrow-body-style",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "block-scoped-var",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "capitalized-comments",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "class-methods-use-this",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "complexity",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "constructor-super",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "curly",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "default-case",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "default-case-last",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "default-param-last",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "eqeqeq",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "for-direction",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "func-name-matching",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "func-names",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "func-style",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "getter-return",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "grouped-accessor-pairs",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "guard-for-in",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "id-denylist",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "id-length",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "id-match",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "init-declarations",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "logical-assignment-operators",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "max-classes-per-file",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "max-depth",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "max-lines",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "max-lines-per-function",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "max-nested-callbacks",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "max-params",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "max-statements",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "new-cap",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-alert",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-array-constructor",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-async-promise-executor",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-await-in-loop",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-bitwise",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-caller",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-case-declarations",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-class-assign",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-compare-neg-zero",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-cond-assign",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-console",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-const-assign",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-constant-binary-expression",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-constant-condition",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-constructor-return",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-continue",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-control-regex",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-debugger",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-delete-var",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-div-regex",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-dupe-class-members",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-dupe-else-if",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-dupe-keys",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-duplicate-case",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-duplicate-imports",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-else-return",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-empty",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-empty-character-class",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-empty-function",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-empty-pattern",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-empty-static-block",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-eq-null",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-eval",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-ex-assign",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-extend-native",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-extra-bind",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-extra-boolean-cast",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-extra-label",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-fallthrough",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-func-assign",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-global-assign",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-implicit-coercion",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-implicit-globals",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-implied-eval",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-import-assign",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-inline-comments",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-inner-declarations",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-invalid-regexp",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-irregular-whitespace",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-iterator",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-label-var",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-labels",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-lone-blocks",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-lonely-if",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-loop-func",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-loss-of-precision",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-magic-numbers",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-misleading-character-class",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-multi-assign",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-multi-str",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-negated-condition",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-nested-ternary",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-new",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-new-func",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-new-native-nonconstructor",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-new-wrappers",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-nonoctal-decimal-escape",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-obj-calls",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-object-constructor",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-param-reassign",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-plusplus",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-promise-executor-return",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-proto",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-prototype-builtins",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-redeclare",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-regex-spaces",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-restricted-exports",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-restricted-globals",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-restricted-imports",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-restricted-properties",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-return-assign",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-script-url",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-self-assign",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-self-compare",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-sequences",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-setter-return",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-shadow",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-shadow-restricted-names",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-sparse-arrays",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-template-curly-in-string",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-ternary",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-this-before-super",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-throw-literal",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-unassigned-vars",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-undef",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-undefined",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-underscore-dangle",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-unexpected-multiline",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-unmodified-loop-condition",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-unneeded-ternary",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-unreachable",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-unreachable-loop",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-unsafe-finally",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-unsafe-negation",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-unsafe-optional-chaining",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-unused-expressions",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-unused-labels",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-unused-private-class-members",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-unused-vars",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-use-before-define",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-useless-assignment",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-useless-backreference",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-useless-call",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-useless-catch",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-useless-computed-key",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-useless-concat",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-useless-constructor",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-useless-escape",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-useless-rename",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-useless-return",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-var",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-void",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-warning-comments",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "no-with",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "object-shorthand",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "one-var",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "operator-assignment",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "prefer-arrow-callback",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "prefer-const",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "prefer-destructuring",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "prefer-exponentiation-operator",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "prefer-named-capture-group",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "prefer-numeric-literals",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "prefer-object-has-own",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "prefer-object-spread",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "prefer-promise-reject-errors",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "prefer-regex-literals",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "prefer-rest-params",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "prefer-spread",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "prefer-template",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "preserve-caught-error",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "radix",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "require-await",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "require-unicode-regexp",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "require-yield",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "sort-imports",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "sort-keys",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "sort-vars",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "symbol-description",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "unicode-bom",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "use-isnan",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "valid-typeof",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "vars-on-top",
+   "type_aware": false
+  },
+  {
+   "scope": "eslint",
+   "rule": "yoda",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "consistent-type-specifier-style",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "default",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "export",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "exports-last",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "extensions",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "first",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "group-exports",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "max-dependencies",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "named",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "namespace",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "newline-after-import",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-absolute-path",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-amd",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-anonymous-default-export",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-commonjs",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-cycle",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-default-export",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-duplicates",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-dynamic-require",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-empty-named-blocks",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-mutable-exports",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-named-as-default",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-named-as-default-member",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-named-default",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-named-export",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-namespace",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-nodejs-modules",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-relative-parent-imports",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-self-import",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-unassigned-import",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "no-webpack-loader-syntax",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "prefer-default-export",
+   "type_aware": false
+  },
+  {
+   "scope": "import",
+   "rule": "unambiguous",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "consistent-test-it",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "expect-expect",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "max-expects",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "max-nested-describe",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-alias-methods",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-commented-out-tests",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-conditional-expect",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-conditional-in-test",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-confusing-set-timeout",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-deprecated-functions",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-disabled-tests",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-done-callback",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-duplicate-hooks",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-export",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-focused-tests",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-hooks",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-identical-title",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-interpolation-in-snapshots",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-jasmine-globals",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-large-snapshots",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-mocks-import",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-restricted-jest-methods",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-restricted-matchers",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-standalone-expect",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-test-prefixes",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-test-return-statement",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-unneeded-async-expect-function",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "no-untyped-mock-factory",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "padding-around-after-all-blocks",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "padding-around-test-blocks",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-called-with",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-comparison-matcher",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-each",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-ending-with-an-expect",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-equality-matcher",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-expect-assertions",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-expect-resolves",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-hooks-in-order",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-hooks-on-top",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-importing-jest-globals",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-jest-mocked",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-lowercase-title",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-mock-promise-shorthand",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-mock-return-shorthand",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-snapshot-hint",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-spy-on",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-strict-equal",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-to-be",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-to-contain",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-to-have-been-called",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-to-have-been-called-times",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-to-have-length",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "prefer-todo",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "require-hook",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "require-to-throw-message",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "require-top-level-describe",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "valid-describe-callback",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "valid-expect",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "valid-expect-in-promise",
+   "type_aware": false
+  },
+  {
+   "scope": "jest",
+   "rule": "valid-title",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "check-access",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "check-property-names",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "check-tag-names",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "empty-tags",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "implements-on-classes",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "no-blank-blocks",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "no-defaults",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "require-param",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "require-param-description",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "require-param-name",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "require-param-type",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "require-property",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "require-property-description",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "require-property-name",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "require-property-type",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "require-returns",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "require-returns-description",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "require-returns-type",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "require-throws-description",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "require-throws-type",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "require-yields",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "require-yields-description",
+   "type_aware": false
+  },
+  {
+   "scope": "jsdoc",
+   "rule": "require-yields-type",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "alt-text",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "anchor-ambiguous-text",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "anchor-has-content",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "anchor-is-valid",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "aria-activedescendant-has-tabindex",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "aria-props",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "aria-proptypes",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "aria-role",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "aria-unsupported-elements",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "autocomplete-valid",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "click-events-have-key-events",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "control-has-associated-label",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "heading-has-content",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "html-has-lang",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "iframe-has-title",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "img-redundant-alt",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "interactive-supports-focus",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "label-has-associated-control",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "lang",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "media-has-caption",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "mouse-events-have-key-events",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "no-access-key",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "no-aria-hidden-on-focusable",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "no-autofocus",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "no-distracting-elements",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "no-interactive-element-to-noninteractive-role",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "no-noninteractive-element-interactions",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "no-noninteractive-element-to-interactive-role",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "no-noninteractive-tabindex",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "no-redundant-roles",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "no-static-element-interactions",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "prefer-tag-over-role",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "role-has-required-aria-props",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "role-supports-aria-props",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "scope",
+   "type_aware": false
+  },
+  {
+   "scope": "jsx_a11y",
+   "rule": "tabindex-no-positive",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "google-font-display",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "google-font-preconnect",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "inline-script-id",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "next-script-for-ga",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-assign-module-variable",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-async-client-component",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-before-interactive-script-outside-document",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-css-tags",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-document-import-in-page",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-duplicate-head",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-head-element",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-head-import-in-document",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-html-link-for-pages",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-img-element",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-page-custom-font",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-script-component-in-head",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-styled-jsx-in-document",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-sync-scripts",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-title-in-document-head",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-typos",
+   "type_aware": false
+  },
+  {
+   "scope": "nextjs",
+   "rule": "no-unwanted-polyfillio",
+   "type_aware": false
+  },
+  {
+   "scope": "node",
+   "rule": "callback-return",
+   "type_aware": false
+  },
+  {
+   "scope": "node",
+   "rule": "exports-style",
+   "type_aware": false
+  },
+  {
+   "scope": "node",
+   "rule": "global-require",
+   "type_aware": false
+  },
+  {
+   "scope": "node",
+   "rule": "handle-callback-err",
+   "type_aware": false
+  },
+  {
+   "scope": "node",
+   "rule": "no-exports-assign",
+   "type_aware": false
+  },
+  {
+   "scope": "node",
+   "rule": "no-mixed-requires",
+   "type_aware": false
+  },
+  {
+   "scope": "node",
+   "rule": "no-new-require",
+   "type_aware": false
+  },
+  {
+   "scope": "node",
+   "rule": "no-path-concat",
+   "type_aware": false
+  },
+  {
+   "scope": "node",
+   "rule": "no-process-env",
+   "type_aware": false
+  },
+  {
+   "scope": "node",
+   "rule": "no-sync",
+   "type_aware": false
+  },
+  {
+   "scope": "node",
+   "rule": "no-top-level-await",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "approx-constant",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "bad-array-method-on-arguments",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "bad-bitwise-operator",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "bad-char-at-comparison",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "bad-comparison-sequence",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "bad-match-all-arg",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "bad-min-max-func",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "bad-object-literal-comparison",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "bad-replace-all-arg",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "branches-sharing-code",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "const-comparisons",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "double-comparisons",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "erasing-op",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "misrefactored-assign-op",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "missing-throw",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "no-accumulating-spread",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "no-async-await",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "no-async-endpoint-handlers",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "no-barrel-file",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "no-const-enum",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "no-map-spread",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "no-optional-chaining",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "no-rest-spread-properties",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "no-this-in-exported-function",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "number-arg-out-of-range",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "only-used-in-recursion",
+   "type_aware": false
+  },
+  {
+   "scope": "oxc",
+   "rule": "uninvoked-array-callback",
+   "type_aware": false
+  },
+  {
+   "scope": "promise",
+   "rule": "always-return",
+   "type_aware": false
+  },
+  {
+   "scope": "promise",
+   "rule": "avoid-new",
+   "type_aware": false
+  },
+  {
+   "scope": "promise",
+   "rule": "catch-or-return",
+   "type_aware": false
+  },
+  {
+   "scope": "promise",
+   "rule": "no-callback-in-promise",
+   "type_aware": false
+  },
+  {
+   "scope": "promise",
+   "rule": "no-multiple-resolved",
+   "type_aware": false
+  },
+  {
+   "scope": "promise",
+   "rule": "no-nesting",
+   "type_aware": false
+  },
+  {
+   "scope": "promise",
+   "rule": "no-new-statics",
+   "type_aware": false
+  },
+  {
+   "scope": "promise",
+   "rule": "no-promise-in-callback",
+   "type_aware": false
+  },
+  {
+   "scope": "promise",
+   "rule": "no-return-in-finally",
+   "type_aware": false
+  },
+  {
+   "scope": "promise",
+   "rule": "no-return-wrap",
+   "type_aware": false
+  },
+  {
+   "scope": "promise",
+   "rule": "param-names",
+   "type_aware": false
+  },
+  {
+   "scope": "promise",
+   "rule": "prefer-await-to-callbacks",
+   "type_aware": false
+  },
+  {
+   "scope": "promise",
+   "rule": "prefer-await-to-then",
+   "type_aware": false
+  },
+  {
+   "scope": "promise",
+   "rule": "prefer-catch",
+   "type_aware": false
+  },
+  {
+   "scope": "promise",
+   "rule": "spec-only",
+   "type_aware": false
+  },
+  {
+   "scope": "promise",
+   "rule": "valid-params",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "button-has-type",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "capitalized-calls",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "checked-requires-onchange-or-readonly",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "display-name",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "error-boundaries",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "exhaustive-deps",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "exhaustive-effect-dependencies",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "forbid-component-props",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "forbid-dom-props",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "forbid-elements",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "forward-ref-uses-ref",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "function-component-definition",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "globals",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "hook-use-state",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "hooks",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "iframe-missing-sandbox",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "immutability",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "incompatible-library",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "invariant",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-boolean-value",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-curly-brace-presence",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-filename-extension",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-fragments",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-handler-names",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-key",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-max-depth",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-no-comment-textnodes",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-no-constructed-context-values",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-no-duplicate-props",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-no-literals",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-no-script-url",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-no-target-blank",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-no-undef",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-no-useless-fragment",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-pascal-case",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-props-no-spread-multi",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "jsx-props-no-spreading",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "memo-dependencies",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-array-index-key",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-children-prop",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-clone-element",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-danger",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-danger-with-children",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-deriving-state-in-effects",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-did-mount-set-state",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-did-update-set-state",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-direct-mutation-state",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-find-dom-node",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-is-mounted",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-multi-comp",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-namespace",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-object-type-as-default-prop",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-react-children",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-redundant-should-component-update",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-render-return-value",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-set-state",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-string-refs",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-this-in-sfc",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-unescaped-entities",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-unknown-property",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-unsafe",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-unstable-nested-components",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "no-will-update-set-state",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "only-export-components",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "prefer-es6-class",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "prefer-function-component",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "preserve-manual-memoization",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "purity",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "react-in-jsx-scope",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "refs",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "require-render-return",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "rule-suppression",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "rules-of-hooks",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "self-closing-comp",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "set-state-in-effect",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "set-state-in-render",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "state-in-constructor",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "static-components",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "style-prop-object",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "syntax",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "todo",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "unsupported-syntax",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "use-memo",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "void-dom-elements-no-children",
+   "type_aware": false
+  },
+  {
+   "scope": "react",
+   "rule": "void-use-memo",
+   "type_aware": false
+  },
+  {
+   "scope": "react_perf",
+   "rule": "jsx-no-jsx-as-prop",
+   "type_aware": false
+  },
+  {
+   "scope": "react_perf",
+   "rule": "jsx-no-new-array-as-prop",
+   "type_aware": false
+  },
+  {
+   "scope": "react_perf",
+   "rule": "jsx-no-new-function-as-prop",
+   "type_aware": false
+  },
+  {
+   "scope": "react_perf",
+   "rule": "jsx-no-new-object-as-prop",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "adjacent-overload-signatures",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "array-type",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "await-thenable",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "ban-ts-comment",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "ban-tslint-comment",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "ban-types",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "class-literal-property-style",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "consistent-generic-constructors",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "consistent-indexed-object-style",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "consistent-return",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "consistent-type-assertions",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "consistent-type-definitions",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "consistent-type-exports",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "consistent-type-imports",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "dot-notation",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "explicit-function-return-type",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "explicit-member-accessibility",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "explicit-module-boundary-types",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "method-signature-style",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-array-delete",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-base-to-string",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-confusing-non-null-assertion",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-confusing-void-expression",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-deprecated",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-duplicate-enum-values",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-duplicate-type-constituents",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-dynamic-delete",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-empty-interface",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-empty-object-type",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-explicit-any",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-extra-non-null-assertion",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-extraneous-class",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-floating-promises",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-for-in-array",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-generated-empty-object-type",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-implied-eval",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-import-type-side-effects",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-inferrable-types",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-invalid-void-type",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-meaningless-void-operator",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-misused-new",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-misused-promises",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-misused-spread",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-mixed-enums",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-namespace",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-non-null-asserted-nullish-coalescing",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-non-null-asserted-optional-chain",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-non-null-assertion",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-redundant-type-constituents",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-require-imports",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-restricted-types",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-this-alias",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unnecessary-boolean-literal-compare",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unnecessary-condition",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unnecessary-parameter-property-assignment",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unnecessary-qualifier",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unnecessary-template-expression",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unnecessary-type-arguments",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unnecessary-type-assertion",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unnecessary-type-constraint",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unnecessary-type-conversion",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unnecessary-type-parameters",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unsafe-argument",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unsafe-assignment",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unsafe-call",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unsafe-declaration-merging",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unsafe-enum-comparison",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unsafe-function-type",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unsafe-member-access",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unsafe-return",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unsafe-type-assertion",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-unsafe-unary-minus",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-useless-default-assignment",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-useless-empty-export",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-var-requires",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "no-wrapper-object-types",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "non-nullable-type-assertion-style",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "only-throw-error",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "parameter-properties",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-as-const",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-enum-initializers",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-find",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-for-of",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-function-type",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-includes",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-literal-enum-member",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-namespace-keyword",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-nullish-coalescing",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-optional-chain",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-promise-reject-errors",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-readonly",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-readonly-parameter-types",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-reduce-type-parameter",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-regexp-exec",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-return-this-type",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-string-starts-ends-with",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "prefer-ts-expect-error",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "promise-function-async",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "related-getter-setter-pairs",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "require-array-sort-compare",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "require-await",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "restrict-plus-operands",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "restrict-template-expressions",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "return-await",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "strict-boolean-expressions",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "strict-void-return",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "switch-exhaustiveness-check",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "triple-slash-reference",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "unbound-method",
+   "type_aware": true
+  },
+  {
+   "scope": "typescript",
+   "rule": "unified-signatures",
+   "type_aware": false
+  },
+  {
+   "scope": "typescript",
+   "rule": "use-unknown-in-catch-callback-variable",
+   "type_aware": true
+  },
+  {
+   "scope": "unicorn",
+   "rule": "catch-error-name",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "consistent-assert",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "consistent-date-clone",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "consistent-empty-array-spread",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "consistent-existence-index-check",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "consistent-function-scoping",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "consistent-template-literal-escape",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "custom-error-definition",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "empty-brace-spaces",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "error-message",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "escape-case",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "explicit-length-check",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "explicit-timer-delay",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "filename-case",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "import-style",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "max-nested-calls",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "new-for-builtins",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-abusive-eslint-disable",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-accessor-recursion",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-anonymous-default-export",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-array-callback-reference",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-array-fill-with-reference-type",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-array-for-each",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-array-method-this-argument",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-array-reduce",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-array-reverse",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-array-sort",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-await-expression-member",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-await-in-promise-methods",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-confusing-array-with",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-console-spaces",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-document-cookie",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-empty-file",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-hex-escape",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-immediate-mutation",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-instanceof-array",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-instanceof-builtins",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-invalid-fetch-options",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-invalid-remove-event-listener",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-length-as-slice-end",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-lonely-if",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-magic-array-flat-depth",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-negated-condition",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-negation-in-equality-check",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-nested-ternary",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-new-array",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-new-buffer",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-null",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-object-as-default-parameter",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-process-exit",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-single-promise-in-promise-methods",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-static-only-class",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-thenable",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-this-assignment",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-typeof-undefined",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-unnecessary-array-flat-depth",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-unnecessary-array-splice-count",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-unnecessary-await",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-unnecessary-slice-end",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-unreadable-array-destructuring",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-unreadable-iife",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-useless-collection-argument",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-useless-error-capture-stack-trace",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-useless-fallback-in-spread",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-useless-iterator-to-array",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-useless-length-check",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-useless-promise-resolve-reject",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-useless-spread",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-useless-switch-case",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-useless-undefined",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "no-zero-fractions",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "number-literal-case",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "numeric-separators-style",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-add-event-listener",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-array-find",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-array-flat",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-array-flat-map",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-array-index-of",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-array-some",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-at",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-bigint-literals",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-blob-reading-methods",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-class-fields",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-classlist-toggle",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-code-point",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-date-now",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-default-parameters",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-dom-node-append",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-dom-node-dataset",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-dom-node-remove",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-dom-node-text-content",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-event-target",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-export-from",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-global-this",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-import-meta-properties",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-includes",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-keyboard-event-key",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-logical-operator-over-ternary",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-math-min-max",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-math-trunc",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-modern-dom-apis",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-modern-math-apis",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-module",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-native-coercion-functions",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-negative-index",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-node-protocol",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-number-coercion",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-number-properties",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-object-from-entries",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-optional-catch-binding",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-prototype-methods",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-query-selector",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-reflect-apply",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-regexp-test",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-response-static-json",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-set-has",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-set-size",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-single-call",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-spread",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-string-raw",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-string-replace-all",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-string-slice",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-string-starts-ends-with",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-string-trim-start-end",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-structured-clone",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-ternary",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-top-level-await",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "prefer-type-error",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "relative-url-style",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "require-array-join-separator",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "require-module-attributes",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "require-module-specifiers",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "require-number-to-fixed-digits-argument",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "require-post-message-target-origin",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "switch-case-braces",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "switch-case-break-position",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "text-encoding-identifier-case",
+   "type_aware": false
+  },
+  {
+   "scope": "unicorn",
+   "rule": "throw-new-error",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "consistent-each-for",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "consistent-test-filename",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "consistent-test-it",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "consistent-vitest-vi",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "expect-expect",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "hoisted-apis-on-top",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "max-expects",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "max-nested-describe",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-alias-methods",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-commented-out-tests",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-conditional-expect",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-conditional-in-test",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-conditional-tests",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-disabled-tests",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-duplicate-hooks",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-focused-tests",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-hooks",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-identical-title",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-import-node-test",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-importing-vitest-globals",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-interpolation-in-snapshots",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-large-snapshots",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-mocks-import",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-restricted-matchers",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-restricted-vi-methods",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-standalone-expect",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-test-prefixes",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-test-return-statement",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "no-unneeded-async-expect-function",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "padding-around-after-all-blocks",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "padding-around-test-blocks",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-called-exactly-once-with",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-called-once",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-called-times",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-called-with",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-comparison-matcher",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-describe-function-title",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-each",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-equality-matcher",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-expect-assertions",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-expect-resolves",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-expect-type-of",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-hooks-in-order",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-hooks-on-top",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-import-in-mock",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-importing-vitest-globals",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-lowercase-title",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-mock-promise-shorthand",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-mock-return-shorthand",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-snapshot-hint",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-spy-on",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-strict-boolean-matchers",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-strict-equal",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-to-be",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-to-be-falsy",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-to-be-object",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-to-be-truthy",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-to-contain",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-to-have-been-called-times",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-to-have-length",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "prefer-todo",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "require-awaited-expect-poll",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "require-hook",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "require-local-test-context-for-concurrent-snapshots",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "require-mock-type-parameters",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "require-test-timeout",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "require-to-throw-message",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "require-top-level-describe",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "valid-describe-callback",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "valid-expect",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "valid-expect-in-promise",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "valid-title",
+   "type_aware": false
+  },
+  {
+   "scope": "vitest",
+   "rule": "warn-todo",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "component-definition-name-casing",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "define-emits-declaration",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "define-props-declaration",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "define-props-destructuring",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "max-props",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "next-tick-style",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-arrow-functions-in-watch",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-async-in-computed-properties",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-computed-properties-in-data",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-deprecated-data-object-declaration",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-deprecated-delete-set",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-deprecated-destroyed-lifecycle",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-deprecated-events-api",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-deprecated-model-definition",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-deprecated-props-default-this",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-deprecated-vue-config-keycodes",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-dupe-keys",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-export-in-script-setup",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-expose-after-await",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-import-compiler-macros",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-lifecycle-after-await",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-multiple-slot-args",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-required-prop-with-default",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-reserved-component-names",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-reserved-keys",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-reserved-props",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-shared-component-data",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-side-effects-in-computed-properties",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-this-in-before-route-enter",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "no-watch-after-await",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "prefer-import-from-vue",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "prop-name-casing",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "require-default-export",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "require-default-prop",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "require-direct-export",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "require-prop-type-constructor",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "require-prop-types",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "require-render-return",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "require-slots-as-functions",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "require-typed-ref",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "return-in-computed-property",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "return-in-emits-validator",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "valid-define-emits",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "valid-define-options",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "valid-define-props",
+   "type_aware": false
+  },
+  {
+   "scope": "vue",
+   "rule": "valid-next-tick",
+   "type_aware": false
+  }
+ ]
+}

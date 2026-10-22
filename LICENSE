@@ -22,13 +22,17 @@ SOFTWARE.
 
 ---
 
-Per-rule content ("What it does", "Why is this bad?", examples, configuration
-references) in `*/rules/<slug>/index.md`, and text derived from it in the
-compiled `guidelines.txt`, `style.md`, and `frameworks/*.md` files, is sourced
-from the following upstream projects and carries their respective licenses:
+Upstream text in `sources/*/`, in the generated `*/rules/*.md` and
+`*/patterns/*.md` files, in the vendored lint documentation (`*/lint/`,
+`*/style.md`, `*/frameworks/*.md`), and the per-rule content derived from it,
+is sourced from the following upstream projects and carries their respective
+licenses:
 
 - Rust guidelines — Microsoft Pragmatic Rust Guidelines, MIT
   https://github.com/microsoft/rust-guidelines
+- Rust design guidelines — Google Rust Style Guide, Creative Commons
+  Attribution 3.0 (CC BY 3.0)
+  https://google.github.io/styleguide/rustguide.html
 - Rust community patterns — rust-unofficial/patterns, MPL-2.0
   https://rust-unofficial.github.io/patterns/
 - Rust Gang-of-Four patterns — refactoring.guru, Creative Commons
@@ -37,14 +41,16 @@ from the following upstream projects and carries their respective licenses:
   https://refactoring.guru/design-patterns/rust
 - Python lint rules — Ruff, MIT
   https://docs.astral.sh/ruff/rules/
-- Python design guidelines — Google Python Style Guide, Apache 2.0
+- Python design guidelines — Google Python Style Guide, Creative Commons
+  Attribution 3.0 (CC BY 3.0)
   https://google.github.io/styleguide/pyguide.html
 - Python design patterns — python-patterns.guide by Brandon Rhodes,
   redistributed with attribution
   https://python-patterns.guide/
 - TypeScript & JavaScript lint rules — Oxlint / Oxc project, MIT
   https://oxc.rs/docs/guide/usage/linter/rules
-- TypeScript design guidelines — Google TypeScript Style Guide, Apache 2.0
+- TypeScript design guidelines — Google TypeScript Style Guide, Creative
+  Commons Attribution 3.0 (CC BY 3.0)
   https://google.github.io/styleguide/tsguide.html
 - TypeScript systemic architecture — Systemic TypeScript by Vincent
   Alandev, redistributed with attribution

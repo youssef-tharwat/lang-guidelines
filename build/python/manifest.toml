@@ -1,0 +1,543 @@
+# Python skill manifest: every upstream unit in sources/python/ maps to a rule, a pattern,
+# a lint, or an exclusion with a reason. build/compile.py refuses to build otherwise.
+#
+# Unit ids: G:<anchor> (Google Python Style Guide section, by its page anchor) and
+# P:<path> (python-patterns.guide page, by its URL path). Ruff's Tier 1-2 rules are not
+# units: they reach the model through the generated ruff.toml and the vendored lint/ docs.
+
+# --- Rule groups (card order) -------------------------------------------------------
+
+[[group]]
+id = "imports"
+title = "Imports and modules"
+kind = "rule"
+
+[[group]]
+id = "errors"
+title = "Exceptions"
+kind = "rule"
+
+[[group]]
+id = "functions"
+title = "Functions and arguments"
+kind = "rule"
+
+[[group]]
+id = "types"
+title = "Type annotations"
+kind = "rule"
+
+[[group]]
+id = "classes"
+title = "Classes, properties and accessors"
+kind = "rule"
+
+[[group]]
+id = "features"
+title = "Language features"
+kind = "rule"
+
+[[group]]
+id = "resources"
+title = "Resources, threads and global state"
+kind = "rule"
+
+[[group]]
+id = "strings"
+title = "Strings and logging"
+kind = "rule"
+
+[[group]]
+id = "docs"
+title = "Docstrings and comments"
+kind = "rule"
+
+[[group]]
+id = "naming"
+title = "Naming"
+kind = "rule"
+
+[[group]]
+id = "structure"
+title = "Program structure and tooling"
+kind = "rule"
+
+# --- Pattern groups ----------------------------------------------------------------
+
+[[group]]
+id = "python-patterns"
+title = "Python idioms"
+kind = "pattern"
+
+[[group]]
+id = "gang-of-four"
+title = "Gang of Four, the Python way"
+kind = "pattern"
+
+[[group]]
+id = "background"
+title = "Background"
+kind = "pattern"
+
+# --- Imports and modules -----------------------------------------------------------
+
+[[rule]]
+id = "import-modules"
+group = "imports"
+text = "Import packages and modules, not individual classes or functions (`from sound.effects import echo`, then `echo.EchoFilter(...)`); alias with `as` only for a name clash, a too-generic or too-long name, or a standard abbreviation (`import numpy as np`). Typing symbols from `typing`, `collections.abc` and `typing_extensions` are imported directly."
+why = "Every name says which module it comes from."
+sources = ["G:s2.2-imports", "G:s3.19-type-annotations"]
+
+[[rule]]
+id = "absolute-imports"
+group = "imports"
+text = "Import every module by its full package path; no relative imports, and never assume the main script's directory is on `sys.path`."
+why = "Imports resolve the same way everywhere."
+sources = ["G:s2.2-imports", "G:s2.3-packages"]
+
+[[rule]]
+id = "module-cohesion"
+group = "imports"
+text = "Put related classes and top-level functions together in one module; there is no one-class-per-module rule."
+why = "Modules group by meaning, not by kind."
+sources = ["G:s3.16-naming"]
+
+# --- Exceptions --------------------------------------------------------------------
+
+[[rule]]
+id = "exception-types"
+group = "errors"
+text = "Raise built-in exceptions where they fit (`ValueError` for a violated precondition); a library's own exceptions subclass an existing exception and are named with an `Error` suffix that doesn't repeat the module (`foo.Error`, not `foo.FooError`)."
+why = "Callers can catch precisely."
+sources = ["G:s2.4-exceptions"]
+
+[[rule]]
+id = "no-assert-validation"
+group = "errors"
+text = "Never use `assert` to validate arguments or to guard logic the program depends on; raise instead. `assert` is for tests and for checks that could be deleted without changing behavior."
+why = "Assertions vanish under `python -O`."
+sources = ["G:s2.4-exceptions"]
+
+[[rule]]
+id = "narrow-except"
+group = "errors"
+text = "Never write a bare `except:` or catch `Exception` unless you re-raise or sit at an isolation point that records the error (such as a thread's outermost block); keep `try` bodies minimal and put cleanup in `finally` or a `with` block."
+why = "Broad handlers hide typos, real bugs and Ctrl+C."
+sources = ["G:s2.4-exceptions"]
+
+[[rule]]
+id = "error-messages"
+group = "errors"
+text = "Error and log messages state exactly the condition that failed, mark interpolated values clearly (`f'Not a probability: {p=}'`), and stay easy to grep."
+why = "A message that guesses misleads whoever debugs it."
+sources = ["G:s3.10-strings"]
+
+# --- Functions and arguments -------------------------------------------------------
+
+[[rule]]
+id = "no-mutable-defaults"
+group = "functions"
+text = "Never use a mutable or call-time value as a default argument (`[]`, `{}`, `time.time()`, a flag's value); default to `None` or an immutable value such as `()` and build the real value inside the function."
+why = "Defaults are evaluated once, when the function is defined."
+sources = ["G:s2.12-default-argument-values"]
+
+[[rule]]
+id = "small-functions"
+group = "functions"
+text = "Keep functions small and focused; past about 40 lines, look for a split that keeps the structure clear."
+why = "Long functions breed hard-to-find bugs as they grow."
+sources = ["G:s3.18-function-length"]
+
+[[rule]]
+id = "nested-functions"
+group = "functions"
+text = "Nest a function or class only to close over a local value other than `self` or `cls`; to hide a helper, give it a leading `_` at module level instead, so tests can reach it."
+why = "Nested functions can't be tested directly."
+sources = ["G:s2.6-nested", "G:s2.16-lexical-scoping"]
+
+[[rule]]
+id = "lambdas"
+group = "functions"
+text = "Use a lambda only for a short one-liner; prefer a generator expression to `map`/`filter` with a lambda, and `operator` functions (`operator.mul`) to trivial lambdas."
+why = "Named functions read and debug better."
+sources = ["G:s2.10-lambda-functions"]
+
+[[rule]]
+id = "decorators"
+group = "functions"
+text = "Use a decorator only for a clear advantage: say in its docstring that it is a decorator, test it, and keep files, sockets and databases out of it. Never use `staticmethod` (write a module-level function); use `classmethod` only for named constructors or class-wide state."
+why = "Decorators run at import time and their failures are unrecoverable."
+sources = ["G:s2.17-function-and-method-decorators"]
+
+# --- Type annotations --------------------------------------------------------------
+
+[[rule]]
+id = "annotate-public-apis"
+group = "types"
+text = "Annotate public APIs and code prone to type errors, and run a type checker; annotate a variable when its type is hard to infer (`a: Foo = make()`), never with `# type:` comments."
+why = "The checker turns runtime errors into build-time errors."
+sources = ["G:s2.21-type-annotated-code", "G:s3.19-type-annotations"]
+
+[[rule]]
+id = "explicit-types"
+group = "types"
+text = "Write `X | None` for anything that can be `None`, never an implicit optional (`a: str = None`); give generic types their parameters (`Sequence[int]`, not a bare `Sequence`), and make an intended `Any` explicit, or use a `TypeVar`."
+why = "Unparameterized generics silently become `Any`."
+sources = ["G:s3.19-type-annotations"]
+
+[[rule]]
+id = "abstract-parameter-types"
+group = "types"
+text = "Annotate parameters with abstract types (`collections.abc.Sequence`, `Mapping`) and write built-in generics (`list[int]`, `tuple[int, ...]`), not `typing.List` or `typing.Tuple`; use `str` for text and `bytes` for binary data, never `typing.Text`."
+why = "Callers can pass any conforming container."
+sources = ["G:s3.19-type-annotations"]
+
+[[rule]]
+id = "typing-imports"
+group = "types"
+text = "Import typing symbols directly (`from collections.abc import Mapping, Sequence`); put imports needed only for annotations under `if TYPE_CHECKING:` as a last resort, and treat typing-induced import cycles as a reason to refactor."
+why = "Annotations stay short and cycles get fixed, not hidden."
+sources = ["G:s3.19-type-annotations"]
+
+[[rule]]
+id = "forward-references"
+group = "types"
+text = "Use `from __future__ import annotations` (or a string annotation) to refer to a class not yet defined, and keep existing `__future__` imports until every runtime that uses the code is modern."
+why = "Forward references work without reordering code."
+sources = ["G:s2.20-modern-python", "G:s3.19-type-annotations"]
+
+# --- Classes, properties and accessors ---------------------------------------------
+
+[[rule]]
+id = "properties"
+group = "classes"
+text = "Use `@property` only for cheap, unsurprising computed or access-controlled values; not to wrap a plain attribute (make it public), not for costly work, and not for logic a subclass may need to override."
+why = "Attribute access must stay cheap and predictable."
+sources = ["G:s2.13-properties"]
+
+[[rule]]
+id = "accessors"
+group = "classes"
+text = "Write `get_x()`/`set_x()` only when access is costly or has effects (such as invalidating state); otherwise expose the attribute. When access becomes costly, replace the property rather than hiding the cost behind it."
+why = "A function call signals that real work happens."
+sources = ["G:s3.15-accessors"]
+
+# --- Language features -------------------------------------------------------------
+
+[[rule]]
+id = "simple-comprehensions"
+group = "features"
+text = "Keep comprehensions and generator expressions to one `for` clause and at most one filter; write a loop beyond that."
+why = "Nested comprehensions are hard to read."
+sources = ["G:s2.7-comprehensions"]
+
+[[rule]]
+id = "default-iterators"
+group = "features"
+text = "Iterate containers directly (`for key in d`, `for k, v in d.items()`, `for line in f`) and test membership with `in`; don't iterate `.keys()` or `.readlines()`, and never mutate a container while iterating it."
+why = "Direct iteration is simpler, faster and generic."
+sources = ["G:s2.8-default-iterators-and-operators"]
+
+[[rule]]
+id = "implicit-false"
+group = "features"
+text = "Test emptiness with implicit truth (`if not users:`), but compare to `None` with `is`/`is not`, never compare to `False` with `==`, and compare a possibly-`None` integer to `0` explicitly; use `.size` for NumPy arrays."
+why = "Implicit truth reads well; `None` and `0` must not be confused."
+sources = ["G:s2.14-truefalse-evaluations"]
+
+[[rule]]
+id = "conditional-expressions"
+group = "features"
+text = "Use a conditional expression only when each of its three parts fits on one line; otherwise write an `if` statement."
+why = "Long ternaries hide the condition."
+sources = ["G:s2.11-conditional-expressions"]
+
+[[rule]]
+id = "generators"
+group = "features"
+text = "Use generators freely; document them with `Yields:`, and wrap one that holds an expensive resource in a context manager so cleanup is forced."
+why = "A suspended generator keeps its locals alive."
+sources = ["G:s2.9-generators"]
+
+[[rule]]
+id = "no-power-features"
+group = "features"
+text = "Avoid metaclasses, bytecode access, on-the-fly compilation, dynamic inheritance, object reparenting, import hacks, reflection tricks and custom `__del__` cleanup; standard tools built on them (`dataclasses`, `enum`, `abc`) are fine."
+why = "Clever code is hard to read, debug and type-check."
+sources = ["G:s2.19-power-features"]
+
+# --- Resources, threads and global state -------------------------------------------
+
+[[rule]]
+id = "with-resources"
+group = "resources"
+text = "Manage files, sockets, database connections and similar resources with `with` (or `contextlib.closing`); never rely on garbage collection or `__del__` to close them."
+why = "Finalizers run late or never, and leak scarce handles."
+sources = ["G:s3.11-files-sockets-closeables"]
+
+[[rule]]
+id = "thread-communication"
+group = "resources"
+text = "Don't rely on the atomicity of built-in types; pass data between threads with `queue.Queue`, or with `threading` locks, preferring `threading.Condition`."
+why = "Built-in operations are not reliably atomic."
+sources = ["G:s2.18-threading"]
+
+[[rule]]
+id = "global-state"
+group = "resources"
+text = "Avoid mutable global state; when it is unavoidable, make it module-internal (`_name`), reach it through functions, and comment why. Module-level constants (`MAX_RETRIES = 3`) are encouraged."
+why = "Global state breaks encapsulation and runs at import."
+sources = ["G:s2.5-global-variables"]
+
+# --- Strings and logging -----------------------------------------------------------
+
+[[rule]]
+id = "string-building"
+group = "strings"
+text = "Format with f-strings, `%` or `.format()`, not `+` chains; in loops collect pieces in a list and `''.join()` them (or write to `io.StringIO`) instead of `+=`; keep one quote style per file, use `\"\"\"` for multi-line strings, and `textwrap.dedent` to avoid stray indentation."
+why = "Concatenation in loops can turn quadratic."
+sources = ["G:s3.10-strings"]
+
+[[rule]]
+id = "lazy-logging"
+group = "strings"
+text = "Call logging functions with a constant pattern string plus arguments (`logger.info('Loaded %s', path)`), never an f-string."
+why = "The pattern stays queryable and unlogged messages are never rendered."
+sources = ["G:s3.10-strings"]
+
+# --- Docstrings and comments -------------------------------------------------------
+
+[[rule]]
+id = "docstrings"
+group = "docs"
+text = "Give modules, public functions and classes `\"\"\"` docstrings: a one-line summary ending in a period, then details. Functions document `Args:`, `Returns:` (or `Yields:`) and the interface-relevant `Raises:` (not API-misuse errors); classes say what an instance is and list public attributes under `Attributes:`. An `@override` method needs no docstring unless it changes the contract."
+why = "Callers should not need to read the body."
+sources = ["G:s3.8-comments-and-docstrings"]
+
+[[rule]]
+id = "comments"
+group = "docs"
+text = "Comment the tricky parts and explain why, never narrate what the code already says; write comments as proper sentences."
+why = "Readers know Python; they don't know your intent."
+sources = ["G:s3.8-comments-and-docstrings"]
+
+[[rule]]
+id = "todo-format"
+group = "docs"
+text = "Write TODOs as `# TODO: <issue link> - <what to do>`, never with a person as the context, and with a specific date or event when they are time-bound."
+why = "TODOs stay searchable and actionable."
+sources = ["G:s3.12-todo-comments"]
+
+# --- Naming ------------------------------------------------------------------------
+
+[[rule]]
+id = "naming-conventions"
+group = "naming"
+text = "Use `lower_with_under` for modules, packages, functions, methods, variables and parameters, `CapWords` for classes and exceptions, `CAPS_WITH_UNDER` for constants, and one leading `_` for internal names (not `__`); name `.py` files without dashes."
+why = "Readers infer kind and visibility from the name."
+sources = ["G:s3.16-naming"]
+
+[[rule]]
+id = "descriptive-names"
+group = "naming"
+text = "Make names descriptive in proportion to their scope: no single letters except counters, `e` for exceptions, `f` for files and cited mathematical notation; no type in the name (`id_to_name`, not `id_to_name_dict`); no abbreviations outsiders can't decode or words with letters dropped."
+why = "A name is read far more often than it is written."
+sources = ["G:s3.16-naming"]
+
+[[rule]]
+id = "type-names"
+group = "naming"
+text = "Name type aliases in `CapWords` (`_Private` when module-local) and type variables descriptively (`AddableType`), except private, unconstrained ones (`_T`, `_P`)."
+why = "Exported type names carry meaning."
+sources = ["G:s3.19-type-annotations"]
+
+# --- Program structure and tooling -------------------------------------------------
+
+[[rule]]
+id = "main-guard"
+group = "structure"
+text = "Put an executable's logic in `main()`, called under `if __name__ == '__main__':`, and do nothing at import time beyond definitions; start only directly executed files with `#!/usr/bin/env python3`."
+why = "Modules stay importable by tests and tools."
+sources = ["G:s3.17-main", "G:s3.7-shebang-line"]
+
+[[rule]]
+id = "run-the-linter"
+group = "structure"
+text = "Lint what you write (see Lint layer); when a warning is genuinely wrong, suppress it on that line by rule name with the reason, never file-wide."
+why = "Suppressions stay visible and searchable."
+sources = ["G:s2.1-lint"]
+
+[[rule]]
+id = "be-consistent"
+group = "structure"
+text = "Where the card is silent, match the style of the surrounding code, but don't keep an old style only for consistency when a newer one is clearly better."
+why = "Local consistency keeps code readable."
+sources = ["G:4-parting-words"]
+
+# --- Patterns: Python idioms -------------------------------------------------------
+
+[[pattern]]
+id = "module-globals"
+group = "python-patterns"
+when = "Share constants, or one global object, through module-level names; a module is already a singleton namespace."
+sources = ["P:python/module-globals"]
+
+[[pattern]]
+id = "sentinel-object"
+group = "python-patterns"
+when = "Mark \"no value\" with `None`, or with a unique `object()` sentinel when `None` is itself a valid value."
+sources = ["P:python/sentinel-object"]
+
+[[pattern]]
+id = "prebound-methods"
+group = "python-patterns"
+when = "Offer module-level callables that share state by binding them to one instance (`random.random` style)."
+sources = ["P:python/prebound-methods"]
+
+[[pattern]]
+id = "composition-over-inheritance"
+group = "python-patterns"
+when = "Avoid a subclass explosion: compose objects (adapters, bridges, decorators) instead of multiplying subclasses."
+sources = ["P:gang-of-four/composition-over-inheritance"]
+
+# --- Patterns: Gang of Four --------------------------------------------------------
+
+[[pattern]]
+id = "abstract-factory"
+group = "gang-of-four"
+when = "Need families of objects created elsewhere? Pass a class or a factory callable instead of a factory object."
+sources = ["P:gang-of-four/abstract-factory"]
+
+[[pattern]]
+id = "builder"
+group = "gang-of-four"
+when = "Rarely needed in Python: keyword arguments with defaults cover most construction; a builder suits only genuinely step-by-step assembly."
+sources = ["P:gang-of-four/builder"]
+
+[[pattern]]
+id = "factory-method"
+group = "gang-of-four"
+when = "A poor fit: pass the class or callable to use (dependency injection) instead of overriding a factory method."
+sources = ["P:gang-of-four/factory-method"]
+
+[[pattern]]
+id = "prototype"
+group = "gang-of-four"
+when = "Unnecessary with first-class classes and functions; pass a class, a callable or a configured instance to copy."
+sources = ["P:gang-of-four/prototype"]
+
+[[pattern]]
+id = "singleton"
+group = "gang-of-four"
+when = "One shared instance: use a module-level object (the Global Object pattern), not a class that blocks instantiation."
+sources = ["P:gang-of-four/singleton"]
+
+[[pattern]]
+id = "composite"
+group = "gang-of-four"
+when = "Treat containers and leaves (files and directories, widgets) through one interface."
+sources = ["P:gang-of-four/composite"]
+
+[[pattern]]
+id = "decorator-pattern"
+group = "gang-of-four"
+when = "Adjust one object's behavior by wrapping it in an object with the same interface (not the `@decorator` syntax)."
+sources = ["P:gang-of-four/decorator-pattern"]
+
+[[pattern]]
+id = "flyweight"
+group = "gang-of-four"
+when = "Share immutable instances for equal values, through a factory or cache, as Python does for small ints and identifiers."
+sources = ["P:gang-of-four/flyweight"]
+
+[[pattern]]
+id = "iterator"
+group = "gang-of-four"
+when = "Make a container iterable with `__iter__` or a generator; the pattern is built into the language."
+sources = ["P:gang-of-four/iterator"]
+
+# --- Patterns: background ----------------------------------------------------------
+
+[[pattern]]
+id = "gang-of-four-overview"
+group = "background"
+when = "Why most Gang of Four patterns shrink or vanish in a language with first-class functions and classes."
+sources = ["P:gang-of-four"]
+
+[[pattern]]
+id = "fowler-refactoring"
+group = "background"
+when = "Where Martin Fowler's refactoring catalogue fits, as a vocabulary for restructuring code."
+sources = ["P:fowler-refactoring"]
+
+# --- Backed by rules in the generated ruff.toml --------------------------------------
+
+[[lint]]
+lint = "B006 mutable-argument-default"
+sources = ["G:s2.12-default-argument-values"]
+
+[[lint]]
+lint = "BLE001 blind-except"
+sources = ["G:s2.4-exceptions"]
+
+[[lint]]
+lint = "S101 assert"
+sources = ["G:s2.4-exceptions"]
+
+[[lint]]
+lint = "G004 logging-f-string"
+sources = ["G:s3.10-strings"]
+
+[[lint]]
+lint = "SIM115 open-file-with-context-handler"
+sources = ["G:s3.11-files-sockets-closeables"]
+
+[[lint]]
+lint = "SIM118 in-dict-keys"
+sources = ["G:s2.8-default-iterators-and-operators"]
+
+[[lint]]
+lint = "UP006 non-pep585-annotation"
+sources = ["G:s3.19-type-annotations"]
+
+[[lint]]
+lint = "UP007 non-pep604-annotation-union"
+sources = ["G:s3.19-type-annotations"]
+
+# --- Deliberately excluded ---------------------------------------------------------
+
+[[exclusion]]
+unit = "G:s1-background"
+reason = "Context only; formatting is delegated to the formatter in SKILL.md."
+
+[[exclusion]]
+unit = "G:s3.1-semicolons"
+reason = "Formatting: enforced by the formatter (ruff format)."
+
+[[exclusion]]
+unit = "G:s3.2-line-length"
+reason = "Formatting: enforced by the formatter (ruff format)."
+
+[[exclusion]]
+unit = "G:s3.3-parentheses"
+reason = "Formatting: enforced by the formatter (ruff format)."
+
+[[exclusion]]
+unit = "G:s3.4-indentation"
+reason = "Formatting: enforced by the formatter (ruff format)."
+
+[[exclusion]]
+unit = "G:s3.5-blank-lines"
+reason = "Formatting: enforced by the formatter (ruff format)."
+
+[[exclusion]]
+unit = "G:s3.6-whitespace"
+reason = "Formatting: enforced by the formatter (ruff format)."
+
+[[exclusion]]
+unit = "G:s3.13-imports-formatting"
+reason = "Formatting: import order and grouping are enforced by Ruff's import sorter (I) and the formatter."
+
+[[exclusion]]
+unit = "G:s3.14-statements"
+reason = "Formatting: enforced by the formatter (ruff format)."

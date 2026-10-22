@@ -1,0 +1,1162 @@
+# Rust skill manifest: every upstream unit in sources/rust/ maps to a rule, a pattern,
+# a lint, or an exclusion with a reason. build/compile.py refuses to build otherwise.
+#
+# Unit ids: M-* (Microsoft guideline id), G:<anchor> (Google style guide section),
+# P:<path> (rust-unofficial page), GOF:<slug> (refactoring.guru page).
+# A rule's `text` is the one line the model reads on the card; where the upstream
+# guides conflict, the text states the resolved rule (Microsoft over Google).
+# scope: "all" (default), "lib" (binding in crates other crates depend on), "app".
+
+# --- Rule groups (card order) -------------------------------------------------------
+
+[[group]]
+id = "errors"
+title = "Errors and panics"
+kind = "rule"
+
+[[group]]
+id = "signatures"
+title = "Function signatures"
+kind = "rule"
+
+[[group]]
+id = "types"
+title = "Types and construction"
+kind = "rule"
+
+[[group]]
+id = "ownership"
+title = "Ownership and sharing"
+kind = "rule"
+
+[[group]]
+id = "traits"
+title = "Traits, impls and generics"
+kind = "rule"
+
+[[group]]
+id = "modules"
+title = "Modules, crates and imports"
+kind = "rule"
+
+[[group]]
+id = "surface"
+title = "Public API surface"
+kind = "rule"
+
+[[group]]
+id = "naming"
+title = "Naming"
+kind = "rule"
+
+[[group]]
+id = "docs"
+title = "Documentation"
+kind = "rule"
+
+[[group]]
+id = "unsafe"
+title = "Unsafe and FFI"
+kind = "rule"
+
+[[group]]
+id = "macros"
+title = "Macros"
+kind = "rule"
+
+[[group]]
+id = "async"
+title = "Async, concurrency and performance"
+kind = "rule"
+
+[[group]]
+id = "testing"
+title = "Logging, testing and tooling"
+kind = "rule"
+
+[[group]]
+id = "project"
+title = "Workspace and project"
+kind = "rule"
+
+[[group]]
+id = "style"
+title = "Implementation style"
+kind = "rule"
+
+# --- Pattern groups ----------------------------------------------------------------
+
+[[group]]
+id = "rust-patterns"
+title = "Rust patterns"
+kind = "pattern"
+
+[[group]]
+id = "gang-of-four"
+title = "Gang of Four in Rust"
+kind = "pattern"
+
+[[group]]
+id = "background"
+title = "Background"
+kind = "pattern"
+
+# --- Errors and panics -------------------------------------------------------------
+
+[[rule]]
+id = "error-contract"
+group = "errors"
+text = "Return `Option` when absence is the only failure, `Result` when callers must tell failures apart, and `panic!` only for a detected bug or broken invariant, never for bad input, I/O or control flow."
+why = "A panic means stop the program; it is not an exception."
+sources = ["G:reporting-errors", "M-PANIC-IS-STOP", "M-PANIC-ON-BUG"]
+
+[[rule]]
+id = "library-errors"
+group = "errors"
+scope = "lib"
+text = "Give each operation family its own error struct, not one crate-wide enum: it holds a `Backtrace` and the upstream cause, keeps any `ErrorKind` private behind `is_xxx()` methods, and implements `Debug`, `Display` and `std::error::Error`. This overrides Google's advice to make error types `Copy`."
+why = "Callers get context and an error API that can evolve."
+sources = ["M-ERRORS-CANONICAL-STRUCTS"]
+
+[[rule]]
+id = "app-errors"
+group = "errors"
+scope = "app"
+text = "Application crates, and crates only the application uses, may use one app-level error type such as `ohno::AppError`, `anyhow` or `eyre` throughout; don't mix several."
+why = "Nobody matches on these errors; context matters more than variants."
+sources = ["M-APP-ERROR"]
+
+[[rule]]
+id = "expect-not-unwrap"
+group = "errors"
+text = "Prove `Some`/`Ok` with `if let`, `match` or `let ... else` instead of checking then unwrapping; when a panic is justified, write `.expect(\"why this cannot fail\")`, not `.unwrap()`."
+why = "The panic site documents its invariant."
+sources = ["G:prefer-expect-over-unwrap", "G:prefer-pattern-matching-over-check-then-unwrap"]
+
+[[rule]]
+id = "poison-is-panic"
+group = "errors"
+text = "Treat a poisoned lock as a panic (`lock().expect(\"...\")`); never recover the guard from a `PoisonError`."
+why = "Poison means another thread already panicked mid-update."
+sources = ["G:handling-poison"]
+
+[[rule]]
+id = "no-catch-unwind"
+group = "errors"
+text = "Use `panic::catch_unwind` only as a last resort at an entry point (for example per request in a server, so other requests can finish) and then restart the application; libraries never catch a panic to continue, and code must stay correct under `panic = \"abort\"`."
+why = "A caught panic can leave otherwise impossible state behind."
+sources = ["G:dont-call-paniccatch_unwind", "M-PANIC-CONTINUATION"]
+
+[[rule]]
+id = "panic-messages"
+group = "errors"
+text = "Every intentional panic (`panic!`, `assert!`, `unreachable!`, `todo!`, `expect`) carries a message that says what went wrong with the relevant values and, for assertions, why the condition must hold or who is at fault; never just restate the condition. Tests may skip messages."
+why = "The message is what shows up in logs."
+sources = ["G:use-context-strings-to-clarify-assertions", "M-PANIC-MESSAGE"]
+
+[[rule]]
+id = "from-error"
+group = "errors"
+text = "Convert into your own error types with `impl From<Other> for Error` and `?`, not `map_err` repeated at call sites; keep `map_err` for foreign error types or when adding context."
+why = "The conversion is defined once and the happy path stays readable."
+sources = ["M-FROM-ERROR"]
+
+[[rule]]
+id = "return-consumed-arg"
+group = "errors"
+text = "A fallible function that consumes an argument returns it inside the error, so the caller can retry without cloning first."
+why = "Avoids defensive clones before every call."
+sources = ["P:idioms/return-consumed-arg-on-error"]
+
+# --- Function signatures -----------------------------------------------------------
+
+[[rule]]
+id = "borrowed-params"
+group = "signatures"
+text = "Take parameters in their most general borrowed form (`&str`, `&[T]`, `&T`, `Option<&T>`) and keep `Rc`, `Arc`, `Box`, `RefCell` and `Mutex` out of public signatures unless the pointer is the API's purpose."
+why = "Callers pass what they hold without copying or wrapping."
+sources = ["G:accept-flexible-references-for-immutable-data", "M-AVOID-WRAPPERS", "P:idioms/coercion-arguments"]
+
+[[rule]]
+id = "asref-params"
+group = "signatures"
+scope = "lib"
+text = "Accept `impl AsRef<str>`, `impl AsRef<Path>` or `impl AsRef<[u8]>` when a function only reads the value; never put such bounds on a struct's type parameters."
+why = "Callers pass `String`, `&str`, `PathBuf` and friends alike."
+sources = ["M-IMPL-ASREF"]
+
+[[rule]]
+id = "into-params"
+group = "signatures"
+scope = "lib"
+text = "Accept `impl Into<T>` only where call-site ergonomics dominate; application code takes `T`."
+why = "Generic parameters cost code size and inference clarity."
+sources = ["G:accepting-into"]
+
+[[rule]]
+id = "sans-io-params"
+group = "signatures"
+text = "Code that only reads or writes a stream takes `impl Read`/`impl Write` (or the async equivalents), not a `File` or a socket."
+why = "Parsing stays testable and independent of where bytes come from."
+sources = ["M-IMPL-IO"]
+
+[[rule]]
+id = "range-params"
+group = "signatures"
+text = "Take ranges as `Range<T>` or `impl RangeBounds<T>`, never as two numbers or a tuple."
+why = "Callers write `1..3`, `..` or `5..`."
+sources = ["M-IMPL-RANGEBOUNDS"]
+
+[[rule]]
+id = "iterator-boundaries"
+group = "signatures"
+scope = "lib"
+text = "Functions that only iterate accept `impl IntoIterator`; return `impl Iterator` rather than a freshly built `Vec` unless callers need an owned, indexable collection. Application code may use slices and `Vec`."
+why = "Callers choose how to consume and skip allocations."
+sources = ["G:iterators-vs-owned-collections-in-return-types", "G:iterators-vs-slices-in-function-parameters"]
+
+[[rule]]
+id = "enum-not-bool"
+group = "signatures"
+text = "Use a two-variant `enum` instead of a `bool` parameter whose meaning is unclear at the call site."
+why = "`render(doc, Mode::Draft)` reads; `render(doc, true)` doesn't."
+sources = ["G:prefer-enum-over-bool-in-apis"]
+
+[[rule]]
+id = "parameter-order"
+group = "signatures"
+text = "Order recurring parameters the same way in every function: call-specific ones first, ubiquitous ones such as `&logger` last, and a closure always last (at most one closure per function)."
+why = "Callers stop checking the order at every call."
+sources = ["M-PARAMETER-CONSISTENCY"]
+
+# --- Types and construction --------------------------------------------------------
+
+[[rule]]
+id = "strong-types"
+group = "types"
+text = "Use the strongest type as early as possible: `Path`/`PathBuf` for anything OS-facing, newtypes for IDs, units and values that are easy to mix up; keep plain numbers for purely numeric public values."
+why = "The compiler catches the mix-ups."
+sources = ["M-STRONG-TYPES", "G:newtypes-versus-type-aliases", "P:patterns/behavioural/newtype"]
+
+[[rule]]
+id = "guarded-newtypes"
+group = "types"
+text = "A newtype that encodes an invariant enforces it: the field is private, at least one constructor is fallible (`from_x() -> Result`), conversions from weaker types use `TryFrom`/`FromStr` (never an infallible `From`), and any panicking `new()` is preferably `const`."
+why = "The invariant is checked once, at the boundary, and trusted after."
+sources = ["M-STRONG-TYPES-GUARD"]
+
+[[rule]]
+id = "named-fields"
+group = "types"
+text = "Use named fields instead of tuples or multi-field tuple structs, except one-field newtypes and very local code."
+why = "`.0` and `.1` stop meaning anything quickly."
+sources = ["G:prefer-named-fields-over-tuples-and-non-newtype-tuple-structs"]
+
+[[rule]]
+id = "constructors"
+group = "types"
+text = "Construct with an inherent `new()` (`try_new()` when it returns `Result`, `new_with_x()` for alternatives, `from_x()` beside an important `From` impl); also implement `Default` when there is a default state, keeping `new()`."
+why = "Constructors live where users look for them."
+sources = ["G:naming-initialization-functions", "G:pair-important-from-impls-with-explicit-constructor-methods", "P:idioms/ctor", "P:idioms/default", "M-UPSTREAM-GUIDELINES"]
+
+[[rule]]
+id = "builders"
+group = "types"
+text = "Give a type with 4+ optional initialization combinations a builder: `Foo::builder(required)` returns `FooBuilder`, setters are chainable, infallible and named `x()` (not `set_x()`), `.build()` finishes and does all validation (returning `Result` if construction can fail), and `FooBuilder::new()` is not public."
+why = "Construction can grow without breaking callers."
+sources = ["M-INIT-BUILDER", "M-BUILD-RESULT", "P:patterns/creational/builder"]
+
+[[rule]]
+id = "group-params"
+group = "types"
+text = "When construction needs 4+ parameters, group them into semantic helper types or newtypes instead of a long argument list."
+why = "Prevents silently swapped arguments."
+sources = ["M-INIT-CASCADED"]
+
+[[rule]]
+id = "options-default"
+group = "types"
+text = "Give options structs (all-public fields, passed to one function) a `Default` impl so callers write `..Default::default()`."
+why = "Callers set only what they care about."
+sources = ["G:options-structs-should-implement-default"]
+
+# --- Ownership and sharing ---------------------------------------------------------
+
+[[rule]]
+id = "unique-ownership"
+group = "ownership"
+text = "Prefer unique ownership and borrowing over `Rc`/`Arc`; use shared ownership only when the borrow structure would be unreasonably complex, or for `services-clone`."
+why = "Shared pointers add runtime cost and hide who owns what."
+sources = ["G:avoid-rc-and-arc"]
+
+[[rule]]
+id = "services-clone"
+group = "ownership"
+scope = "lib"
+text = "Heavyweight services shared across components are cheap `Clone` handles over an `Arc<Inner>` that callers clone freely."
+why = "Many components can share one service without lifetimes."
+sources = ["M-SERVICES-CLONE"]
+
+[[rule]]
+id = "no-borrowck-clones"
+group = "ownership"
+text = "Don't `.clone()` to silence the borrow checker: borrow, split the struct so fields borrow independently, or move with `mem::take`; clone only when you need an independent copy."
+why = "Hidden deep copies cost time and mask design problems."
+sources = ["G:prefer-borrows-over-deep-copies", "P:anti/patterns/borrow/clone", "P:patterns/structural/compose-structs"]
+
+[[rule]]
+id = "mem-take"
+group = "ownership"
+text = "To move a value out of a `&mut` (for example when switching an enum variant), use `mem::take` or `mem::replace` instead of cloning."
+why = "Moves without allocating."
+sources = ["P:idioms/mem-replace"]
+
+[[rule]]
+id = "raii-cleanup"
+group = "ownership"
+text = "Put cleanup in `Drop`, using RAII guards that borrow the resource, rather than repeating it at every return path."
+why = "Runs on every exit, including `?` and unwinding."
+sources = ["P:idioms/dtor-finally", "P:patterns/behavioural/RAII"]
+
+[[rule]]
+id = "avoid-statics"
+group = "ownership"
+scope = "lib"
+text = "Don't keep correctness-relevant state in `static`s or thread-locals; pass it explicitly. Statics that only cache are fine."
+why = "Two linked versions of a crate each get their own copy."
+sources = ["M-AVOID-STATICS"]
+
+# --- Traits, impls and generics ----------------------------------------------------
+
+[[rule]]
+id = "rust-shaped"
+group = "traits"
+text = "When porting from C#, Java, C++ or similar, carry over the domain logic but not the technical constructs: errors, threads and tasks, component lifetimes, parameter ownership and interfaces get Rust idioms, not a 1:1 translation."
+why = "Striking technical similarity to the source language signals architectural problems."
+sources = ["M-RUST-SHAPED"]
+
+[[rule]]
+id = "dependency-ladder"
+group = "traits"
+text = "For a swappable dependency, climb only as far as needed: a concrete type, then an enum with a mock variant, then narrow traits taken as generics, then a named wrapper around `Arc<dyn Trait>` once generics nest. Don't port interface-style `Rc<dyn Trait>` designs."
+why = "Each step up costs composability and clarity."
+sources = ["M-DI-HIERARCHY", "G:generics-versus-dyn-trait"]
+
+[[rule]]
+id = "trait-or-inherent"
+group = "traits"
+text = "Define a trait only for generic bounds, `impl Trait`/`dyn Trait`, or an extension; implement core functionality as inherent methods and have trait impls forward to them. Don't use traits to organize code."
+why = "Callers find methods without importing traits."
+sources = ["G:when-to-define-a-trait-versus-an-inherent-implementation", "M-ESSENTIAL-FN-INHERENT"]
+
+[[rule]]
+id = "free-functions"
+group = "traits"
+text = "Functionality that needs no receiver is a free function, not an associated function; associated functions are for construction."
+why = "Free functions are first-class in Rust."
+sources = ["M-REGULAR-FN"]
+
+[[rule]]
+id = "extension-traits"
+group = "traits"
+text = "Name an extension trait `<Type>Ext` and keep it in the crate that owns the type, unless it is foundational."
+why = "Avoids method-name clashes between extensions."
+sources = ["G:extension-traits", "G:naming-extension-traits"]
+
+[[rule]]
+id = "std-traits"
+group = "traits"
+text = "Implement the standard trait (`FromStr`, `From`, `Default`, `Display`, `Iterator`, ...) instead of a look-alike inherent method, and `#[derive]` whenever a derive fits."
+why = "Generic code, `?` and `collect` work with std traits."
+sources = ["G:implement-known-standard-library-traits-instead-of-custom-methods", "G:use-derive-if-possible"]
+
+[[rule]]
+id = "common-traits"
+group = "traits"
+text = "Implement the common traits that fit (libraries eagerly, applications as needed): `Debug` on every public type, hand-written and redacting for secrets with a test; `Display` for user-readable types and errors; `Clone` unless it is a resource handle; `Copy` while it will stay plain data; `PartialEq`/`Eq`/`Hash` for keys; `Ord` only for a true total order."
+why = "Types then work in collections, logs and tests."
+sources = ["G:specific-guidance-for-important-traits", "G:add-trait-implementations-when-they-become-necessary", "M-PUBLIC-DEBUG", "M-PUBLIC-DISPLAY", "M-UPSTREAM-GUIDELINES"]
+
+[[rule]]
+id = "collection-traits"
+group = "traits"
+scope = "lib"
+text = "A custom collection provides `iter()`, `iter_mut()`, `IntoIter`/`Iter`/`IterMut` types, `IntoIterator` for the value and both references, `FromIterator` and `Extend`, plus `DoubleEndedIterator`/`ExactSizeIterator` where they fit, with truthful `size_hint()`."
+why = "It then works everywhere std collections do."
+sources = ["M-COLLECTION-TRAITS"]
+
+[[rule]]
+id = "flat-generics"
+group = "traits"
+scope = "lib"
+text = "Keep public service types free of nested type parameters (`Service<Backend<Store>>`): at most one visible level. Name complex bounds, especially `Fn` bounds, with a custom trait."
+why = "Nested generics infect every user's types and errors."
+sources = ["M-SIMPLE-ABSTRACTIONS", "P:patterns/structural/trait-for-bounds"]
+
+[[rule]]
+id = "send-types"
+group = "traits"
+scope = "lib"
+text = "Keep public types and every future your API returns `Send`; assert it for the main entry points."
+why = "Non-`Send` types can't cross Tokio tasks."
+sources = ["M-TYPES-SEND"]
+
+[[rule]]
+id = "deref-for-pointers"
+group = "traits"
+text = "Implement `Deref` only for smart pointers and owning-to-borrowed views (`Vec<T>` to `[T]`), never to emulate inheritance."
+why = "Deref polymorphism surprises method resolution and readers."
+sources = ["P:idioms/deref", "P:anti/patterns/deref"]
+
+[[rule]]
+id = "operator-overloads"
+group = "traits"
+text = "Overload operators only for their mathematical or logical meaning."
+why = "Operators carry expectations."
+sources = ["G:avoid-overloading-for-non-mathematical-purposes"]
+
+# --- Modules, crates and imports ---------------------------------------------------
+
+[[rule]]
+id = "small-crates"
+group = "modules"
+text = "Split a module into its own crate when it can be used on its own; use features only for functionality that can't stand alone."
+why = "Faster builds and no dependency cycles."
+sources = ["M-SMALLER-CRATES", "P:patterns/structural/small-crates"]
+
+[[rule]]
+id = "module-layout"
+group = "modules"
+text = "Name a leaf module after its primary item (`foo.rs` for `Foo`); keep non-leaf modules (`mod.rs`, `lib.rs`) to `mod` declarations, re-exports and minimal glue."
+why = "Structure and contents stay separate and easy to find."
+sources = ["G:code-organization", "G:name-source-files-and-leaf-modules-after-the-primary-user-defined-item", "G:dont-implement-apis-in-non-leaf-modules"]
+
+[[rule]]
+id = "no-globs"
+group = "modules"
+text = "No glob imports or re-exports, and no `prelude` modules; re-export items by name (`pub use foo::{A, B};`). Allowed: `use super::*` in inline test modules, `use Enum::*` inside an enum-focused function, cfg-gated platform re-exports. This overrides Google's allowance for `pub use x::*` in non-leaf modules."
+why = "Globs leak items, collide across crates and hide where names come from."
+sources = ["M-NO-GLOB-REEXPORTS", "M-NO-PRELUDE", "G:dont-use-glob-imports"]
+
+[[rule]]
+id = "single-item-path"
+group = "modules"
+text = "Make each public item reachable through exactly one public path: re-export from a private (`pub(crate)`) module, never from a public one, and don't keep old paths alive after a refactor."
+why = "Duplicate paths confuse users and agents and outlive their reason."
+sources = ["M-SINGLE-ITEM-PATH"]
+
+[[rule]]
+id = "no-foreign-reexports"
+group = "modules"
+text = "Don't re-export other crates' items; users import them from their own crate. Exceptions: umbrella crates, crates split for technical reasons, and hidden macro-support paths."
+why = "Aliases for one type multiply across crates."
+sources = ["M-FOREIGN-REEXPORTS"]
+
+[[rule]]
+id = "balanced-modules"
+group = "modules"
+text = "Put the essential items in the crate root and group the rest into modules named by use case (`account`, `network`), not by kind (`traits`, `errors`); avoid both flat roots of dozens of items and deep trees with an empty root."
+why = "Users find things the way they find them in a menu."
+sources = ["M-BALANCED-MODULES"]
+
+[[rule]]
+id = "import-style"
+group = "modules"
+text = "One module per `use` statement (`use foo::bar::{A, B};`, rustfmt `imports_granularity = \"Module\"`); import types and use them unqualified; call free functions through their module (`mem::take`, not a bare `take`); import a trait inside the function that needs it unless the whole file uses it."
+why = "Names read the same everywhere and refactor cleanly."
+sources = ["G:a-use-statement-should-import-items-from-one-module", "G:type-names-should-be-imported-and-used-unqualified", "G:qualify-calls-to-top-level-functions-with-a-module-name", "G:prefer-locally-scoped-trait-imports"]
+
+[[rule]]
+id = "stable-only"
+group = "modules"
+text = "Use no unstable features, run no code before `main()` (no `ctor`-style constructors), and treat other crates' `#[doc(hidden)]` items as private."
+why = "Builds stay on stable and startup stays predictable."
+sources = ["G:no-unstable-features", "G:do-not-run-code-before-main", "G:do-not-access-items-marked-dochidden-that-you-dont-own"]
+
+# --- Public API surface ------------------------------------------------------------
+
+[[rule]]
+id = "dont-leak-types"
+group = "surface"
+scope = "lib"
+text = "Keep third-party types out of public signatures unless behind a feature (such as `serde`) or the interop benefit is substantial; `std` types are always fine."
+why = "A leaked type ties your semver to theirs."
+sources = ["M-DONT-LEAK-TYPES"]
+
+[[rule]]
+id = "additive-features"
+group = "surface"
+scope = "lib"
+text = "Make features additive: any combination compiles, a `std` feature instead of `no-std`, no feature removes or changes a public item or needs another enabled by hand, and feature names have no placeholder words."
+why = "Cargo unifies features across the whole dependency graph."
+sources = ["M-FEATURES-ADDITIVE"]
+
+[[rule]]
+id = "builds-anywhere"
+group = "surface"
+scope = "lib"
+text = "A library builds on every Tier-1 platform with only `cargo` and `rustc`: no required external tools or environment variables, and generated code ships inside the crate."
+why = "Every downstream user inherits your build requirements."
+sources = ["M-OOBE"]
+
+[[rule]]
+id = "non-exhaustive"
+group = "surface"
+scope = "lib"
+text = "Mark public enums, and public structs with public fields, that other teams use and that may grow `#[non_exhaustive]` (not fixed ontologies or struct-update option structs). When matching another crate's non-exhaustive enum, name every known variant and put the rest beside `_`."
+why = "Adding a variant or field stays non-breaking."
+sources = ["G:apply-non_exhaustive-to-publicly-exposed-enums", "G:apply-non_exhaustive-to-public-structs-with-public-fields", "G:dont-omit-patterns-on-non_exhaustive-enums-when-matching", "P:idioms/priv-extend"]
+
+[[rule]]
+id = "const-fn"
+group = "surface"
+scope = "lib"
+text = "Mark a public function `const` only if it will stay `const`."
+why = "Removing `const` is a breaking change."
+sources = ["G:use-const-functions-responsibly"]
+
+[[rule]]
+id = "must-use"
+group = "surface"
+text = "Add `#[must_use]` to pure functions and to functions whose result carries critical information (unless the return type already is `#[must_use]`), and to lazy-computation and error types."
+why = "Ignoring the value is a bug."
+sources = ["G:must_use-on-functions", "G:must_use-on-types"]
+
+[[rule]]
+id = "native-escape-hatches"
+group = "surface"
+scope = "lib"
+text = "Types that wrap native handles offer `unsafe fn from_native` plus `into_native`/`to_native`."
+why = "Users can interoperate where your API stops."
+sources = ["M-ESCAPE-HATCHES"]
+
+# --- Naming ------------------------------------------------------------------------
+
+[[rule]]
+id = "method-names"
+group = "naming"
+text = "Follow std naming: `as_`/`to_`/`into_` by cost and ownership; getters `foo()`/`foo_mut()` without `get_`; `set_foo`, `take_foo`, `replace_foo`; `with_foo(|f| ...)` for scoped access to interior state."
+why = "Readers predict cost and ownership from the name."
+sources = ["G:naming-methods", "G:getters-and-setters", "M-UPSTREAM-GUIDELINES"]
+
+[[rule]]
+id = "no-weasel-words"
+group = "naming"
+text = "Name types for what they are, without `Service`, `Manager` or `Factory` (`Bookings`, `BookingDispatcher`); a factory is a builder, and repeated creation takes `impl Fn() -> T`."
+why = "Weasel words add length, not meaning."
+sources = ["M-WEASEL-WORDS"]
+
+[[rule]]
+id = "short-names"
+group = "naming"
+text = "Keep identifiers short: at most two short words (`AppConfig`), no module or crate name baked in (`foo::Id`, not `foo::FooId`), and widely known abbreviations welcome (`CallbackFn`); never abbreviations outsiders can't decode or words with letters dropped. Microsoft's preference for short forms overrides Google's general advice against abbreviations."
+why = "Paths already carry context; names shouldn't repeat it."
+sources = ["M-SHORT-NAMES", "G:avoid-abbreviations"]
+
+[[rule]]
+id = "lifetime-and-generic-names"
+group = "naming"
+text = "Give lifetimes descriptive names (single letters only for a simple input-to-output link, `'_` where it works); name type parameters after their main bound, using `T`/`U` only when unbounded."
+why = "The name says what is borrowed or abstracted."
+sources = ["G:naming-lifetimes", "G:naming-generic-parameters"]
+
+# --- Documentation -----------------------------------------------------------------
+
+[[rule]]
+id = "doc-public-items"
+group = "docs"
+text = "Document every public item (`///`) and public module (`//!`): a one-line summary of about 15 words, then `# Examples`, `# Errors`, `# Panics`, `# Safety`, `# Abort` where they apply; describe parameters in prose, not a table; never just restate the name. Use `//` for implementation notes."
+why = "Docs are what users and agents read first."
+sources = ["M-CANONICAL-DOCS", "M-FIRST-DOC-SENTENCE", "M-MODULE-DOCS", "G:when-and-how-to-write-documentation", "M-DESIGN-FOR-AI", "P:idioms/rustdoc-init"]
+
+[[rule]]
+id = "doc-inline-reexports"
+group = "docs"
+text = "Mark re-exports of your own items `#[doc(inline)]`; the foreign items you may still re-export (`no-foreign-reexports`) go without it."
+why = "Re-exported items then render like native ones."
+sources = ["M-DOC-INLINE"]
+
+[[rule]]
+id = "no-meta-docs"
+group = "docs"
+text = "Document the end state, not the design journey: no \"why we picked X over Y\" essays, change logs or guideline-compliance tables in crate or module docs. Enduring design principles belong in the README."
+why = "Process narratives go stale and mean nothing to users."
+sources = ["M-NO-META-DESIGN-DOCUMENTATION"]
+
+[[rule]]
+id = "magic-values"
+group = "docs"
+text = "Put magic values in named constants whose doc comment says why that value, what breaks if it changes, and which external system it mirrors."
+why = "The value outlives the memory of why it was chosen."
+sources = ["M-DOCUMENTED-MAGIC"]
+
+# --- Unsafe and FFI ----------------------------------------------------------------
+
+[[rule]]
+id = "unsafe-justified"
+group = "unsafe"
+text = "Use `unsafe` only for a novel abstraction, a benchmarked hot path, or FFI, never to shorten safe code or bypass `Send`, `Sync` or lifetimes; isolate it in the smallest module that can uphold its invariants, give every block a `// SAFETY:` comment, and test it under Miri."
+why = "Unsafe moves the compiler's job onto review."
+sources = ["M-UNSAFE", "G:unsafe-code", "P:patterns/structural/unsafe-mods"]
+
+[[rule]]
+id = "sound-only"
+group = "unsafe"
+text = "Never ship unsound code: no safe function may cause undefined behavior for any input; if you can't encapsulate it safely, expose an `unsafe fn` with a `# Safety` section."
+why = "The one guideline with no exceptions."
+sources = ["M-UNSOUND"]
+
+[[rule]]
+id = "unsafe-means-ub"
+group = "unsafe"
+text = "Mark a function `unsafe` only when misuse can cause undefined behavior, not because it is merely dangerous."
+why = "Keeps `unsafe` meaningful."
+sources = ["M-UNSAFE-IMPLIES-UB"]
+
+[[rule]]
+id = "ffi-boundary"
+group = "unsafe"
+text = "At an FFI boundary, report errors as codes or out-parameters; borrow incoming C strings as `CStr` and keep outgoing `CString`s alive for the whole call; expose opaque, Rust-owned handles; consolidate related types into one wrapper."
+why = "Each practice removes a class of memory bugs."
+sources = ["P:idioms/ffi/errors", "P:idioms/ffi/accepting-strings", "P:idioms/ffi/passing-strings", "P:patterns/ffi/export", "P:patterns/ffi/wrappers"]
+
+[[rule]]
+id = "ffi-crates"
+group = "unsafe"
+text = "Keep business logic in a safe, idiomatic core crate `foo` with no interop types; a `foo-ffi` crate (exporting to C) or `foo-sys` crate (binding to C) only translates between the two worlds, even if that repeats signatures."
+why = "FFI ownership and data models don't belong in Rust APIs."
+sources = ["M-FFI-NAMING", "M-FFI-TRANSLATES"]
+
+[[rule]]
+id = "dll-state"
+group = "unsafe"
+text = "Between separately compiled Rust dynamic libraries, pass only `#[repr(C)]` data with no statics, `TypeId` or allocator-owned values."
+why = "Each library has its own statics, layouts and type ids."
+sources = ["M-ISOLATE-DLL-STATE"]
+
+[[rule]]
+id = "sys-crates"
+group = "unsafe"
+text = "A `-sys` crate builds its native library from `build.rs` with `cc`, embeds verifiable sources, makes external tools optional, pre-generates bindgen output, and supports static and dynamic linking."
+why = "Native crates must build anywhere too."
+sources = ["M-SYS-CRATES"]
+
+# --- Macros ------------------------------------------------------------------------
+
+[[rule]]
+id = "macros-last"
+group = "macros"
+text = "Use a macro only when the language runs out: prefer functions, types and traits; when you must generate code, `macro_rules!` before external codegen before proc macros."
+why = "Macros are opaque, slow builds and break at edition boundaries."
+sources = ["G:macros", "M-MACRO-LAST-RESORT", "M-EXAMPLE-OVER-PROC"]
+
+[[rule]]
+id = "honest-macros"
+group = "macros"
+text = "A macro never misrepresents what is written: no struct-to-enum rewrites, altered signatures or changed `async`-ness, and no hidden generated types (a same-name item in another namespace, as Rocket does, is the one exception)."
+why = "Readers must be able to predict the expansion."
+sources = ["M-MACROS-DONT-LIE", "M-PROC-IMPLIED-ITEMS"]
+
+[[rule]]
+id = "proc-macro-crates"
+group = "macros"
+scope = "lib"
+text = "Proc macros are thin shims in `foo_proc` that delegate to a tested `foo_proc_impl` library; they emit paths through the main crate `foo`, and reach third-party items through a `#[doc(hidden)] pub mod _private` re-export there."
+why = "Logic stays unit-testable and users depend on one crate."
+sources = ["M-PROC-IMPL", "M-MACRO-MAIN-CRATE", "M-MACRO-HELPERS"]
+
+# --- Async, concurrency and performance --------------------------------------------
+
+[[rule]]
+id = "async-fn"
+group = "async"
+text = "Write `async fn` rather than `fn -> impl Future` unless a trait or a hot path requires the explicit form."
+why = "Reads as normal code, without a wrapping `async` block."
+sources = ["M-ASYNC-FN"]
+
+[[rule]]
+id = "hot-futures"
+group = "async"
+text = "For async functions on a hot path, track the future's size with a `size_of_val` test and shrink it: smaller arguments and locals held across `.await`, setup done outside the `async` block, or an `impl Future` return."
+why = "Large futures cost stack and memcpy on every spawn."
+sources = ["M-ASYNC-STACK-SIZE"]
+
+[[rule]]
+id = "yield-points"
+group = "async"
+text = "In async code, a CPU-bound loop with no `.await` inside calls `yield_now().await` every 10 to 100 microseconds of work."
+why = "Long polls starve the other tasks on the runtime."
+sources = ["M-YIELD-POINTS"]
+
+[[rule]]
+id = "throughput"
+group = "async"
+text = "Design for throughput: batch APIs, partitioned work, sleep when idle; no hot spinning, per-item work when batching is possible, or per-item work stealing; share state only when it is cheaper than recomputing."
+why = "Items per CPU cycle is the metric that scales."
+sources = ["M-THROUGHPUT"]
+
+[[rule]]
+id = "hot-paths"
+group = "async"
+text = "In performance-relevant crates, find hot paths early, benchmark them (criterion or divan), and profile CPU and allocations regularly."
+why = "You can't optimize what you don't measure."
+sources = ["M-HOTPATH"]
+
+[[rule]]
+id = "collection-sizing"
+group = "async"
+text = "Create collections with `with_capacity` when the size is known, or build them with `collect`; `shrink_to_fit` a large, long-lived collection that grew without a reservation."
+why = "Avoids repeated reallocation and up to 2x wasted memory."
+sources = ["M-INITIAL-CAPACITY", "M-SHRINK-TO-FIT"]
+
+[[rule]]
+id = "reuse-allocations"
+group = "async"
+text = "Let callers reuse buffers (`get_in(id, &mut value)`, `.clear()`), and reuse them internally; offer allocating convenience APIs only beside those."
+why = "Allocation in hot loops is invisible until profiled."
+sources = ["M-MEM-REUSE"]
+
+[[rule]]
+id = "cache-friendly-types"
+group = "async"
+text = "In hot types, avoid nested `Arc` indirection and lift hot fields next to where they are read; store frequently created, immutable internal sequences as `Box<[T]>`, `Box<str>` or `Arc<str>` instead of `Vec`/`String`."
+why = "Each indirection is a sequential memory round trip."
+sources = ["M-AVOID-INDIRECTION", "M-BOX-DST"]
+
+[[rule]]
+id = "fast-hasher"
+group = "async"
+text = "Hash trusted, internal keys with a fast non-cryptographic hasher such as `foldhash` or `FxHash`; keep the default hasher for untrusted input."
+why = "The default hasher pays for DoS resistance you may not need."
+sources = ["M-FAST-HASHER"]
+
+[[rule]]
+id = "mimalloc"
+group = "async"
+scope = "app"
+text = "Set `mimalloc` as the application's global allocator."
+why = "Measurable speedups on allocation-heavy paths."
+sources = ["M-MIMALLOC-APPS"]
+
+[[rule]]
+id = "target-cpu"
+group = "async"
+scope = "app"
+text = "Compile server applications for the highest `target-cpu` the deployment guarantees (for example `x86-64-v3` in `.cargo/config.toml`)."
+why = "The generic baseline leaves vector instructions unused."
+sources = ["M-TARGET-CPU"]
+
+# --- Logging, testing and tooling --------------------------------------------------
+
+[[rule]]
+id = "structured-logging"
+group = "testing"
+text = "Emit structured events: name them `component.operation.state`, pass values as fields (OpenTelemetry names where they exist) referenced from a message template rather than `format!`-ed strings, and redact sensitive values."
+why = "Cheap to emit, easy to filter, safe to keep."
+sources = ["M-LOG-STRUCTURED"]
+
+[[rule]]
+id = "log-not-print"
+group = "testing"
+text = "Production code reports diagnostics through the telemetry framework, never `println!` or `dbg!`; stdout is only for CLIs whose interface it is."
+why = "Console output can't be filtered, routed or correlated."
+sources = ["M-LOG-NOT-PRINT"]
+
+[[rule]]
+id = "telemetry-overhead"
+group = "testing"
+scope = "lib"
+text = "Keep library telemetry out of hot inner loops; events that must be there are cheap and allocation-free (no `format!`), or summarize the batch instead."
+why = "Assume telemetry is always on, under load."
+sources = ["M-LOG-OVERHEAD"]
+
+[[rule]]
+id = "integration-tests"
+group = "testing"
+text = "Tests that only touch the public API are integration tests under `tests/`, not `mod tests`; prefer them when either would do, and give complex projects a dedicated crate for shared test helpers."
+why = "Keeps `src/` about the code, not its tests."
+sources = ["M-INTEGRATION-TESTS", "M-INTEGRATION-TEST-UTILS"]
+
+[[rule]]
+id = "meaningful-tests"
+group = "testing"
+text = "Test behavior and properties, not restated definitions: no test that repeats a constant's value or mirrors the implementation's branches; skip a mutation test rather than write one."
+why = "Tautological tests pass by construction and add noise."
+sources = ["M-TAUTOLOGICAL-TESTS"]
+
+[[rule]]
+id = "mockable-io"
+group = "testing"
+scope = "lib"
+text = "Make I/O, clocks and randomness mockable: accept an injected I/O core, or offer `new_mocked() -> (Self, MockCtrl)` backed by a private enum; no ad-hoc file or network access deep in library code."
+why = "Hard-to-trigger edge cases become testable."
+sources = ["M-MOCKABLE-SYSCALLS", "M-DESIGN-FOR-AI"]
+
+[[rule]]
+id = "test-util-feature"
+group = "testing"
+scope = "lib"
+text = "Put mocks, fake data, secret inspection and safety-check overrides behind a `test-util` feature."
+why = "Production builds can't reach them."
+sources = ["M-TEST-UTIL"]
+
+[[rule]]
+id = "lint-expect"
+group = "testing"
+text = "Override a lint locally with `#[expect(lint, reason = \"...\")]`, not `#[allow]`."
+why = "A stale override warns instead of lingering."
+sources = ["M-LINT-OVERRIDE-EXPECT"]
+
+[[rule]]
+id = "static-verification"
+group = "testing"
+text = "Run rustfmt and clippy (`lints.toml` in this skill holds the recommended tables), plus cargo-audit, cargo-hack and cargo-udeps; skip formatting with `#[rustfmt::skip]` only for manual alignment or generated code."
+why = "Tools catch what review misses."
+sources = ["M-STATIC-VERIFICATION", "G:use-the-appropriate-formatting-tool", "G:opting-out-of-automatic-formatting"]
+
+[[rule]]
+id = "no-deny-warnings"
+group = "testing"
+text = "Don't put `#![deny(warnings)]` in source; deny warnings in CI (`RUSTFLAGS=\"-D warnings\"`) or through `[lints]`."
+why = "A new compiler release would break downstream builds."
+sources = ["P:anti/patterns/deny-warnings"]
+
+# --- Workspace and project ---------------------------------------------------------
+
+[[rule]]
+id = "workspace-config"
+group = "project"
+text = "Related crates share one workspace: members inherit metadata, lints and dependency versions from `[workspace.*]`; every crate is a member listed in `[workspace.dependencies]` and siblings depend on it with `.workspace = true`, not `path =`; workspace entries set `default-features = false`."
+why = "One canonical version and configuration per dependency."
+sources = ["M-CARGO-WORKSPACE", "M-CRATES-IN-WORKSPACE"]
+
+[[rule]]
+id = "crate-layout"
+group = "project"
+text = "Keep all crates as siblings in one folder such as `crates/` (one level of grouping for large workspaces), related by name prefix (`foo`, `foo_util`); never put a crate inside another crate."
+why = "The layout stays predictable for people and tools."
+sources = ["M-CRATES-FLAT-FOLDER"]
+
+[[rule]]
+id = "edition-and-msrv"
+group = "project"
+text = "Start new crates on the latest stable edition (2024 or later) without a `resolver` field; libraries declare an MSRV kept a few releases behind stable and raise it in minor releases."
+why = "Old editions add friction and no compatibility."
+sources = ["M-LATEST-EDITION", "M-MSRV"]
+
+# --- Implementation style ----------------------------------------------------------
+
+[[rule]]
+id = "explicit-types"
+group = "style"
+text = "Annotate `let` bindings whose type isn't obvious (results of `.into()`, `.parse()`, `.collect()` and long chains) instead of using a turbofish."
+why = "Readers shouldn't need an IDE to know the type."
+sources = ["G:dont-overuse-type-inference"]
+
+[[rule]]
+id = "loops-vs-chains"
+group = "style"
+text = "Use short combinator chains (`any`, `map`, `filter`); switch to a `for` loop when the chain branches or mutates outside state; bind a chain to a named variable before a `for` header; avoid `for_each`."
+why = "Each form is clearest in its own niche."
+sources = ["G:dont-use-iterator-combinator-chains-when-direct-iteration-is-clearer"]
+
+[[rule]]
+id = "option-as-iterator"
+group = "style"
+text = "Treat an `Option` as a zero-or-one-item iterator (`extend(opt)`, `chain(opt)`) instead of matching just to push."
+why = "Composes with the surrounding iterator code."
+sources = ["P:idioms/option-iter"]
+
+[[rule]]
+id = "format-strings"
+group = "style"
+text = "Build strings from three or more pieces, or substitute into a literal, with `format!`/`write!`, not `+` chains or `str::replace`."
+why = "Fewer allocations and standard syntax."
+sources = ["G:prefer-format--write-for-concatenation-and-substitution", "P:idioms/concat-format"]
+
+[[rule]]
+id = "temporary-mutability"
+group = "style"
+text = "Once data is prepared, rebind it immutably (`let data = data;`) or build it inside a block."
+why = "Shows the value no longer changes."
+sources = ["P:idioms/temporary-mutability"]
+
+[[rule]]
+id = "closure-captures"
+group = "style"
+text = "When a closure needs only some variables moved or cloned, rebind them in a block just before the `move` closure."
+why = "Captures stay explicit and minimal."
+sources = ["P:idioms/pass-var-to-closure"]
+
+[[rule]]
+id = "on-stack-dispatch"
+group = "style"
+text = "On cold paths that pick one of several types, bind `&mut dyn Trait` to the chosen branch instead of boxing or duplicating code."
+why = "Dynamic dispatch without allocation or code bloat."
+sources = ["P:idioms/on-stack-dyn-dispatch"]
+
+# --- Patterns: Rust ----------------------------------------------------------------
+
+[[pattern]]
+id = "command"
+group = "rust-patterns"
+when = "Represent actions as values (trait objects, function pointers or closures) to queue, undo or log them."
+sources = ["P:patterns/behavioural/command", "GOF:command"]
+
+[[pattern]]
+id = "interpreter"
+group = "rust-patterns"
+when = "Turn a recurring problem into a tiny language and evaluate it, possibly with `macro_rules!`."
+sources = ["P:patterns/behavioural/interpreter"]
+
+[[pattern]]
+id = "strategy"
+group = "rust-patterns"
+when = "Swap an algorithm behind a trait or closure while the surrounding logic stays fixed."
+sources = ["P:patterns/behavioural/strategy", "GOF:strategy"]
+
+[[pattern]]
+id = "visitor"
+group = "rust-patterns"
+when = "Run several algorithms over a heterogeneous structure such as an AST without changing the node types."
+sources = ["P:patterns/behavioural/visitor", "GOF:visitor"]
+
+[[pattern]]
+id = "fold"
+group = "rust-patterns"
+when = "Transform a tree into a new tree node by node, as a compiler pass does."
+sources = ["P:patterns/creational/fold"]
+
+[[pattern]]
+id = "type-classes"
+group = "rust-patterns"
+when = "Give each concrete type parameter its own `impl` block (typestate) so invalid states or operations don't compile."
+sources = ["P:functional/generics-type-classes"]
+
+# --- Patterns: Gang of Four ----------------------------------------------------------
+
+[[pattern]]
+id = "abstract-factory"
+group = "gang-of-four"
+when = "Create families of related objects behind one factory trait, with static or dynamic dispatch."
+sources = ["GOF:abstract-factory"]
+
+[[pattern]]
+id = "builder"
+group = "gang-of-four"
+when = "Construct complex objects step by step, optionally through a director; for API shape follow rule `builders`."
+sources = ["GOF:builder"]
+
+[[pattern]]
+id = "factory-method"
+group = "gang-of-four"
+when = "Let implementors choose which concrete type a shared algorithm creates."
+sources = ["GOF:factory-method"]
+
+[[pattern]]
+id = "prototype"
+group = "gang-of-four"
+when = "Copy existing objects through `Clone` instead of rebuilding them."
+sources = ["GOF:prototype"]
+
+[[pattern]]
+id = "singleton"
+group = "gang-of-four"
+when = "One global instance. Avoid it (rule `avoid-statics`); if unavoidable, a lazily initialized static behind a safe API."
+sources = ["GOF:singleton"]
+
+[[pattern]]
+id = "adapter"
+group = "gang-of-four"
+when = "Wrap a type so it satisfies an interface it doesn't implement."
+sources = ["GOF:adapter"]
+
+[[pattern]]
+id = "bridge"
+group = "gang-of-four"
+when = "Split an abstraction from its implementation so both can vary independently."
+sources = ["GOF:bridge"]
+
+[[pattern]]
+id = "composite"
+group = "gang-of-four"
+when = "Treat trees of objects and single objects uniformly through one trait."
+sources = ["GOF:composite"]
+
+[[pattern]]
+id = "decorator"
+group = "gang-of-four"
+when = "Add behavior by wrapping an object in another that implements the same trait."
+sources = ["GOF:decorator"]
+
+[[pattern]]
+id = "facade"
+group = "gang-of-four"
+when = "Offer one simple entry point over a complex subsystem."
+sources = ["GOF:facade"]
+
+[[pattern]]
+id = "flyweight"
+group = "gang-of-four"
+when = "Share common immutable state across many objects to save memory."
+sources = ["GOF:flyweight"]
+
+[[pattern]]
+id = "proxy"
+group = "gang-of-four"
+when = "Stand in for a service to add access control, caching or laziness."
+sources = ["GOF:proxy"]
+
+[[pattern]]
+id = "chain-of-responsibility"
+group = "gang-of-four"
+when = "Pass a request along a chain of handlers until one handles it."
+sources = ["GOF:chain-of-responsibility"]
+
+[[pattern]]
+id = "iterator"
+group = "gang-of-four"
+when = "Traverse a collection without exposing its internals; in Rust, implement `Iterator`."
+sources = ["GOF:iterator"]
+
+[[pattern]]
+id = "mediator"
+group = "gang-of-four"
+when = "Route communication between components through one mediator so they don't reference each other."
+sources = ["GOF:mediator"]
+
+[[pattern]]
+id = "memento"
+group = "gang-of-four"
+when = "Snapshot and restore an object's state without exposing its internals."
+sources = ["GOF:memento"]
+
+[[pattern]]
+id = "observer"
+group = "gang-of-four"
+when = "Let subscribers register for events and get notified of changes."
+sources = ["GOF:observer"]
+
+[[pattern]]
+id = "state"
+group = "gang-of-four"
+when = "Change behavior with internal state by delegating to state objects."
+sources = ["GOF:state"]
+
+[[pattern]]
+id = "template-method"
+group = "gang-of-four"
+when = "Fix an algorithm's skeleton in a trait's provided method and let implementors fill in the steps."
+sources = ["GOF:template-method"]
+
+# --- Patterns: background ----------------------------------------------------------
+
+[[pattern]]
+id = "functional-paradigms"
+group = "background"
+when = "Imperative versus declarative thinking, for reading functional-style Rust."
+sources = ["P:functional/paradigms"]
+
+[[pattern]]
+id = "optics"
+group = "background"
+when = "Functional optics (lenses and prisms) and the API designs, such as serde's, that echo them."
+sources = ["P:functional/optics"]
+
+[[pattern]]
+id = "design-principles"
+group = "background"
+when = "SOLID, DRY, KISS and related principles, as a vocabulary for design discussions."
+sources = ["P:additional/resources/design-principles"]
+
+# --- Enforced by default-on lints ----------------------------------------------------
+
+[[lint]]
+lint = "clippy::len_without_is_empty"
+sources = ["G:implement-expected-api-sets-together"]
+
+[[lint]]
+lint = "clippy::unnecessary_unwrap"
+sources = ["G:prefer-pattern-matching-over-check-then-unwrap"]
+
+[[lint]]
+lint = "clippy::ptr_arg"
+sources = ["G:accept-flexible-references-for-immutable-data"]
+
+[[lint]]
+lint = "clippy::borrowed_box"
+sources = ["G:accept-flexible-references-for-immutable-data"]
+
+[[lint]]
+lint = "clippy::should_implement_trait"
+sources = ["G:implement-known-standard-library-traits-instead-of-custom-methods"]
+
+[[lint]]
+lint = "clippy::new_without_default"
+sources = ["G:specific-guidance-for-important-traits"]
+
+[[lint]]
+lint = "clippy::wrong_self_convention"
+sources = ["G:naming-methods"]
+
+# --- Deliberately excluded ---------------------------------------------------------
+
+[[exclusion]]
+unit = "G:intro"
+reason = "Google-internal scope statement."
+
+[[exclusion]]
+unit = "G:goals-of-the-style-guide"
+reason = "Rationale for the guide as a whole, not a rule."
+
+[[exclusion]]
+unit = "G:follow-public-rust-style-rules"
+reason = "Stated once in SKILL.md: where the card is silent, follow the Rust API Guidelines and Style Guide."
+
+[[exclusion]]
+unit = "G:apply-api-design-rules-in-context"
+reason = "Encoded as the [lib] and [app] scope tags defined in SKILL.md."
+
+[[exclusion]]
+unit = "P:intro"
+reason = "Book introduction."
+
+[[exclusion]]
+unit = "P:idioms/index"
+reason = "Section introduction."
+
+[[exclusion]]
+unit = "P:idioms/ffi/intro"
+reason = "Section introduction."
+
+[[exclusion]]
+unit = "P:patterns/index"
+reason = "Section introduction."
+
+[[exclusion]]
+unit = "P:patterns/behavioural/intro"
+reason = "Section introduction."
+
+[[exclusion]]
+unit = "P:patterns/creational/intro"
+reason = "Section introduction."
+
+[[exclusion]]
+unit = "P:patterns/structural/intro"
+reason = "Section introduction."
+
+[[exclusion]]
+unit = "P:patterns/ffi/intro"
+reason = "Section introduction."
+
+[[exclusion]]
+unit = "P:anti/patterns/index"
+reason = "Section introduction."
+
+[[exclusion]]
+unit = "P:functional/index"
+reason = "Section introduction."
+
+[[exclusion]]
+unit = "P:additional/resources/index"
+reason = "Reading list of external talks and books."

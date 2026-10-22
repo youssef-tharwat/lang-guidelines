@@ -1,0 +1,671 @@
+# TypeScript skill manifest: every upstream unit in sources/typescript/ maps to a rule, a
+# pattern, a lint, or an exclusion with a reason. build/compile.py refuses to build otherwise.
+#
+# Unit ids: G:<anchor> (Google TypeScript Style Guide section, by its page anchor),
+# P:<slug> (Systemic TypeScript page), GOF:<slug> (refactoring.guru page). Oxlint's Tier 1-2
+# rules are not units: they reach the model through the generated oxlintrc.jsonc and the
+# vendored lint/ docs.
+
+# --- Rule groups (card order) -------------------------------------------------------
+
+[[group]]
+id = "modules"
+title = "Modules, imports and exports"
+kind = "rule"
+
+[[group]]
+id = "values"
+title = "Variables, literals and coercion"
+kind = "rule"
+
+[[group]]
+id = "functions"
+title = "Functions and this"
+kind = "rule"
+
+[[group]]
+id = "classes"
+title = "Classes"
+kind = "rule"
+
+[[group]]
+id = "control"
+title = "Control flow and errors"
+kind = "rule"
+
+[[group]]
+id = "types"
+title = "Type system"
+kind = "rule"
+
+[[group]]
+id = "naming"
+title = "Naming"
+kind = "rule"
+
+[[group]]
+id = "docs"
+title = "Comments and JSDoc"
+kind = "rule"
+
+[[group]]
+id = "disallowed"
+title = "Disallowed features"
+kind = "rule"
+
+[[group]]
+id = "toolchain"
+title = "Toolchain and consistency"
+kind = "rule"
+
+# --- Pattern groups ----------------------------------------------------------------
+
+[[group]]
+id = "systemic"
+title = "Systemic TypeScript"
+kind = "pattern"
+
+[[group]]
+id = "gang-of-four"
+title = "Gang of Four in TypeScript"
+kind = "pattern"
+
+[[group]]
+id = "background"
+title = "Background"
+kind = "pattern"
+
+# --- Modules, imports and exports --------------------------------------------------
+
+[[rule]]
+id = "named-exports"
+group = "modules"
+text = "Use named exports only, never `export default`; export only what other modules use; never `export let` (expose mutable state through a getter function); don't build container classes of statics for namespacing, export the constants and functions themselves."
+why = "Every import names the same thing the same way."
+sources = ["G:exports"]
+
+[[rule]]
+id = "import-styles"
+group = "modules"
+text = "Use named imports for frequently used, clearly named symbols and namespace imports (`import * as ns`) for many symbols from a large API; import project files by relative path (`./foo`) with few `../` steps; rename an import only to resolve a collision or an unclear name."
+why = "Imports stay readable and survive moving the project."
+sources = ["G:imports"]
+
+[[rule]]
+id = "type-only-imports"
+group = "modules"
+text = "Use `import type` for symbols used only as types and `export type` when re-exporting types; never use `namespace`, `/// <reference>` or `import x = require(...)`, organize with modules and files instead."
+why = "File-by-file transpilation needs to know what is a type."
+sources = ["G:import-export-type"]
+
+[[rule]]
+id = "file-structure"
+group = "modules"
+text = "Order a file as: copyright JSDoc (if any), `@fileoverview` JSDoc (if any), imports, then the implementation, with one blank line between sections."
+why = "Every file reads the same way."
+sources = ["G:source-file-structure", "G:file-copyright", "G:fileoverview"]
+
+# --- Variables, literals and coercion ----------------------------------------------
+
+[[rule]]
+id = "const-let"
+group = "values"
+text = "Declare with `const` by default and `let` only when reassigned, one variable per declaration, never `var`, and never use a variable before its declaration."
+why = "Block scoping avoids `var`'s function-scope bugs."
+sources = ["G:local-variable-declarations"]
+
+[[rule]]
+id = "array-literals"
+group = "values"
+text = "Create arrays with literals (`[]`, or `Array.from({length: n})`), never the `Array()` constructor; never put non-index properties on an array (use a `Map`); spread only iterables into arrays, never possibly-undefined values; default an optional destructured array parameter to `[]`."
+why = "The constructor's behavior depends on its argument count."
+sources = ["G:array-literals"]
+
+[[rule]]
+id = "object-literals"
+group = "values"
+text = "Create objects with literals, never `new Object()`; iterate keys with `for...of` over `Object.keys/values/entries` (or filter `for...in` with `hasOwnProperty`); spread only plain objects into objects; keep destructured parameters one level deep with defaults on the left (`{num = 1}: Options = {}`)."
+why = "`for...in` walks the prototype chain."
+sources = ["G:object-literals"]
+
+[[rule]]
+id = "string-and-number-literals"
+group = "values"
+text = "Use single-quoted strings and template literals instead of complex concatenation; never continue a string with a trailing backslash; write number prefixes as lowercase `0x`, `0o`, `0b`."
+why = "Line continuations hide stray whitespace."
+sources = ["G:primitive-literals"]
+
+[[rule]]
+id = "explicit-coercion"
+group = "values"
+text = "Coerce with `String()`, `Boolean()`, `!!` or template literals; parse numbers with `Number()` and check the result with `isNaN`/`isFinite`, never with unary `+`, and use `parseInt` only for non-decimal radixes after validating the digits; never coerce enum values to booleans (compare them explicitly), and don't write `!!` inside an `if` or `while` condition."
+why = "Implicit parsing hides failures; enums' first value is falsy."
+sources = ["G:primitive-literals"]
+
+# --- Functions and this ------------------------------------------------------------
+
+[[rule]]
+id = "function-forms"
+group = "functions"
+text = "Declare named functions with `function`; use arrow functions for nested functions and callbacks, never function expressions (except to rebind `this` or for generators); use a concise arrow body only when its value is used, a block body otherwise."
+why = "Each form signals its role, and unused results don't leak."
+sources = ["G:functions"]
+
+[[rule]]
+id = "explicit-callbacks"
+group = "functions"
+text = "Pass an arrow function that forwards arguments explicitly (`.map((n) => parseInt(n))`), not a named function whose optional parameters could receive surprise arguments (`.map(parseInt)`)."
+why = "Callbacks receive extra arguments that still type-check."
+sources = ["G:functions"]
+
+[[rule]]
+id = "this-usage"
+group = "functions"
+text = "Use `this` only in constructors, methods, functions with a declared `this` type, and arrows inside them; call instance methods through arrows (`() => this.handle()`) instead of passing `this.handle`, avoid arrow-function properties except for event handlers that must be uninstalled, and never install a handler with `.bind(this)`."
+why = "Unbound methods lose their `this`."
+sources = ["G:functions", "G:features-this"]
+
+[[rule]]
+id = "parameters"
+group = "functions"
+text = "Keep default parameter values simple and side-effect free; use a destructured options object when there are more than a few optional parameters; use rest parameters instead of `arguments` and spread instead of `.apply`."
+why = "Call sites stay readable and defaults stay predictable."
+sources = ["G:functions"]
+
+# --- Classes -----------------------------------------------------------------------
+
+[[rule]]
+id = "class-members"
+group = "classes"
+text = "Mark never-reassigned properties `readonly`, use parameter properties instead of copying constructor arguments into fields, initialize fields where they are declared, never add or remove properties after construction, and use TypeScript `private` instead of `#private` fields."
+why = "Stable object shapes are readable and fast."
+sources = ["G:classes"]
+
+[[rule]]
+id = "visibility"
+group = "classes"
+text = "Keep visibility as narrow as possible; never write `public` except on non-readonly parameter properties; make properties used outside the class (such as from templates) `protected` or `public`, not `private`, and never bypass visibility with `obj['prop']`."
+why = "Visibility tells readers and tools where code is used."
+sources = ["G:classes"]
+
+[[rule]]
+id = "class-accessors"
+group = "classes"
+text = "Getters must be pure, with no observable state change; don't write pass-through getter/setter pairs (make the property public or `readonly`), and never define accessors with `Object.defineProperty`."
+why = "Readers expect property reads to be free of effects."
+sources = ["G:classes"]
+
+[[rule]]
+id = "class-shape"
+group = "classes"
+text = "Call constructors with parentheses (`new Foo()`); omit empty or pass-through constructors; prefer module-level functions to private static methods, never use `this` in static code, and call static methods only on the class that defines them; never manipulate `prototype`s or use mixins."
+why = "Static inheritance and prototype tricks surprise readers."
+sources = ["G:classes"]
+
+# --- Control flow and errors -------------------------------------------------------
+
+[[rule]]
+id = "braces-and-loops"
+group = "control"
+text = "Brace every control-flow body (a one-line `if` may skip it); avoid assignments inside conditions (wrap a deliberate one in double parentheses); iterate arrays with `for...of`, never `for...in`; keep optional grouping parentheses where precedence isn't obvious."
+why = "The structure is unambiguous at a glance."
+sources = ["G:control-structures"]
+
+[[rule]]
+id = "strict-equality"
+group = "control"
+text = "Compare with `===` and `!==`. Google allows `== null` to cover both `null` and `undefined`, but the bundled lint config flags it (`no-eq-null`), so test the two explicitly."
+why = "Loose equality coerces in hard-to-predict ways."
+sources = ["G:control-structures"]
+
+[[rule]]
+id = "switch-default"
+group = "control"
+text = "Give every `switch` a last `default` group, even an empty one, and never let a non-empty case fall through."
+why = "Unhandled values and fall-through are classic bugs."
+sources = ["G:control-structures"]
+
+[[rule]]
+id = "throw-errors"
+group = "control"
+text = "Throw `new Error(...)` or an `Error` subclass, never strings or plain objects, and reject promises only with `Error`s; prefer throwing to ad-hoc error containers, define custom errors where `Error` says too little, and keep `try` blocks to the code that can throw."
+why = "Only `Error`s carry stack traces."
+sources = ["G:control-structures"]
+
+[[rule]]
+id = "catch-unknown"
+group = "control"
+text = "Type caught values as `unknown` and treat them as `Error`s (narrow with an assertion helper); handle non-`Error` values only for an API known to throw them, with a comment; never leave a `catch` block empty without a comment saying why."
+why = "Defensive handling of impossible values is noise."
+sources = ["G:control-structures"]
+
+[[rule]]
+id = "type-assertions"
+group = "control"
+text = "Avoid `as` casts and `!` non-null assertions; prefer runtime checks (`instanceof`, `if (y)`). When an assertion is truly safe, use `as` (never `<T>x`) with a comment explaining why, cast through `unknown` for a double assertion, and annotate object literals (`const foo: Foo = {...}`) instead of asserting them."
+why = "Assertions silence the compiler without checking anything."
+sources = ["G:control-structures"]
+
+# --- Type system -------------------------------------------------------------------
+
+[[rule]]
+id = "type-inference"
+group = "types"
+text = "Leave trivially inferred types unannotated (`const x = 15`), but annotate empty generic containers (`new Set<string>()`) and complex expressions whose type isn't obvious; return-type annotations are the author's call."
+why = "Annotations should add information."
+sources = ["G:type-inference"]
+
+[[rule]]
+id = "null-and-optional"
+group = "types"
+text = "Use `undefined` or `null` to match the surrounding APIs; never put `|null` or `|undefined` inside a type alias, add it where the alias is used; prefer optional fields and parameters (`?`) to `|undefined`, and initialize class fields."
+why = "Absence is handled close to where it arises."
+sources = ["G:undefined-and-null"]
+
+[[rule]]
+id = "structural-types"
+group = "types"
+text = "Declare structural types with interfaces, not classes, and annotate structural values where they are declared (`const foo: Foo = {...}`) so type errors appear there."
+why = "Errors point at the declaration, not a distant call site."
+sources = ["G:use-structural-types"]
+
+[[rule]]
+id = "interfaces-over-aliases"
+group = "types"
+text = "Declare object types with `interface`, not object-literal `type` aliases."
+why = "Two equivalent forms; pick the one with better tooling."
+sources = ["G:prefer-interfaces"]
+
+[[rule]]
+id = "array-type-syntax"
+group = "types"
+text = "Write `T[]` or `readonly T[]` for simple element types and `Array<T>` for anything more complex."
+why = "Short where simple, unambiguous where not."
+sources = ["G:arrayt-type"]
+
+[[rule]]
+id = "dictionaries"
+group = "types"
+text = "Prefer `Map` and `Set` to objects used as dictionaries; when an index signature is needed, name its key meaningfully (`{[userName: string]: number}`)."
+why = "Objects as maps have surprising prototype behavior."
+sources = ["G:indexable-key-string-type"]
+
+[[rule]]
+id = "simple-types"
+group = "types"
+text = "Use the simplest type construct that works: prefer interfaces and `extends` to mapped and conditional types (`Pick`, `Omit`), accepting a little repetition."
+why = "Complex type operators are hard to read and tool."
+sources = ["G:mapped-conditional-types"]
+
+[[rule]]
+id = "no-any"
+group = "types"
+text = "Avoid `any`: use a specific type, `unknown` narrowed with a type guard, or a generic; if `any` is truly needed (a partial test mock), suppress the lint on that line and say why. Avoid `{}`: use `unknown`, `Record<string, T>` or `object`."
+why = "`any` and `{}` switch off type checking."
+sources = ["G:any", "G:empty-interface-type"]
+
+[[rule]]
+id = "tuples"
+group = "types"
+text = "Return a tuple (`[string, string]`) instead of a `Pair` interface, but prefer an inline object type with named fields when names add meaning."
+why = "Names beat positions when the meaning isn't obvious."
+sources = ["G:tuple-types"]
+
+[[rule]]
+id = "primitive-types"
+group = "types"
+text = "Use `string`, `number`, `boolean` and `object`, never the `String`, `Number`, `Boolean` or `Object` wrapper types, and never instantiate wrappers with `new`."
+why = "Wrapper objects behave unlike primitives (`new Boolean(false)` is truthy)."
+sources = ["G:wrapper-types", "G:disallowed-features"]
+
+[[rule]]
+id = "no-return-only-generics"
+group = "types"
+text = "Don't design APIs whose type parameter appears only in the return type; when calling an existing one, pass the type argument explicitly."
+why = "The type is otherwise an unchecked assertion."
+sources = ["G:return-type-only-generics"]
+
+# --- Naming ------------------------------------------------------------------------
+
+[[rule]]
+id = "identifier-casing"
+group = "naming"
+text = "Use `UpperCamelCase` for classes, interfaces, types, enums, decorators, type parameters and TSX components; `lowerCamelCase` for variables, parameters, functions, methods, properties and module aliases; `CONSTANT_CASE` for module-level constants and enum values; treat acronyms as words (`loadHttpUrl`)."
+why = "Casing tells readers what kind of thing a name is."
+sources = ["G:naming-rules-by-identifier-type", "G:identifiers"]
+
+[[rule]]
+id = "descriptive-names"
+group = "naming"
+text = "Names are descriptive and carry no type information: no `_` prefix or suffix (not even a lone `_` for unused parameters), no `opt_` prefix, no `I`-prefixed or `Interface`-suffixed interfaces, no Hungarian notation, and no abbreviations outsiders can't decode; single letters only in scopes of ten lines or fewer. A local alias keeps its source's name and is `const` or `readonly`."
+why = "Types already carry type information."
+sources = ["G:identifiers", "G:naming-rules-by-identifier-type"]
+
+# --- Comments and JSDoc ------------------------------------------------------------
+
+[[rule]]
+id = "jsdoc-or-comment"
+group = "docs"
+text = "Use `/** JSDoc */` for what users of the code should read and `//` comments for implementation notes; write multi-line comments as consecutive `//` lines, not `/* */` blocks."
+why = "Tools read JSDoc; humans read both."
+sources = ["G:comments-documentation"]
+
+[[rule]]
+id = "document-exports"
+group = "docs"
+text = "Document every exported symbol and any member whose purpose isn't obvious; describe methods with a third-person verb phrase; add `@param`/`@return` only when they add information beyond names and types (`@param` documents parameter properties); put JSDoc before decorators."
+why = "Docs should say what the signature can't."
+sources = ["G:document-all-top-level-exports-of-modules", "G:jsdoc-class-comments", "G:method-and-function-comments", "G:parameter-property-comments", "G:redundant-comments", "G:place-documentation-prior-to-decorators"]
+
+[[rule]]
+id = "jsdoc-format"
+group = "docs"
+text = "Write JSDoc in Markdown (real lists, not indented text), one tag per line with wrapped tag text indented four spaces, and never JSDoc type annotations in TypeScript (`@param {T}`, `@private`, `@override`)."
+why = "Tools parse JSDoc; TypeScript already holds the types."
+sources = ["G:jsdoc-general-form", "G:jsdoc-markdown", "G:jsdoc-tags", "G:jsdoc-line-wrapping", "G:jsdoc-type-annotations"]
+
+[[rule]]
+id = "deprecation"
+group = "docs"
+text = "Mark deprecated APIs with `@deprecated` plus clear directions for fixing call sites."
+why = "Callers learn how to migrate where they look."
+sources = ["G:deprecation"]
+
+# --- Disallowed features -----------------------------------------------------------
+
+[[rule]]
+id = "no-dangerous-features"
+group = "disallowed"
+text = "Never use `eval` or `Function(...)` strings, `with`, `debugger` in production code, `const enum`, or non-standard or unfinished language features; end every statement with `;` rather than relying on automatic semicolon insertion."
+why = "Each is a known source of bugs or security holes."
+sources = ["G:disallowed-features"]
+
+[[rule]]
+id = "no-builtin-mutation"
+group = "disallowed"
+text = "Never modify built-in prototypes or constructors, and add to the global object only when a third-party API requires it."
+why = "Global changes break code you don't own."
+sources = ["G:disallowed-features"]
+
+[[rule]]
+id = "no-new-decorators"
+group = "disallowed"
+text = "Don't define new decorators; use only framework-provided ones, placed directly before what they decorate."
+why = "TypeScript decorators diverged from the standard."
+sources = ["G:decorators"]
+
+# --- Toolchain and consistency -----------------------------------------------------
+
+[[rule]]
+id = "type-check"
+group = "toolchain"
+text = "All code must pass type checking; never use `@ts-ignore`, `@ts-expect-error` or `@ts-nocheck` outside tests, fix the underlying error instead."
+why = "Suppressions hide the larger problem behind the error."
+sources = ["G:typescript-compiler"]
+
+[[rule]]
+id = "consistency"
+group = "toolchain"
+text = "New files follow this card fully; in existing files match the surrounding style where the card is silent, and keep large reformatting in a separate change. Generated code is exempt, but identifiers it exposes to hand-written code follow the naming rules."
+why = "Consistency keeps focus on what the code says."
+sources = ["G:consistency", "G:generated-code"]
+
+# --- Patterns: Systemic TypeScript -------------------------------------------------
+
+[[pattern]]
+id = "throwless"
+group = "systemic"
+when = "Return typed results (unions of value and known error) instead of throwing, for systems with known failure modes; this departs from rule `throw-errors`, so adopt it only project-wide."
+sources = ["P:systemic-1-known-vs-unknown-error-throwless", "P:complication-1-throw"]
+
+[[pattern]]
+id = "closure-over-class"
+group = "systemic"
+when = "Build components from closures returning plain objects instead of classes, avoiding prototypes, unbound methods and layered lifetimes."
+sources = ["P:systemic-2-closure-over-class", "P:complication-2-class-prototype", "P:complication-3-class-unbound-methods", "P:complication-4-class-layered-lifetime"]
+
+[[pattern]]
+id = "runtime-validation"
+group = "systemic"
+when = "Validate untrusted data (network, files, JSON) at runtime to narrow `unknown` into a type, because compiled TypeScript keeps no types."
+sources = ["P:systemic-3-runtime-type-validation", "P:complication-5-type-def-stripped", "P:complication-8-non-bijective-json"]
+
+[[pattern]]
+id = "agency"
+group = "systemic"
+when = "Structure long-running, concurrent parts of a system as agents that own their resources and cleanup, since JavaScript has no destructors."
+sources = ["P:systemic-4-agency", "P:complication-6-no-destructor"]
+
+[[pattern]]
+id = "module-dependencies"
+group = "systemic"
+when = "Break cyclic module dependencies, which JavaScript permits but which yield half-initialized imports."
+sources = ["P:complication-7-cyclic-dependencies"]
+
+[[pattern]]
+id = "string-scale"
+group = "systemic"
+when = "Treat large or frequently copied strings as a performance concern; prefer references and structured data."
+sources = ["P:complication-9-string-scales-easily"]
+
+# --- Patterns: Gang of Four --------------------------------------------------------
+
+[[pattern]]
+id = "abstract-factory"
+group = "gang-of-four"
+when = "Create families of related objects behind one factory interface."
+sources = ["GOF:abstract-factory"]
+
+[[pattern]]
+id = "builder"
+group = "gang-of-four"
+when = "Construct complex objects step by step, optionally through a director."
+sources = ["GOF:builder"]
+
+[[pattern]]
+id = "factory-method"
+group = "gang-of-four"
+when = "Let subclasses or implementations choose which concrete type a shared algorithm creates."
+sources = ["GOF:factory-method"]
+
+[[pattern]]
+id = "prototype"
+group = "gang-of-four"
+when = "Copy existing objects instead of rebuilding them from scratch."
+sources = ["GOF:prototype"]
+
+[[pattern]]
+id = "singleton"
+group = "gang-of-four"
+when = "One shared instance; in TypeScript, prefer a module-level instance to a class that blocks construction."
+sources = ["GOF:singleton"]
+
+[[pattern]]
+id = "adapter"
+group = "gang-of-four"
+when = "Wrap an object so it satisfies an interface it doesn't implement."
+sources = ["GOF:adapter"]
+
+[[pattern]]
+id = "bridge"
+group = "gang-of-four"
+when = "Split an abstraction from its implementation so both can vary independently."
+sources = ["GOF:bridge"]
+
+[[pattern]]
+id = "composite"
+group = "gang-of-four"
+when = "Treat trees of objects and single objects uniformly through one interface."
+sources = ["GOF:composite"]
+
+[[pattern]]
+id = "decorator"
+group = "gang-of-four"
+when = "Add behavior by wrapping an object in another that implements the same interface (not the `@decorator` syntax)."
+sources = ["GOF:decorator"]
+
+[[pattern]]
+id = "facade"
+group = "gang-of-four"
+when = "Offer one simple entry point over a complex subsystem."
+sources = ["GOF:facade"]
+
+[[pattern]]
+id = "flyweight"
+group = "gang-of-four"
+when = "Share common immutable state across many objects to save memory."
+sources = ["GOF:flyweight"]
+
+[[pattern]]
+id = "proxy"
+group = "gang-of-four"
+when = "Stand in for a service to add access control, caching or laziness."
+sources = ["GOF:proxy"]
+
+[[pattern]]
+id = "chain-of-responsibility"
+group = "gang-of-four"
+when = "Pass a request along a chain of handlers until one handles it."
+sources = ["GOF:chain-of-responsibility"]
+
+[[pattern]]
+id = "command"
+group = "gang-of-four"
+when = "Represent actions as objects to queue, undo or log them."
+sources = ["GOF:command"]
+
+[[pattern]]
+id = "iterator"
+group = "gang-of-four"
+when = "Traverse a collection without exposing its internals; in TypeScript, implement `[Symbol.iterator]`."
+sources = ["GOF:iterator"]
+
+[[pattern]]
+id = "mediator"
+group = "gang-of-four"
+when = "Route communication between components through one mediator so they don't reference each other."
+sources = ["GOF:mediator"]
+
+[[pattern]]
+id = "memento"
+group = "gang-of-four"
+when = "Snapshot and restore an object's state without exposing its internals."
+sources = ["GOF:memento"]
+
+[[pattern]]
+id = "observer"
+group = "gang-of-four"
+when = "Let subscribers register for events and get notified of changes."
+sources = ["GOF:observer"]
+
+[[pattern]]
+id = "state"
+group = "gang-of-four"
+when = "Change behavior with internal state by delegating to state objects."
+sources = ["GOF:state"]
+
+[[pattern]]
+id = "strategy"
+group = "gang-of-four"
+when = "Swap an algorithm behind an interface or function while the surrounding logic stays fixed."
+sources = ["GOF:strategy"]
+
+[[pattern]]
+id = "template-method"
+group = "gang-of-four"
+when = "Fix an algorithm's skeleton in a base class and let subclasses fill in the steps."
+sources = ["GOF:template-method"]
+
+[[pattern]]
+id = "visitor"
+group = "gang-of-four"
+when = "Run several algorithms over a heterogeneous structure without changing its element types."
+sources = ["GOF:visitor"]
+
+# --- Patterns: background ----------------------------------------------------------
+
+[[pattern]]
+id = "systems-vs-scripts"
+group = "background"
+when = "Why long-running systems need different discipline than scripts, and what makes code complex versus complicated."
+sources = ["P:prelude-1-system-vs-script", "P:prelude-2-inherent-complexity"]
+
+# --- Backed by rules in the generated oxlintrc.jsonc ---------------------------------
+
+[[lint]]
+lint = "eslint/no-var"
+sources = ["G:local-variable-declarations"]
+
+[[lint]]
+lint = "eslint/no-eq-null"
+sources = ["G:control-structures"]
+
+[[lint]]
+lint = "eslint/default-case"
+sources = ["G:control-structures"]
+
+[[lint]]
+lint = "eslint/no-empty"
+sources = ["G:control-structures"]
+
+[[lint]]
+lint = "typescript/no-non-null-assertion"
+sources = ["G:control-structures"]
+
+[[lint]]
+lint = "typescript/no-explicit-any"
+sources = ["G:any"]
+
+[[lint]]
+lint = "typescript/no-empty-object-type"
+sources = ["G:empty-interface-type"]
+
+[[lint]]
+lint = "import/no-default-export"
+sources = ["G:exports"]
+
+[[lint]]
+lint = "typescript/no-namespace"
+sources = ["G:import-export-type"]
+
+[[lint]]
+lint = "eslint/no-debugger"
+sources = ["G:disallowed-features"]
+
+[[lint]]
+lint = "eslint/no-eval"
+sources = ["G:disallowed-features"]
+
+[[lint]]
+lint = "eslint/no-with"
+sources = ["G:disallowed-features"]
+
+[[lint]]
+lint = "eslint/no-extend-native"
+sources = ["G:disallowed-features"]
+
+# --- Deliberately excluded ---------------------------------------------------------
+
+[[exclusion]]
+unit = "G:terminology-notes"
+reason = "Meta: how the guide words its requirements."
+
+[[exclusion]]
+unit = "G:guide-notes"
+reason = "Meta: examples are non-normative."
+
+[[exclusion]]
+unit = "G:file-encoding-utf-8"
+reason = "Encoding and escape formatting, handled by the formatter and editor."
+
+[[exclusion]]
+unit = "G:language-features"
+reason = "Section introduction."
+
+[[exclusion]]
+unit = "G:toolchain-requirements"
+reason = "Section introduction."
+
+[[exclusion]]
+unit = "G:conformance"
+reason = "Google-internal conformance frameworks (tsetse, tsec)."

@@ -1,0 +1,4861 @@
+{
+ "ruff_version": "0.17.1",
+ "command": "ruff rule --all --output-format json",
+ "rules": [
+  {
+   "code": "AIR001",
+   "name": "airflow-variable-name-task-id-mismatch",
+   "status": "Stable"
+  },
+  {
+   "code": "AIR002",
+   "name": "airflow-dag-no-schedule-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "AIR003",
+   "name": "airflow-variable-get-outside-task",
+   "status": "Preview"
+  },
+  {
+   "code": "AIR004",
+   "name": "airflow-task-branch-as-short-circuit",
+   "status": "Preview"
+  },
+  {
+   "code": "AIR201",
+   "name": "airflow-xcom-pull-in-template-string",
+   "status": "Preview"
+  },
+  {
+   "code": "AIR202",
+   "name": "airflow-task-implicit-multiple-outputs",
+   "status": "Preview"
+  },
+  {
+   "code": "AIR301",
+   "name": "airflow3-removal",
+   "status": "Stable"
+  },
+  {
+   "code": "AIR302",
+   "name": "airflow3-moved-to-provider",
+   "status": "Stable"
+  },
+  {
+   "code": "AIR303",
+   "name": "airflow3-incompatible-function-signature",
+   "status": "Stable"
+  },
+  {
+   "code": "AIR304",
+   "name": "airflow3-dag-dynamic-value",
+   "status": "Preview"
+  },
+  {
+   "code": "AIR311",
+   "name": "airflow3-suggested-update",
+   "status": "Stable"
+  },
+  {
+   "code": "AIR312",
+   "name": "airflow3-suggested-to-move-to-provider",
+   "status": "Stable"
+  },
+  {
+   "code": "AIR321",
+   "name": "airflow31-moved",
+   "status": "Preview"
+  },
+  {
+   "code": "ERA001",
+   "name": "commented-out-code",
+   "status": "Stable"
+  },
+  {
+   "code": "FAST001",
+   "name": "fast-api-redundant-response-model",
+   "status": "Stable"
+  },
+  {
+   "code": "FAST002",
+   "name": "fast-api-non-annotated-dependency",
+   "status": "Stable"
+  },
+  {
+   "code": "FAST003",
+   "name": "fast-api-unused-path-parameter",
+   "status": "Stable"
+  },
+  {
+   "code": "YTT101",
+   "name": "sys-version-slice3",
+   "status": "Stable"
+  },
+  {
+   "code": "YTT102",
+   "name": "sys-version2",
+   "status": "Stable"
+  },
+  {
+   "code": "YTT103",
+   "name": "sys-version-cmp-str3",
+   "status": "Stable"
+  },
+  {
+   "code": "YTT201",
+   "name": "sys-version-info0-eq3",
+   "status": "Stable"
+  },
+  {
+   "code": "YTT202",
+   "name": "six-py3",
+   "status": "Stable"
+  },
+  {
+   "code": "YTT203",
+   "name": "sys-version-info1-cmp-int",
+   "status": "Stable"
+  },
+  {
+   "code": "YTT204",
+   "name": "sys-version-info-minor-cmp-int",
+   "status": "Stable"
+  },
+  {
+   "code": "YTT301",
+   "name": "sys-version0",
+   "status": "Stable"
+  },
+  {
+   "code": "YTT302",
+   "name": "sys-version-cmp-str10",
+   "status": "Stable"
+  },
+  {
+   "code": "YTT303",
+   "name": "sys-version-slice1",
+   "status": "Stable"
+  },
+  {
+   "code": "ANN001",
+   "name": "missing-type-function-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "ANN002",
+   "name": "missing-type-args",
+   "status": "Stable"
+  },
+  {
+   "code": "ANN003",
+   "name": "missing-type-kwargs",
+   "status": "Stable"
+  },
+  {
+   "code": "ANN101",
+   "name": "missing-type-self",
+   "status": "Removed"
+  },
+  {
+   "code": "ANN102",
+   "name": "missing-type-cls",
+   "status": "Removed"
+  },
+  {
+   "code": "ANN201",
+   "name": "missing-return-type-undocumented-public-function",
+   "status": "Stable"
+  },
+  {
+   "code": "ANN202",
+   "name": "missing-return-type-private-function",
+   "status": "Stable"
+  },
+  {
+   "code": "ANN204",
+   "name": "missing-return-type-special-method",
+   "status": "Stable"
+  },
+  {
+   "code": "ANN205",
+   "name": "missing-return-type-static-method",
+   "status": "Stable"
+  },
+  {
+   "code": "ANN206",
+   "name": "missing-return-type-class-method",
+   "status": "Stable"
+  },
+  {
+   "code": "ANN401",
+   "name": "any-type",
+   "status": "Stable"
+  },
+  {
+   "code": "ASYNC100",
+   "name": "cancel-scope-no-checkpoint",
+   "status": "Stable"
+  },
+  {
+   "code": "ASYNC105",
+   "name": "trio-sync-call",
+   "status": "Stable"
+  },
+  {
+   "code": "ASYNC109",
+   "name": "async-function-with-timeout",
+   "status": "Stable"
+  },
+  {
+   "code": "ASYNC110",
+   "name": "async-busy-wait",
+   "status": "Stable"
+  },
+  {
+   "code": "ASYNC115",
+   "name": "async-zero-sleep",
+   "status": "Stable"
+  },
+  {
+   "code": "ASYNC116",
+   "name": "long-sleep-not-forever",
+   "status": "Stable"
+  },
+  {
+   "code": "ASYNC119",
+   "name": "yield-in-context-manager-in-async-generator",
+   "status": "Preview"
+  },
+  {
+   "code": "ASYNC210",
+   "name": "blocking-http-call-in-async-function",
+   "status": "Stable"
+  },
+  {
+   "code": "ASYNC212",
+   "name": "blocking-http-call-httpx-in-async-function",
+   "status": "Stable"
+  },
+  {
+   "code": "ASYNC220",
+   "name": "create-subprocess-in-async-function",
+   "status": "Stable"
+  },
+  {
+   "code": "ASYNC221",
+   "name": "run-process-in-async-function",
+   "status": "Stable"
+  },
+  {
+   "code": "ASYNC222",
+   "name": "wait-for-process-in-async-function",
+   "status": "Stable"
+  },
+  {
+   "code": "ASYNC230",
+   "name": "blocking-open-call-in-async-function",
+   "status": "Stable"
+  },
+  {
+   "code": "ASYNC240",
+   "name": "blocking-path-method-in-async-function",
+   "status": "Stable"
+  },
+  {
+   "code": "ASYNC250",
+   "name": "blocking-input-in-async-function",
+   "status": "Stable"
+  },
+  {
+   "code": "ASYNC251",
+   "name": "blocking-sleep-in-async-function",
+   "status": "Stable"
+  },
+  {
+   "code": "S101",
+   "name": "assert",
+   "status": "Stable"
+  },
+  {
+   "code": "S102",
+   "name": "exec-builtin",
+   "status": "Stable"
+  },
+  {
+   "code": "S103",
+   "name": "bad-file-permissions",
+   "status": "Stable"
+  },
+  {
+   "code": "S104",
+   "name": "hardcoded-bind-all-interfaces",
+   "status": "Stable"
+  },
+  {
+   "code": "S105",
+   "name": "hardcoded-password-string",
+   "status": "Stable"
+  },
+  {
+   "code": "S106",
+   "name": "hardcoded-password-func-arg",
+   "status": "Stable"
+  },
+  {
+   "code": "S107",
+   "name": "hardcoded-password-default",
+   "status": "Stable"
+  },
+  {
+   "code": "S108",
+   "name": "hardcoded-temp-file",
+   "status": "Stable"
+  },
+  {
+   "code": "S110",
+   "name": "try-except-pass",
+   "status": "Stable"
+  },
+  {
+   "code": "S112",
+   "name": "try-except-continue",
+   "status": "Stable"
+  },
+  {
+   "code": "S113",
+   "name": "request-without-timeout",
+   "status": "Stable"
+  },
+  {
+   "code": "S201",
+   "name": "flask-debug-true",
+   "status": "Stable"
+  },
+  {
+   "code": "S202",
+   "name": "tarfile-unsafe-members",
+   "status": "Stable"
+  },
+  {
+   "code": "S301",
+   "name": "suspicious-pickle-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S302",
+   "name": "suspicious-marshal-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S303",
+   "name": "suspicious-insecure-hash-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S304",
+   "name": "suspicious-insecure-cipher-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S305",
+   "name": "suspicious-insecure-cipher-mode-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S306",
+   "name": "suspicious-mktemp-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S307",
+   "name": "suspicious-eval-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S308",
+   "name": "suspicious-mark-safe-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S310",
+   "name": "suspicious-url-open-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S311",
+   "name": "suspicious-non-cryptographic-random-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S312",
+   "name": "suspicious-telnet-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S313",
+   "name": "suspicious-xmlc-element-tree-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S314",
+   "name": "suspicious-xml-element-tree-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S315",
+   "name": "suspicious-xml-expat-reader-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S316",
+   "name": "suspicious-xml-expat-builder-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S317",
+   "name": "suspicious-xml-sax-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S318",
+   "name": "suspicious-xml-mini-dom-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S319",
+   "name": "suspicious-xml-pull-dom-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S320",
+   "name": "suspicious-xmle-tree-usage",
+   "status": "Removed"
+  },
+  {
+   "code": "S321",
+   "name": "suspicious-ftp-lib-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S323",
+   "name": "suspicious-unverified-context-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "S324",
+   "name": "hashlib-insecure-hash-function",
+   "status": "Stable"
+  },
+  {
+   "code": "S401",
+   "name": "suspicious-telnetlib-import",
+   "status": "Preview"
+  },
+  {
+   "code": "S402",
+   "name": "suspicious-ftplib-import",
+   "status": "Preview"
+  },
+  {
+   "code": "S403",
+   "name": "suspicious-pickle-import",
+   "status": "Preview"
+  },
+  {
+   "code": "S404",
+   "name": "suspicious-subprocess-import",
+   "status": "Preview"
+  },
+  {
+   "code": "S405",
+   "name": "suspicious-xml-etree-import",
+   "status": "Preview"
+  },
+  {
+   "code": "S406",
+   "name": "suspicious-xml-sax-import",
+   "status": "Preview"
+  },
+  {
+   "code": "S407",
+   "name": "suspicious-xml-expat-import",
+   "status": "Preview"
+  },
+  {
+   "code": "S408",
+   "name": "suspicious-xml-minidom-import",
+   "status": "Preview"
+  },
+  {
+   "code": "S409",
+   "name": "suspicious-xml-pulldom-import",
+   "status": "Preview"
+  },
+  {
+   "code": "S410",
+   "name": "suspicious-lxml-import",
+   "status": "Removed"
+  },
+  {
+   "code": "S411",
+   "name": "suspicious-xmlrpc-import",
+   "status": "Preview"
+  },
+  {
+   "code": "S412",
+   "name": "suspicious-httpoxy-import",
+   "status": "Preview"
+  },
+  {
+   "code": "S413",
+   "name": "suspicious-pycrypto-import",
+   "status": "Preview"
+  },
+  {
+   "code": "S415",
+   "name": "suspicious-pyghmi-import",
+   "status": "Preview"
+  },
+  {
+   "code": "S501",
+   "name": "request-with-no-cert-validation",
+   "status": "Stable"
+  },
+  {
+   "code": "S502",
+   "name": "ssl-insecure-version",
+   "status": "Stable"
+  },
+  {
+   "code": "S503",
+   "name": "ssl-with-bad-defaults",
+   "status": "Stable"
+  },
+  {
+   "code": "S504",
+   "name": "ssl-with-no-version",
+   "status": "Stable"
+  },
+  {
+   "code": "S505",
+   "name": "weak-cryptographic-key",
+   "status": "Stable"
+  },
+  {
+   "code": "S506",
+   "name": "unsafe-yaml-load",
+   "status": "Stable"
+  },
+  {
+   "code": "S507",
+   "name": "ssh-no-host-key-verification",
+   "status": "Stable"
+  },
+  {
+   "code": "S508",
+   "name": "snmp-insecure-version",
+   "status": "Stable"
+  },
+  {
+   "code": "S509",
+   "name": "snmp-weak-cryptography",
+   "status": "Stable"
+  },
+  {
+   "code": "S601",
+   "name": "paramiko-call",
+   "status": "Stable"
+  },
+  {
+   "code": "S602",
+   "name": "subprocess-popen-with-shell-equals-true",
+   "status": "Stable"
+  },
+  {
+   "code": "S603",
+   "name": "subprocess-without-shell-equals-true",
+   "status": "Stable"
+  },
+  {
+   "code": "S604",
+   "name": "call-with-shell-equals-true",
+   "status": "Stable"
+  },
+  {
+   "code": "S605",
+   "name": "start-process-with-a-shell",
+   "status": "Stable"
+  },
+  {
+   "code": "S606",
+   "name": "start-process-with-no-shell",
+   "status": "Stable"
+  },
+  {
+   "code": "S607",
+   "name": "start-process-with-partial-path",
+   "status": "Stable"
+  },
+  {
+   "code": "S608",
+   "name": "hardcoded-sql-expression",
+   "status": "Stable"
+  },
+  {
+   "code": "S609",
+   "name": "unix-command-wildcard-injection",
+   "status": "Stable"
+  },
+  {
+   "code": "S610",
+   "name": "django-extra",
+   "status": "Stable"
+  },
+  {
+   "code": "S611",
+   "name": "django-raw-sql",
+   "status": "Stable"
+  },
+  {
+   "code": "S612",
+   "name": "logging-config-insecure-listen",
+   "status": "Stable"
+  },
+  {
+   "code": "S701",
+   "name": "jinja2-autoescape-false",
+   "status": "Stable"
+  },
+  {
+   "code": "S702",
+   "name": "mako-templates",
+   "status": "Stable"
+  },
+  {
+   "code": "S704",
+   "name": "unsafe-markup-use",
+   "status": "Stable"
+  },
+  {
+   "code": "BLE001",
+   "name": "blind-except",
+   "status": "Stable"
+  },
+  {
+   "code": "FBT001",
+   "name": "boolean-type-hint-positional-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "FBT002",
+   "name": "boolean-default-value-positional-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "FBT003",
+   "name": "boolean-positional-value-in-call",
+   "status": "Stable"
+  },
+  {
+   "code": "B002",
+   "name": "unary-prefix-increment-decrement",
+   "status": "Stable"
+  },
+  {
+   "code": "B003",
+   "name": "assignment-to-os-environ",
+   "status": "Stable"
+  },
+  {
+   "code": "B004",
+   "name": "unreliable-callable-check",
+   "status": "Stable"
+  },
+  {
+   "code": "B005",
+   "name": "strip-with-multi-characters",
+   "status": "Stable"
+  },
+  {
+   "code": "B006",
+   "name": "mutable-argument-default",
+   "status": "Stable"
+  },
+  {
+   "code": "B007",
+   "name": "unused-loop-control-variable",
+   "status": "Stable"
+  },
+  {
+   "code": "B008",
+   "name": "function-call-in-default-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "B009",
+   "name": "get-attr-with-constant",
+   "status": "Stable"
+  },
+  {
+   "code": "B010",
+   "name": "set-attr-with-constant",
+   "status": "Stable"
+  },
+  {
+   "code": "B011",
+   "name": "assert-false",
+   "status": "Stable"
+  },
+  {
+   "code": "B012",
+   "name": "jump-statement-in-finally",
+   "status": "Stable"
+  },
+  {
+   "code": "B013",
+   "name": "redundant-tuple-in-exception-handler",
+   "status": "Stable"
+  },
+  {
+   "code": "B014",
+   "name": "duplicate-handler-exception",
+   "status": "Stable"
+  },
+  {
+   "code": "B015",
+   "name": "useless-comparison",
+   "status": "Stable"
+  },
+  {
+   "code": "B016",
+   "name": "raise-literal",
+   "status": "Stable"
+  },
+  {
+   "code": "B017",
+   "name": "assert-raises-exception",
+   "status": "Stable"
+  },
+  {
+   "code": "B018",
+   "name": "useless-expression",
+   "status": "Stable"
+  },
+  {
+   "code": "B019",
+   "name": "cached-instance-method",
+   "status": "Stable"
+  },
+  {
+   "code": "B020",
+   "name": "loop-variable-overrides-iterator",
+   "status": "Stable"
+  },
+  {
+   "code": "B021",
+   "name": "f-string-docstring",
+   "status": "Stable"
+  },
+  {
+   "code": "B022",
+   "name": "useless-contextlib-suppress",
+   "status": "Stable"
+  },
+  {
+   "code": "B023",
+   "name": "function-uses-loop-variable",
+   "status": "Stable"
+  },
+  {
+   "code": "B024",
+   "name": "abstract-base-class-without-abstract-method",
+   "status": "Stable"
+  },
+  {
+   "code": "B025",
+   "name": "duplicate-try-block-exception",
+   "status": "Stable"
+  },
+  {
+   "code": "B026",
+   "name": "star-arg-unpacking-after-keyword-arg",
+   "status": "Stable"
+  },
+  {
+   "code": "B027",
+   "name": "empty-method-without-abstract-decorator",
+   "status": "Stable"
+  },
+  {
+   "code": "B028",
+   "name": "no-explicit-stacklevel",
+   "status": "Stable"
+  },
+  {
+   "code": "B029",
+   "name": "except-with-empty-tuple",
+   "status": "Stable"
+  },
+  {
+   "code": "B030",
+   "name": "except-with-non-exception-classes",
+   "status": "Stable"
+  },
+  {
+   "code": "B031",
+   "name": "reuse-of-groupby-generator",
+   "status": "Stable"
+  },
+  {
+   "code": "B032",
+   "name": "unintentional-type-annotation",
+   "status": "Stable"
+  },
+  {
+   "code": "B033",
+   "name": "duplicate-value",
+   "status": "Stable"
+  },
+  {
+   "code": "B034",
+   "name": "re-sub-positional-args",
+   "status": "Stable"
+  },
+  {
+   "code": "B035",
+   "name": "static-key-dict-comprehension",
+   "status": "Stable"
+  },
+  {
+   "code": "B039",
+   "name": "mutable-contextvar-default",
+   "status": "Stable"
+  },
+  {
+   "code": "B043",
+   "name": "del-attr-with-constant",
+   "status": "Preview"
+  },
+  {
+   "code": "B901",
+   "name": "return-in-generator",
+   "status": "Preview"
+  },
+  {
+   "code": "B903",
+   "name": "class-as-data-structure",
+   "status": "Preview"
+  },
+  {
+   "code": "B904",
+   "name": "raise-without-from-inside-except",
+   "status": "Stable"
+  },
+  {
+   "code": "B905",
+   "name": "zip-without-explicit-strict",
+   "status": "Stable"
+  },
+  {
+   "code": "B909",
+   "name": "loop-iterator-mutation",
+   "status": "Preview"
+  },
+  {
+   "code": "B911",
+   "name": "batched-without-explicit-strict",
+   "status": "Stable"
+  },
+  {
+   "code": "B912",
+   "name": "map-without-explicit-strict",
+   "status": "Stable"
+  },
+  {
+   "code": "A001",
+   "name": "builtin-variable-shadowing",
+   "status": "Stable"
+  },
+  {
+   "code": "A002",
+   "name": "builtin-argument-shadowing",
+   "status": "Stable"
+  },
+  {
+   "code": "A003",
+   "name": "builtin-attribute-shadowing",
+   "status": "Stable"
+  },
+  {
+   "code": "A004",
+   "name": "builtin-import-shadowing",
+   "status": "Stable"
+  },
+  {
+   "code": "A005",
+   "name": "stdlib-module-shadowing",
+   "status": "Stable"
+  },
+  {
+   "code": "A006",
+   "name": "builtin-lambda-argument-shadowing",
+   "status": "Stable"
+  },
+  {
+   "code": "COM812",
+   "name": "missing-trailing-comma",
+   "status": "Stable"
+  },
+  {
+   "code": "COM818",
+   "name": "trailing-comma-on-bare-tuple",
+   "status": "Stable"
+  },
+  {
+   "code": "COM819",
+   "name": "prohibited-trailing-comma",
+   "status": "Stable"
+  },
+  {
+   "code": "C400",
+   "name": "unnecessary-generator-list",
+   "status": "Stable"
+  },
+  {
+   "code": "C401",
+   "name": "unnecessary-generator-set",
+   "status": "Stable"
+  },
+  {
+   "code": "C402",
+   "name": "unnecessary-generator-dict",
+   "status": "Stable"
+  },
+  {
+   "code": "C403",
+   "name": "unnecessary-list-comprehension-set",
+   "status": "Stable"
+  },
+  {
+   "code": "C404",
+   "name": "unnecessary-list-comprehension-dict",
+   "status": "Stable"
+  },
+  {
+   "code": "C405",
+   "name": "unnecessary-literal-set",
+   "status": "Stable"
+  },
+  {
+   "code": "C406",
+   "name": "unnecessary-literal-dict",
+   "status": "Stable"
+  },
+  {
+   "code": "C408",
+   "name": "unnecessary-collection-call",
+   "status": "Stable"
+  },
+  {
+   "code": "C409",
+   "name": "unnecessary-literal-within-tuple-call",
+   "status": "Stable"
+  },
+  {
+   "code": "C410",
+   "name": "unnecessary-literal-within-list-call",
+   "status": "Stable"
+  },
+  {
+   "code": "C411",
+   "name": "unnecessary-list-call",
+   "status": "Stable"
+  },
+  {
+   "code": "C413",
+   "name": "unnecessary-call-around-sorted",
+   "status": "Stable"
+  },
+  {
+   "code": "C414",
+   "name": "unnecessary-double-cast-or-process",
+   "status": "Stable"
+  },
+  {
+   "code": "C415",
+   "name": "unnecessary-subscript-reversal",
+   "status": "Stable"
+  },
+  {
+   "code": "C416",
+   "name": "unnecessary-comprehension",
+   "status": "Stable"
+  },
+  {
+   "code": "C417",
+   "name": "unnecessary-map",
+   "status": "Stable"
+  },
+  {
+   "code": "C418",
+   "name": "unnecessary-literal-within-dict-call",
+   "status": "Stable"
+  },
+  {
+   "code": "C419",
+   "name": "unnecessary-comprehension-in-call",
+   "status": "Stable"
+  },
+  {
+   "code": "C420",
+   "name": "unnecessary-dict-comprehension-for-iterable",
+   "status": "Stable"
+  },
+  {
+   "code": "CPY001",
+   "name": "missing-copyright-notice",
+   "status": "Stable"
+  },
+  {
+   "code": "DTZ001",
+   "name": "call-datetime-without-tzinfo",
+   "status": "Stable"
+  },
+  {
+   "code": "DTZ002",
+   "name": "call-datetime-today",
+   "status": "Stable"
+  },
+  {
+   "code": "DTZ003",
+   "name": "call-datetime-utcnow",
+   "status": "Stable"
+  },
+  {
+   "code": "DTZ004",
+   "name": "call-datetime-utcfromtimestamp",
+   "status": "Stable"
+  },
+  {
+   "code": "DTZ005",
+   "name": "call-datetime-now-without-tzinfo",
+   "status": "Stable"
+  },
+  {
+   "code": "DTZ006",
+   "name": "call-datetime-fromtimestamp",
+   "status": "Stable"
+  },
+  {
+   "code": "DTZ007",
+   "name": "call-datetime-strptime-without-zone",
+   "status": "Stable"
+  },
+  {
+   "code": "DTZ011",
+   "name": "call-date-today",
+   "status": "Stable"
+  },
+  {
+   "code": "DTZ012",
+   "name": "call-date-fromtimestamp",
+   "status": "Stable"
+  },
+  {
+   "code": "DTZ901",
+   "name": "datetime-min-max",
+   "status": "Stable"
+  },
+  {
+   "code": "T100",
+   "name": "debugger",
+   "status": "Stable"
+  },
+  {
+   "code": "DJ001",
+   "name": "django-nullable-model-string-field",
+   "status": "Stable"
+  },
+  {
+   "code": "DJ003",
+   "name": "django-locals-in-render-function",
+   "status": "Stable"
+  },
+  {
+   "code": "DJ006",
+   "name": "django-exclude-with-model-form",
+   "status": "Stable"
+  },
+  {
+   "code": "DJ007",
+   "name": "django-all-with-model-form",
+   "status": "Stable"
+  },
+  {
+   "code": "DJ008",
+   "name": "django-model-without-dunder-str",
+   "status": "Stable"
+  },
+  {
+   "code": "DJ012",
+   "name": "django-unordered-body-content-in-model",
+   "status": "Stable"
+  },
+  {
+   "code": "DJ013",
+   "name": "django-non-leading-receiver-decorator",
+   "status": "Stable"
+  },
+  {
+   "code": "EM101",
+   "name": "raw-string-in-exception",
+   "status": "Stable"
+  },
+  {
+   "code": "EM102",
+   "name": "f-string-in-exception",
+   "status": "Stable"
+  },
+  {
+   "code": "EM103",
+   "name": "dot-format-in-exception",
+   "status": "Stable"
+  },
+  {
+   "code": "EXE001",
+   "name": "shebang-not-executable",
+   "status": "Stable"
+  },
+  {
+   "code": "EXE002",
+   "name": "shebang-missing-executable-file",
+   "status": "Stable"
+  },
+  {
+   "code": "EXE003",
+   "name": "shebang-missing-python",
+   "status": "Stable"
+  },
+  {
+   "code": "EXE004",
+   "name": "shebang-leading-whitespace",
+   "status": "Stable"
+  },
+  {
+   "code": "EXE005",
+   "name": "shebang-not-first-line",
+   "status": "Stable"
+  },
+  {
+   "code": "FIX001",
+   "name": "line-contains-fixme",
+   "status": "Stable"
+  },
+  {
+   "code": "FIX002",
+   "name": "line-contains-todo",
+   "status": "Stable"
+  },
+  {
+   "code": "FIX003",
+   "name": "line-contains-xxx",
+   "status": "Stable"
+  },
+  {
+   "code": "FIX004",
+   "name": "line-contains-hack",
+   "status": "Stable"
+  },
+  {
+   "code": "FA100",
+   "name": "future-rewritable-type-annotation",
+   "status": "Stable"
+  },
+  {
+   "code": "FA102",
+   "name": "future-required-type-annotation",
+   "status": "Stable"
+  },
+  {
+   "code": "INT001",
+   "name": "f-string-in-get-text-func-call",
+   "status": "Stable"
+  },
+  {
+   "code": "INT002",
+   "name": "format-in-get-text-func-call",
+   "status": "Stable"
+  },
+  {
+   "code": "INT003",
+   "name": "printf-in-get-text-func-call",
+   "status": "Stable"
+  },
+  {
+   "code": "ISC001",
+   "name": "single-line-implicit-string-concatenation",
+   "status": "Stable"
+  },
+  {
+   "code": "ISC002",
+   "name": "multi-line-implicit-string-concatenation",
+   "status": "Stable"
+  },
+  {
+   "code": "ISC003",
+   "name": "explicit-string-concatenation",
+   "status": "Stable"
+  },
+  {
+   "code": "ISC004",
+   "name": "implicit-string-concatenation-in-collection-literal",
+   "status": "Stable"
+  },
+  {
+   "code": "ICN001",
+   "name": "unconventional-import-alias",
+   "status": "Stable"
+  },
+  {
+   "code": "ICN002",
+   "name": "banned-import-alias",
+   "status": "Stable"
+  },
+  {
+   "code": "ICN003",
+   "name": "banned-import-from",
+   "status": "Stable"
+  },
+  {
+   "code": "LOG001",
+   "name": "direct-logger-instantiation",
+   "status": "Stable"
+  },
+  {
+   "code": "LOG002",
+   "name": "invalid-get-logger-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "LOG004",
+   "name": "log-exception-outside-except-handler",
+   "status": "Stable"
+  },
+  {
+   "code": "LOG007",
+   "name": "exception-without-exc-info",
+   "status": "Stable"
+  },
+  {
+   "code": "LOG009",
+   "name": "undocumented-warn",
+   "status": "Stable"
+  },
+  {
+   "code": "LOG014",
+   "name": "exc-info-outside-except-handler",
+   "status": "Stable"
+  },
+  {
+   "code": "LOG015",
+   "name": "root-logger-call",
+   "status": "Stable"
+  },
+  {
+   "code": "G001",
+   "name": "logging-string-format",
+   "status": "Stable"
+  },
+  {
+   "code": "G002",
+   "name": "logging-percent-format",
+   "status": "Stable"
+  },
+  {
+   "code": "G003",
+   "name": "logging-string-concat",
+   "status": "Stable"
+  },
+  {
+   "code": "G004",
+   "name": "logging-f-string",
+   "status": "Stable"
+  },
+  {
+   "code": "G010",
+   "name": "logging-warn",
+   "status": "Stable"
+  },
+  {
+   "code": "G101",
+   "name": "logging-extra-attr-clash",
+   "status": "Stable"
+  },
+  {
+   "code": "G201",
+   "name": "logging-exc-info",
+   "status": "Stable"
+  },
+  {
+   "code": "G202",
+   "name": "logging-redundant-exc-info",
+   "status": "Stable"
+  },
+  {
+   "code": "INP001",
+   "name": "implicit-namespace-package",
+   "status": "Stable"
+  },
+  {
+   "code": "PIE790",
+   "name": "unnecessary-placeholder",
+   "status": "Stable"
+  },
+  {
+   "code": "PIE794",
+   "name": "duplicate-class-field-definition",
+   "status": "Stable"
+  },
+  {
+   "code": "PIE796",
+   "name": "non-unique-enums",
+   "status": "Stable"
+  },
+  {
+   "code": "PIE800",
+   "name": "unnecessary-spread",
+   "status": "Stable"
+  },
+  {
+   "code": "PIE804",
+   "name": "unnecessary-dict-kwargs",
+   "status": "Stable"
+  },
+  {
+   "code": "PIE807",
+   "name": "reimplemented-container-builtin",
+   "status": "Stable"
+  },
+  {
+   "code": "PIE808",
+   "name": "unnecessary-range-start",
+   "status": "Stable"
+  },
+  {
+   "code": "PIE810",
+   "name": "multiple-starts-ends-with",
+   "status": "Stable"
+  },
+  {
+   "code": "T201",
+   "name": "print",
+   "status": "Stable"
+  },
+  {
+   "code": "T203",
+   "name": "p-print",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI001",
+   "name": "unprefixed-type-param",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI002",
+   "name": "complex-if-statement-in-stub",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI003",
+   "name": "unrecognized-version-info-check",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI004",
+   "name": "patch-version-comparison",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI005",
+   "name": "wrong-tuple-length-version-comparison",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI006",
+   "name": "bad-version-info-comparison",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI007",
+   "name": "unrecognized-platform-check",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI008",
+   "name": "unrecognized-platform-name",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI009",
+   "name": "pass-statement-stub-body",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI010",
+   "name": "non-empty-stub-body",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI011",
+   "name": "typed-argument-default-in-stub",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI012",
+   "name": "pass-in-class-body",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI013",
+   "name": "ellipsis-in-non-empty-class-body",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI014",
+   "name": "argument-default-in-stub",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI015",
+   "name": "assignment-default-in-stub",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI016",
+   "name": "duplicate-union-member",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI017",
+   "name": "complex-assignment-in-stub",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI018",
+   "name": "unused-private-type-var",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI019",
+   "name": "custom-type-var-for-self",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI020",
+   "name": "quoted-annotation-in-stub",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI021",
+   "name": "docstring-in-stub",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI024",
+   "name": "collections-named-tuple",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI025",
+   "name": "unaliased-collections-abc-set-import",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI026",
+   "name": "type-alias-without-annotation",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI029",
+   "name": "str-or-repr-defined-in-stub",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI030",
+   "name": "unnecessary-literal-union",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI032",
+   "name": "any-eq-ne-annotation",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI033",
+   "name": "legacy-type-comment",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI034",
+   "name": "non-self-return-type",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI035",
+   "name": "unassigned-special-variable-in-stub",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI036",
+   "name": "bad-exit-annotation",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI041",
+   "name": "redundant-numeric-union",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI042",
+   "name": "snake-case-type-alias",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI043",
+   "name": "t-suffixed-type-alias",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI044",
+   "name": "future-annotations-in-stub",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI045",
+   "name": "iter-method-return-iterable",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI046",
+   "name": "unused-private-protocol",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI047",
+   "name": "unused-private-type-alias",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI048",
+   "name": "stub-body-multiple-statements",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI049",
+   "name": "unused-private-typed-dict",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI050",
+   "name": "no-return-argument-annotation-in-stub",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI051",
+   "name": "redundant-literal-union",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI052",
+   "name": "unannotated-assignment-in-stub",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI053",
+   "name": "string-or-bytes-too-long",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI054",
+   "name": "numeric-literal-too-long",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI055",
+   "name": "unnecessary-type-union",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI056",
+   "name": "unsupported-method-call-on-all",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI057",
+   "name": "byte-string-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI058",
+   "name": "generator-return-from-iter-method",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI059",
+   "name": "generic-not-last-base-class",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI061",
+   "name": "redundant-none-literal",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI062",
+   "name": "duplicate-literal-member",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI063",
+   "name": "pep484-style-positional-only-parameter",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI064",
+   "name": "redundant-final-literal",
+   "status": "Stable"
+  },
+  {
+   "code": "PYI066",
+   "name": "bad-version-info-order",
+   "status": "Stable"
+  },
+  {
+   "code": "PT001",
+   "name": "pytest-fixture-incorrect-parentheses-style",
+   "status": "Stable"
+  },
+  {
+   "code": "PT002",
+   "name": "pytest-fixture-positional-args",
+   "status": "Stable"
+  },
+  {
+   "code": "PT003",
+   "name": "pytest-extraneous-scope-function",
+   "status": "Stable"
+  },
+  {
+   "code": "PT004",
+   "name": "pytest-missing-fixture-name-underscore",
+   "status": "Removed"
+  },
+  {
+   "code": "PT005",
+   "name": "pytest-incorrect-fixture-name-underscore",
+   "status": "Removed"
+  },
+  {
+   "code": "PT006",
+   "name": "pytest-parametrize-names-wrong-type",
+   "status": "Stable"
+  },
+  {
+   "code": "PT007",
+   "name": "pytest-parametrize-values-wrong-type",
+   "status": "Stable"
+  },
+  {
+   "code": "PT008",
+   "name": "pytest-patch-with-lambda",
+   "status": "Stable"
+  },
+  {
+   "code": "PT009",
+   "name": "pytest-unittest-assertion",
+   "status": "Stable"
+  },
+  {
+   "code": "PT010",
+   "name": "pytest-raises-without-exception",
+   "status": "Stable"
+  },
+  {
+   "code": "PT011",
+   "name": "pytest-raises-too-broad",
+   "status": "Stable"
+  },
+  {
+   "code": "PT012",
+   "name": "pytest-raises-with-multiple-statements",
+   "status": "Stable"
+  },
+  {
+   "code": "PT013",
+   "name": "pytest-incorrect-pytest-import",
+   "status": "Stable"
+  },
+  {
+   "code": "PT014",
+   "name": "pytest-duplicate-parametrize-test-cases",
+   "status": "Stable"
+  },
+  {
+   "code": "PT015",
+   "name": "pytest-assert-always-false",
+   "status": "Stable"
+  },
+  {
+   "code": "PT016",
+   "name": "pytest-fail-without-message",
+   "status": "Stable"
+  },
+  {
+   "code": "PT017",
+   "name": "pytest-assert-in-except",
+   "status": "Stable"
+  },
+  {
+   "code": "PT018",
+   "name": "pytest-composite-assertion",
+   "status": "Stable"
+  },
+  {
+   "code": "PT019",
+   "name": "pytest-fixture-param-without-value",
+   "status": "Stable"
+  },
+  {
+   "code": "PT020",
+   "name": "pytest-deprecated-yield-fixture",
+   "status": "Stable"
+  },
+  {
+   "code": "PT021",
+   "name": "pytest-fixture-finalizer-callback",
+   "status": "Stable"
+  },
+  {
+   "code": "PT022",
+   "name": "pytest-useless-yield-fixture",
+   "status": "Stable"
+  },
+  {
+   "code": "PT023",
+   "name": "pytest-incorrect-mark-parentheses-style",
+   "status": "Stable"
+  },
+  {
+   "code": "PT024",
+   "name": "pytest-unnecessary-asyncio-mark-on-fixture",
+   "status": "Stable"
+  },
+  {
+   "code": "PT025",
+   "name": "pytest-erroneous-use-fixtures-on-fixture",
+   "status": "Stable"
+  },
+  {
+   "code": "PT026",
+   "name": "pytest-use-fixtures-without-parameters",
+   "status": "Stable"
+  },
+  {
+   "code": "PT027",
+   "name": "pytest-unittest-raises-assertion",
+   "status": "Stable"
+  },
+  {
+   "code": "PT028",
+   "name": "pytest-parameter-with-default-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "PT029",
+   "name": "pytest-warns-without-warning",
+   "status": "Preview"
+  },
+  {
+   "code": "PT030",
+   "name": "pytest-warns-too-broad",
+   "status": "Stable"
+  },
+  {
+   "code": "PT031",
+   "name": "pytest-warns-with-multiple-statements",
+   "status": "Stable"
+  },
+  {
+   "code": "Q000",
+   "name": "bad-quotes-inline-string",
+   "status": "Stable"
+  },
+  {
+   "code": "Q001",
+   "name": "bad-quotes-multiline-string",
+   "status": "Stable"
+  },
+  {
+   "code": "Q002",
+   "name": "bad-quotes-docstring",
+   "status": "Stable"
+  },
+  {
+   "code": "Q003",
+   "name": "avoidable-escaped-quote",
+   "status": "Stable"
+  },
+  {
+   "code": "Q004",
+   "name": "unnecessary-escaped-quote",
+   "status": "Stable"
+  },
+  {
+   "code": "RSE102",
+   "name": "unnecessary-paren-on-raise-exception",
+   "status": "Stable"
+  },
+  {
+   "code": "RET501",
+   "name": "unnecessary-return-none",
+   "status": "Stable"
+  },
+  {
+   "code": "RET502",
+   "name": "implicit-return-value",
+   "status": "Stable"
+  },
+  {
+   "code": "RET503",
+   "name": "implicit-return",
+   "status": "Stable"
+  },
+  {
+   "code": "RET504",
+   "name": "unnecessary-assign",
+   "status": "Stable"
+  },
+  {
+   "code": "RET505",
+   "name": "superfluous-else-return",
+   "status": "Stable"
+  },
+  {
+   "code": "RET506",
+   "name": "superfluous-else-raise",
+   "status": "Stable"
+  },
+  {
+   "code": "RET507",
+   "name": "superfluous-else-continue",
+   "status": "Stable"
+  },
+  {
+   "code": "RET508",
+   "name": "superfluous-else-break",
+   "status": "Stable"
+  },
+  {
+   "code": "SLF001",
+   "name": "private-member-access",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM101",
+   "name": "duplicate-isinstance-call",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM102",
+   "name": "collapsible-if",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM103",
+   "name": "needless-bool",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM105",
+   "name": "suppressible-exception",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM107",
+   "name": "return-in-try-except-finally",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM108",
+   "name": "if-else-block-instead-of-if-exp",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM109",
+   "name": "compare-with-tuple",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM110",
+   "name": "reimplemented-builtin",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM112",
+   "name": "uncapitalized-environment-variables",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM113",
+   "name": "enumerate-for-loop",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM114",
+   "name": "if-with-same-arms",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM115",
+   "name": "open-file-with-context-handler",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM116",
+   "name": "if-else-block-instead-of-dict-lookup",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM117",
+   "name": "multiple-with-statements",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM118",
+   "name": "in-dict-keys",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM201",
+   "name": "negate-equal-op",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM202",
+   "name": "negate-not-equal-op",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM208",
+   "name": "double-negation",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM210",
+   "name": "if-expr-with-true-false",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM211",
+   "name": "if-expr-with-false-true",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM212",
+   "name": "if-expr-with-twisted-arms",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM220",
+   "name": "expr-and-not-expr",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM221",
+   "name": "expr-or-not-expr",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM222",
+   "name": "expr-or-true",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM223",
+   "name": "expr-and-false",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM300",
+   "name": "yoda-conditions",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM401",
+   "name": "if-else-block-instead-of-dict-get",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM905",
+   "name": "split-static-string",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM910",
+   "name": "dict-get-with-none-default",
+   "status": "Stable"
+  },
+  {
+   "code": "SIM911",
+   "name": "zip-dict-keys-and-values",
+   "status": "Stable"
+  },
+  {
+   "code": "SLOT000",
+   "name": "no-slots-in-str-subclass",
+   "status": "Stable"
+  },
+  {
+   "code": "SLOT001",
+   "name": "no-slots-in-tuple-subclass",
+   "status": "Stable"
+  },
+  {
+   "code": "SLOT002",
+   "name": "no-slots-in-namedtuple-subclass",
+   "status": "Stable"
+  },
+  {
+   "code": "TID251",
+   "name": "banned-api",
+   "status": "Stable"
+  },
+  {
+   "code": "TID252",
+   "name": "relative-imports",
+   "status": "Stable"
+  },
+  {
+   "code": "TID253",
+   "name": "banned-module-level-imports",
+   "status": "Stable"
+  },
+  {
+   "code": "TID254",
+   "name": "lazy-import-mismatch",
+   "status": "Stable"
+  },
+  {
+   "code": "TID255",
+   "name": "lazy-import-immediately-resolved",
+   "status": "Stable"
+  },
+  {
+   "code": "TD001",
+   "name": "invalid-todo-tag",
+   "status": "Stable"
+  },
+  {
+   "code": "TD002",
+   "name": "missing-todo-author",
+   "status": "Stable"
+  },
+  {
+   "code": "TD003",
+   "name": "missing-todo-link",
+   "status": "Stable"
+  },
+  {
+   "code": "TD004",
+   "name": "missing-todo-colon",
+   "status": "Stable"
+  },
+  {
+   "code": "TD005",
+   "name": "missing-todo-description",
+   "status": "Stable"
+  },
+  {
+   "code": "TD006",
+   "name": "invalid-todo-capitalization",
+   "status": "Stable"
+  },
+  {
+   "code": "TD007",
+   "name": "missing-space-after-todo-colon",
+   "status": "Stable"
+  },
+  {
+   "code": "TC001",
+   "name": "typing-only-first-party-import",
+   "status": "Stable"
+  },
+  {
+   "code": "TC002",
+   "name": "typing-only-third-party-import",
+   "status": "Stable"
+  },
+  {
+   "code": "TC003",
+   "name": "typing-only-standard-library-import",
+   "status": "Stable"
+  },
+  {
+   "code": "TC004",
+   "name": "runtime-import-in-type-checking-block",
+   "status": "Stable"
+  },
+  {
+   "code": "TC005",
+   "name": "empty-type-checking-block",
+   "status": "Stable"
+  },
+  {
+   "code": "TC006",
+   "name": "runtime-cast-value",
+   "status": "Stable"
+  },
+  {
+   "code": "TC007",
+   "name": "unquoted-type-alias",
+   "status": "Stable"
+  },
+  {
+   "code": "TC008",
+   "name": "quoted-type-alias",
+   "status": "Preview"
+  },
+  {
+   "code": "TC010",
+   "name": "runtime-string-union",
+   "status": "Stable"
+  },
+  {
+   "code": "ARG001",
+   "name": "unused-function-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "ARG002",
+   "name": "unused-method-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "ARG003",
+   "name": "unused-class-method-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "ARG004",
+   "name": "unused-static-method-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "ARG005",
+   "name": "unused-lambda-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH100",
+   "name": "os-path-abspath",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH101",
+   "name": "os-chmod",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH102",
+   "name": "os-mkdir",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH103",
+   "name": "os-makedirs",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH104",
+   "name": "os-rename",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH105",
+   "name": "os-replace",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH106",
+   "name": "os-rmdir",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH107",
+   "name": "os-remove",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH108",
+   "name": "os-unlink",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH109",
+   "name": "os-getcwd",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH110",
+   "name": "os-path-exists",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH111",
+   "name": "os-path-expanduser",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH112",
+   "name": "os-path-isdir",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH113",
+   "name": "os-path-isfile",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH114",
+   "name": "os-path-islink",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH115",
+   "name": "os-readlink",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH116",
+   "name": "os-stat",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH117",
+   "name": "os-path-isabs",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH118",
+   "name": "os-path-join",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH119",
+   "name": "os-path-basename",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH120",
+   "name": "os-path-dirname",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH121",
+   "name": "os-path-samefile",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH122",
+   "name": "os-path-splitext",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH123",
+   "name": "builtin-open",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH124",
+   "name": "py-path",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH201",
+   "name": "path-constructor-current-directory",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH202",
+   "name": "os-path-getsize",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH203",
+   "name": "os-path-getatime",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH204",
+   "name": "os-path-getmtime",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH205",
+   "name": "os-path-getctime",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH206",
+   "name": "os-sep-split",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH207",
+   "name": "glob",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH208",
+   "name": "os-listdir",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH210",
+   "name": "invalid-pathlib-with-suffix",
+   "status": "Stable"
+  },
+  {
+   "code": "PTH211",
+   "name": "os-symlink",
+   "status": "Stable"
+  },
+  {
+   "code": "FLY002",
+   "name": "static-join-to-f-string",
+   "status": "Stable"
+  },
+  {
+   "code": "I001",
+   "name": "unsorted-imports",
+   "status": "Stable"
+  },
+  {
+   "code": "I002",
+   "name": "missing-required-import",
+   "status": "Stable"
+  },
+  {
+   "code": "C901",
+   "name": "complex-structure",
+   "status": "Stable"
+  },
+  {
+   "code": "NPY001",
+   "name": "numpy-deprecated-type-alias",
+   "status": "Stable"
+  },
+  {
+   "code": "NPY002",
+   "name": "numpy-legacy-random",
+   "status": "Stable"
+  },
+  {
+   "code": "NPY003",
+   "name": "numpy-deprecated-function",
+   "status": "Stable"
+  },
+  {
+   "code": "NPY201",
+   "name": "numpy2-deprecation",
+   "status": "Stable"
+  },
+  {
+   "code": "N801",
+   "name": "invalid-class-name",
+   "status": "Stable"
+  },
+  {
+   "code": "N802",
+   "name": "invalid-function-name",
+   "status": "Stable"
+  },
+  {
+   "code": "N803",
+   "name": "invalid-argument-name",
+   "status": "Stable"
+  },
+  {
+   "code": "N804",
+   "name": "invalid-first-argument-name-for-class-method",
+   "status": "Stable"
+  },
+  {
+   "code": "N805",
+   "name": "invalid-first-argument-name-for-method",
+   "status": "Stable"
+  },
+  {
+   "code": "N806",
+   "name": "non-lowercase-variable-in-function",
+   "status": "Stable"
+  },
+  {
+   "code": "N807",
+   "name": "dunder-function-name",
+   "status": "Stable"
+  },
+  {
+   "code": "N811",
+   "name": "constant-imported-as-non-constant",
+   "status": "Stable"
+  },
+  {
+   "code": "N812",
+   "name": "lowercase-imported-as-non-lowercase",
+   "status": "Stable"
+  },
+  {
+   "code": "N813",
+   "name": "camelcase-imported-as-lowercase",
+   "status": "Stable"
+  },
+  {
+   "code": "N814",
+   "name": "camelcase-imported-as-constant",
+   "status": "Stable"
+  },
+  {
+   "code": "N815",
+   "name": "mixed-case-variable-in-class-scope",
+   "status": "Stable"
+  },
+  {
+   "code": "N816",
+   "name": "mixed-case-variable-in-global-scope",
+   "status": "Stable"
+  },
+  {
+   "code": "N817",
+   "name": "camelcase-imported-as-acronym",
+   "status": "Stable"
+  },
+  {
+   "code": "N818",
+   "name": "error-suffix-on-exception-name",
+   "status": "Stable"
+  },
+  {
+   "code": "N999",
+   "name": "invalid-module-name",
+   "status": "Stable"
+  },
+  {
+   "code": "PD002",
+   "name": "pandas-use-of-inplace-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "PD003",
+   "name": "pandas-use-of-dot-is-null",
+   "status": "Stable"
+  },
+  {
+   "code": "PD004",
+   "name": "pandas-use-of-dot-not-null",
+   "status": "Stable"
+  },
+  {
+   "code": "PD007",
+   "name": "pandas-use-of-dot-ix",
+   "status": "Stable"
+  },
+  {
+   "code": "PD008",
+   "name": "pandas-use-of-dot-at",
+   "status": "Stable"
+  },
+  {
+   "code": "PD009",
+   "name": "pandas-use-of-dot-iat",
+   "status": "Stable"
+  },
+  {
+   "code": "PD010",
+   "name": "pandas-use-of-dot-pivot-or-unstack",
+   "status": "Stable"
+  },
+  {
+   "code": "PD011",
+   "name": "pandas-use-of-dot-values",
+   "status": "Stable"
+  },
+  {
+   "code": "PD012",
+   "name": "pandas-use-of-dot-read-table",
+   "status": "Stable"
+  },
+  {
+   "code": "PD013",
+   "name": "pandas-use-of-dot-stack",
+   "status": "Stable"
+  },
+  {
+   "code": "PD015",
+   "name": "pandas-use-of-pd-merge",
+   "status": "Stable"
+  },
+  {
+   "code": "PD101",
+   "name": "pandas-nunique-constant-series-check",
+   "status": "Stable"
+  },
+  {
+   "code": "PD901",
+   "name": "pandas-df-variable-name",
+   "status": "Removed"
+  },
+  {
+   "code": "PERF101",
+   "name": "unnecessary-list-cast",
+   "status": "Stable"
+  },
+  {
+   "code": "PERF102",
+   "name": "incorrect-dict-iterator",
+   "status": "Stable"
+  },
+  {
+   "code": "PERF203",
+   "name": "try-except-in-loop",
+   "status": "Stable"
+  },
+  {
+   "code": "PERF401",
+   "name": "manual-list-comprehension",
+   "status": "Stable"
+  },
+  {
+   "code": "PERF402",
+   "name": "manual-list-copy",
+   "status": "Stable"
+  },
+  {
+   "code": "PERF403",
+   "name": "manual-dict-comprehension",
+   "status": "Stable"
+  },
+  {
+   "code": "E101",
+   "name": "mixed-spaces-and-tabs",
+   "status": "Stable"
+  },
+  {
+   "code": "E111",
+   "name": "indentation-with-invalid-multiple",
+   "status": "Preview"
+  },
+  {
+   "code": "E112",
+   "name": "no-indented-block",
+   "status": "Preview"
+  },
+  {
+   "code": "E113",
+   "name": "unexpected-indentation",
+   "status": "Preview"
+  },
+  {
+   "code": "E114",
+   "name": "indentation-with-invalid-multiple-comment",
+   "status": "Preview"
+  },
+  {
+   "code": "E115",
+   "name": "no-indented-block-comment",
+   "status": "Preview"
+  },
+  {
+   "code": "E116",
+   "name": "unexpected-indentation-comment",
+   "status": "Preview"
+  },
+  {
+   "code": "E117",
+   "name": "over-indented",
+   "status": "Preview"
+  },
+  {
+   "code": "E201",
+   "name": "whitespace-after-open-bracket",
+   "status": "Preview"
+  },
+  {
+   "code": "E202",
+   "name": "whitespace-before-close-bracket",
+   "status": "Preview"
+  },
+  {
+   "code": "E203",
+   "name": "whitespace-before-punctuation",
+   "status": "Preview"
+  },
+  {
+   "code": "E204",
+   "name": "whitespace-after-decorator",
+   "status": "Preview"
+  },
+  {
+   "code": "E211",
+   "name": "whitespace-before-parameters",
+   "status": "Preview"
+  },
+  {
+   "code": "E221",
+   "name": "multiple-spaces-before-operator",
+   "status": "Preview"
+  },
+  {
+   "code": "E222",
+   "name": "multiple-spaces-after-operator",
+   "status": "Preview"
+  },
+  {
+   "code": "E223",
+   "name": "tab-before-operator",
+   "status": "Preview"
+  },
+  {
+   "code": "E224",
+   "name": "tab-after-operator",
+   "status": "Preview"
+  },
+  {
+   "code": "E225",
+   "name": "missing-whitespace-around-operator",
+   "status": "Preview"
+  },
+  {
+   "code": "E226",
+   "name": "missing-whitespace-around-arithmetic-operator",
+   "status": "Preview"
+  },
+  {
+   "code": "E227",
+   "name": "missing-whitespace-around-bitwise-or-shift-operator",
+   "status": "Preview"
+  },
+  {
+   "code": "E228",
+   "name": "missing-whitespace-around-modulo-operator",
+   "status": "Preview"
+  },
+  {
+   "code": "E231",
+   "name": "missing-whitespace",
+   "status": "Preview"
+  },
+  {
+   "code": "E241",
+   "name": "multiple-spaces-after-comma",
+   "status": "Preview"
+  },
+  {
+   "code": "E242",
+   "name": "tab-after-comma",
+   "status": "Preview"
+  },
+  {
+   "code": "E251",
+   "name": "unexpected-spaces-around-keyword-parameter-equals",
+   "status": "Preview"
+  },
+  {
+   "code": "E252",
+   "name": "missing-whitespace-around-parameter-equals",
+   "status": "Preview"
+  },
+  {
+   "code": "E261",
+   "name": "too-few-spaces-before-inline-comment",
+   "status": "Preview"
+  },
+  {
+   "code": "E262",
+   "name": "no-space-after-inline-comment",
+   "status": "Preview"
+  },
+  {
+   "code": "E265",
+   "name": "no-space-after-block-comment",
+   "status": "Preview"
+  },
+  {
+   "code": "E266",
+   "name": "multiple-leading-hashes-for-block-comment",
+   "status": "Preview"
+  },
+  {
+   "code": "E271",
+   "name": "multiple-spaces-after-keyword",
+   "status": "Preview"
+  },
+  {
+   "code": "E272",
+   "name": "multiple-spaces-before-keyword",
+   "status": "Preview"
+  },
+  {
+   "code": "E273",
+   "name": "tab-after-keyword",
+   "status": "Preview"
+  },
+  {
+   "code": "E274",
+   "name": "tab-before-keyword",
+   "status": "Preview"
+  },
+  {
+   "code": "E275",
+   "name": "missing-whitespace-after-keyword",
+   "status": "Preview"
+  },
+  {
+   "code": "E301",
+   "name": "blank-line-between-methods",
+   "status": "Preview"
+  },
+  {
+   "code": "E302",
+   "name": "blank-lines-top-level",
+   "status": "Preview"
+  },
+  {
+   "code": "E303",
+   "name": "too-many-blank-lines",
+   "status": "Preview"
+  },
+  {
+   "code": "E304",
+   "name": "blank-line-after-decorator",
+   "status": "Preview"
+  },
+  {
+   "code": "E305",
+   "name": "blank-lines-after-function-or-class",
+   "status": "Preview"
+  },
+  {
+   "code": "E306",
+   "name": "blank-lines-before-nested-definition",
+   "status": "Preview"
+  },
+  {
+   "code": "E401",
+   "name": "multiple-imports-on-one-line",
+   "status": "Stable"
+  },
+  {
+   "code": "E402",
+   "name": "module-import-not-at-top-of-file",
+   "status": "Stable"
+  },
+  {
+   "code": "E501",
+   "name": "line-too-long",
+   "status": "Stable"
+  },
+  {
+   "code": "E502",
+   "name": "redundant-backslash",
+   "status": "Preview"
+  },
+  {
+   "code": "E701",
+   "name": "multiple-statements-on-one-line-colon",
+   "status": "Stable"
+  },
+  {
+   "code": "E702",
+   "name": "multiple-statements-on-one-line-semicolon",
+   "status": "Stable"
+  },
+  {
+   "code": "E703",
+   "name": "useless-semicolon",
+   "status": "Stable"
+  },
+  {
+   "code": "E711",
+   "name": "none-comparison",
+   "status": "Stable"
+  },
+  {
+   "code": "E712",
+   "name": "true-false-comparison",
+   "status": "Stable"
+  },
+  {
+   "code": "E713",
+   "name": "not-in-test",
+   "status": "Stable"
+  },
+  {
+   "code": "E714",
+   "name": "not-is-test",
+   "status": "Stable"
+  },
+  {
+   "code": "E721",
+   "name": "type-comparison",
+   "status": "Stable"
+  },
+  {
+   "code": "E722",
+   "name": "bare-except",
+   "status": "Stable"
+  },
+  {
+   "code": "E731",
+   "name": "lambda-assignment",
+   "status": "Stable"
+  },
+  {
+   "code": "E741",
+   "name": "ambiguous-variable-name",
+   "status": "Stable"
+  },
+  {
+   "code": "E742",
+   "name": "ambiguous-class-name",
+   "status": "Stable"
+  },
+  {
+   "code": "E743",
+   "name": "ambiguous-function-name",
+   "status": "Stable"
+  },
+  {
+   "code": "E902",
+   "name": "io-error",
+   "status": "Stable"
+  },
+  {
+   "code": "E999",
+   "name": "syntax-error",
+   "status": "Removed"
+  },
+  {
+   "code": "W191",
+   "name": "tab-indentation",
+   "status": "Stable"
+  },
+  {
+   "code": "W291",
+   "name": "trailing-whitespace",
+   "status": "Stable"
+  },
+  {
+   "code": "W292",
+   "name": "missing-newline-at-end-of-file",
+   "status": "Stable"
+  },
+  {
+   "code": "W293",
+   "name": "blank-line-with-whitespace",
+   "status": "Stable"
+  },
+  {
+   "code": "W391",
+   "name": "too-many-newlines-at-end-of-file",
+   "status": "Preview"
+  },
+  {
+   "code": "W505",
+   "name": "doc-line-too-long",
+   "status": "Stable"
+  },
+  {
+   "code": "W605",
+   "name": "invalid-escape-sequence",
+   "status": "Stable"
+  },
+  {
+   "code": "DOC102",
+   "name": "docstring-extraneous-parameter",
+   "status": "Preview"
+  },
+  {
+   "code": "DOC201",
+   "name": "docstring-missing-returns",
+   "status": "Preview"
+  },
+  {
+   "code": "DOC202",
+   "name": "docstring-extraneous-returns",
+   "status": "Preview"
+  },
+  {
+   "code": "DOC402",
+   "name": "docstring-missing-yields",
+   "status": "Preview"
+  },
+  {
+   "code": "DOC403",
+   "name": "docstring-extraneous-yields",
+   "status": "Preview"
+  },
+  {
+   "code": "DOC501",
+   "name": "docstring-missing-exception",
+   "status": "Preview"
+  },
+  {
+   "code": "DOC502",
+   "name": "docstring-extraneous-exception",
+   "status": "Preview"
+  },
+  {
+   "code": "D100",
+   "name": "undocumented-public-module",
+   "status": "Stable"
+  },
+  {
+   "code": "D101",
+   "name": "undocumented-public-class",
+   "status": "Stable"
+  },
+  {
+   "code": "D102",
+   "name": "undocumented-public-method",
+   "status": "Stable"
+  },
+  {
+   "code": "D103",
+   "name": "undocumented-public-function",
+   "status": "Stable"
+  },
+  {
+   "code": "D104",
+   "name": "undocumented-public-package",
+   "status": "Stable"
+  },
+  {
+   "code": "D105",
+   "name": "undocumented-magic-method",
+   "status": "Stable"
+  },
+  {
+   "code": "D106",
+   "name": "undocumented-public-nested-class",
+   "status": "Stable"
+  },
+  {
+   "code": "D107",
+   "name": "undocumented-public-init",
+   "status": "Stable"
+  },
+  {
+   "code": "D200",
+   "name": "unnecessary-multiline-docstring",
+   "status": "Stable"
+  },
+  {
+   "code": "D201",
+   "name": "blank-line-before-function",
+   "status": "Stable"
+  },
+  {
+   "code": "D202",
+   "name": "blank-line-after-function",
+   "status": "Stable"
+  },
+  {
+   "code": "D203",
+   "name": "incorrect-blank-line-before-class",
+   "status": "Stable"
+  },
+  {
+   "code": "D204",
+   "name": "incorrect-blank-line-after-class",
+   "status": "Stable"
+  },
+  {
+   "code": "D205",
+   "name": "missing-blank-line-after-summary",
+   "status": "Stable"
+  },
+  {
+   "code": "D206",
+   "name": "docstring-tab-indentation",
+   "status": "Stable"
+  },
+  {
+   "code": "D207",
+   "name": "under-indentation",
+   "status": "Stable"
+  },
+  {
+   "code": "D208",
+   "name": "over-indentation",
+   "status": "Stable"
+  },
+  {
+   "code": "D209",
+   "name": "new-line-after-last-paragraph",
+   "status": "Stable"
+  },
+  {
+   "code": "D210",
+   "name": "surrounding-whitespace",
+   "status": "Stable"
+  },
+  {
+   "code": "D211",
+   "name": "blank-line-before-class",
+   "status": "Stable"
+  },
+  {
+   "code": "D212",
+   "name": "multi-line-summary-first-line",
+   "status": "Stable"
+  },
+  {
+   "code": "D213",
+   "name": "multi-line-summary-second-line",
+   "status": "Stable"
+  },
+  {
+   "code": "D214",
+   "name": "overindented-section",
+   "status": "Stable"
+  },
+  {
+   "code": "D215",
+   "name": "overindented-section-underline",
+   "status": "Stable"
+  },
+  {
+   "code": "D300",
+   "name": "triple-single-quotes",
+   "status": "Stable"
+  },
+  {
+   "code": "D301",
+   "name": "escape-sequence-in-docstring",
+   "status": "Stable"
+  },
+  {
+   "code": "D400",
+   "name": "missing-trailing-period",
+   "status": "Stable"
+  },
+  {
+   "code": "D401",
+   "name": "non-imperative-mood",
+   "status": "Stable"
+  },
+  {
+   "code": "D402",
+   "name": "signature-in-docstring",
+   "status": "Stable"
+  },
+  {
+   "code": "D403",
+   "name": "first-word-uncapitalized",
+   "status": "Stable"
+  },
+  {
+   "code": "D404",
+   "name": "docstring-starts-with-this",
+   "status": "Stable"
+  },
+  {
+   "code": "D405",
+   "name": "non-capitalized-section-name",
+   "status": "Stable"
+  },
+  {
+   "code": "D406",
+   "name": "missing-new-line-after-section-name",
+   "status": "Stable"
+  },
+  {
+   "code": "D407",
+   "name": "missing-dashed-underline-after-section",
+   "status": "Stable"
+  },
+  {
+   "code": "D408",
+   "name": "missing-section-underline-after-name",
+   "status": "Stable"
+  },
+  {
+   "code": "D409",
+   "name": "mismatched-section-underline-length",
+   "status": "Stable"
+  },
+  {
+   "code": "D410",
+   "name": "no-blank-line-after-section",
+   "status": "Stable"
+  },
+  {
+   "code": "D411",
+   "name": "no-blank-line-before-section",
+   "status": "Stable"
+  },
+  {
+   "code": "D412",
+   "name": "blank-lines-between-header-and-content",
+   "status": "Stable"
+  },
+  {
+   "code": "D413",
+   "name": "missing-blank-line-after-last-section",
+   "status": "Stable"
+  },
+  {
+   "code": "D414",
+   "name": "empty-docstring-section",
+   "status": "Stable"
+  },
+  {
+   "code": "D415",
+   "name": "missing-terminal-punctuation",
+   "status": "Stable"
+  },
+  {
+   "code": "D416",
+   "name": "missing-section-name-colon",
+   "status": "Stable"
+  },
+  {
+   "code": "D417",
+   "name": "undocumented-param",
+   "status": "Stable"
+  },
+  {
+   "code": "D418",
+   "name": "overload-with-docstring",
+   "status": "Stable"
+  },
+  {
+   "code": "D419",
+   "name": "empty-docstring",
+   "status": "Stable"
+  },
+  {
+   "code": "D420",
+   "name": "incorrect-section-order",
+   "status": "Preview"
+  },
+  {
+   "code": "D421",
+   "name": "property-docstring-starts-with-verb",
+   "status": "Preview"
+  },
+  {
+   "code": "F401",
+   "name": "unused-import",
+   "status": "Stable"
+  },
+  {
+   "code": "F402",
+   "name": "import-shadowed-by-loop-var",
+   "status": "Stable"
+  },
+  {
+   "code": "F403",
+   "name": "undefined-local-with-import-star",
+   "status": "Stable"
+  },
+  {
+   "code": "F404",
+   "name": "late-future-import",
+   "status": "Stable"
+  },
+  {
+   "code": "F405",
+   "name": "undefined-local-with-import-star-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "F406",
+   "name": "undefined-local-with-nested-import-star-usage",
+   "status": "Stable"
+  },
+  {
+   "code": "F407",
+   "name": "future-feature-not-defined",
+   "status": "Stable"
+  },
+  {
+   "code": "F501",
+   "name": "percent-format-invalid-format",
+   "status": "Stable"
+  },
+  {
+   "code": "F502",
+   "name": "percent-format-expected-mapping",
+   "status": "Stable"
+  },
+  {
+   "code": "F503",
+   "name": "percent-format-expected-sequence",
+   "status": "Stable"
+  },
+  {
+   "code": "F504",
+   "name": "percent-format-extra-named-arguments",
+   "status": "Stable"
+  },
+  {
+   "code": "F505",
+   "name": "percent-format-missing-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "F506",
+   "name": "percent-format-mixed-positional-and-named",
+   "status": "Stable"
+  },
+  {
+   "code": "F507",
+   "name": "percent-format-positional-count-mismatch",
+   "status": "Stable"
+  },
+  {
+   "code": "F508",
+   "name": "percent-format-star-requires-sequence",
+   "status": "Stable"
+  },
+  {
+   "code": "F509",
+   "name": "percent-format-unsupported-format-character",
+   "status": "Stable"
+  },
+  {
+   "code": "F521",
+   "name": "string-dot-format-invalid-format",
+   "status": "Stable"
+  },
+  {
+   "code": "F522",
+   "name": "string-dot-format-extra-named-arguments",
+   "status": "Stable"
+  },
+  {
+   "code": "F523",
+   "name": "string-dot-format-extra-positional-arguments",
+   "status": "Stable"
+  },
+  {
+   "code": "F524",
+   "name": "string-dot-format-missing-arguments",
+   "status": "Stable"
+  },
+  {
+   "code": "F525",
+   "name": "string-dot-format-mixing-automatic",
+   "status": "Stable"
+  },
+  {
+   "code": "F541",
+   "name": "f-string-missing-placeholders",
+   "status": "Stable"
+  },
+  {
+   "code": "F601",
+   "name": "multi-value-repeated-key-literal",
+   "status": "Stable"
+  },
+  {
+   "code": "F602",
+   "name": "multi-value-repeated-key-variable",
+   "status": "Stable"
+  },
+  {
+   "code": "F621",
+   "name": "expressions-in-star-assignment",
+   "status": "Stable"
+  },
+  {
+   "code": "F622",
+   "name": "multiple-starred-expressions",
+   "status": "Stable"
+  },
+  {
+   "code": "F631",
+   "name": "assert-tuple",
+   "status": "Stable"
+  },
+  {
+   "code": "F632",
+   "name": "is-literal",
+   "status": "Stable"
+  },
+  {
+   "code": "F633",
+   "name": "invalid-print-syntax",
+   "status": "Stable"
+  },
+  {
+   "code": "F634",
+   "name": "if-tuple",
+   "status": "Stable"
+  },
+  {
+   "code": "F701",
+   "name": "break-outside-loop",
+   "status": "Stable"
+  },
+  {
+   "code": "F702",
+   "name": "continue-outside-loop",
+   "status": "Stable"
+  },
+  {
+   "code": "F704",
+   "name": "yield-outside-function",
+   "status": "Stable"
+  },
+  {
+   "code": "F706",
+   "name": "return-outside-function",
+   "status": "Stable"
+  },
+  {
+   "code": "F707",
+   "name": "default-except-not-last",
+   "status": "Stable"
+  },
+  {
+   "code": "F722",
+   "name": "forward-annotation-syntax-error",
+   "status": "Stable"
+  },
+  {
+   "code": "F811",
+   "name": "redefined-while-unused",
+   "status": "Stable"
+  },
+  {
+   "code": "F821",
+   "name": "undefined-name",
+   "status": "Stable"
+  },
+  {
+   "code": "F822",
+   "name": "undefined-export",
+   "status": "Stable"
+  },
+  {
+   "code": "F823",
+   "name": "undefined-local",
+   "status": "Stable"
+  },
+  {
+   "code": "F841",
+   "name": "unused-variable",
+   "status": "Stable"
+  },
+  {
+   "code": "F842",
+   "name": "unused-annotation",
+   "status": "Stable"
+  },
+  {
+   "code": "F901",
+   "name": "raise-not-implemented",
+   "status": "Stable"
+  },
+  {
+   "code": "PGH001",
+   "name": "eval",
+   "status": "Removed"
+  },
+  {
+   "code": "PGH002",
+   "name": "deprecated-log-warn",
+   "status": "Removed"
+  },
+  {
+   "code": "PGH003",
+   "name": "blanket-type-ignore",
+   "status": "Stable"
+  },
+  {
+   "code": "PGH004",
+   "name": "blanket-noqa",
+   "status": "Stable"
+  },
+  {
+   "code": "PGH005",
+   "name": "invalid-mock-access",
+   "status": "Stable"
+  },
+  {
+   "code": "PLC0105",
+   "name": "type-name-incorrect-variance",
+   "status": "Stable"
+  },
+  {
+   "code": "PLC0131",
+   "name": "type-bivariance",
+   "status": "Stable"
+  },
+  {
+   "code": "PLC0132",
+   "name": "type-param-name-mismatch",
+   "status": "Stable"
+  },
+  {
+   "code": "PLC0205",
+   "name": "single-string-slots",
+   "status": "Stable"
+  },
+  {
+   "code": "PLC0206",
+   "name": "dict-index-missing-items",
+   "status": "Stable"
+  },
+  {
+   "code": "PLC0207",
+   "name": "missing-maxsplit-arg",
+   "status": "Stable"
+  },
+  {
+   "code": "PLC0208",
+   "name": "iteration-over-set",
+   "status": "Stable"
+  },
+  {
+   "code": "PLC0414",
+   "name": "useless-import-alias",
+   "status": "Stable"
+  },
+  {
+   "code": "PLC0415",
+   "name": "import-outside-top-level",
+   "status": "Stable"
+  },
+  {
+   "code": "PLC1802",
+   "name": "len-test",
+   "status": "Stable"
+  },
+  {
+   "code": "PLC1901",
+   "name": "compare-to-empty-string",
+   "status": "Preview"
+  },
+  {
+   "code": "PLC2401",
+   "name": "non-ascii-name",
+   "status": "Stable"
+  },
+  {
+   "code": "PLC2403",
+   "name": "non-ascii-import-name",
+   "status": "Stable"
+  },
+  {
+   "code": "PLC2701",
+   "name": "import-private-name",
+   "status": "Preview"
+  },
+  {
+   "code": "PLC2801",
+   "name": "unnecessary-dunder-call",
+   "status": "Preview"
+  },
+  {
+   "code": "PLC3002",
+   "name": "unnecessary-direct-lambda-call",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0100",
+   "name": "yield-in-init",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0101",
+   "name": "return-in-init",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0115",
+   "name": "nonlocal-and-global",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0116",
+   "name": "continue-in-finally",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0117",
+   "name": "nonlocal-without-binding",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0118",
+   "name": "load-before-global-declaration",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0237",
+   "name": "non-slot-assignment",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0241",
+   "name": "duplicate-bases",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0302",
+   "name": "unexpected-special-method-signature",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0303",
+   "name": "invalid-length-return-type",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0304",
+   "name": "invalid-bool-return-type",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0305",
+   "name": "invalid-index-return-type",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0307",
+   "name": "invalid-str-return-type",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0308",
+   "name": "invalid-bytes-return-type",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0309",
+   "name": "invalid-hash-return-type",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0604",
+   "name": "invalid-all-object",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0605",
+   "name": "invalid-all-format",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0643",
+   "name": "potential-index-error",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE0704",
+   "name": "misplaced-bare-raise",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE1132",
+   "name": "repeated-keyword-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE1141",
+   "name": "dict-iter-missing-items",
+   "status": "Preview"
+  },
+  {
+   "code": "PLE1142",
+   "name": "await-outside-async",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE1205",
+   "name": "logging-too-many-args",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE1206",
+   "name": "logging-too-few-args",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE1300",
+   "name": "bad-string-format-character",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE1307",
+   "name": "bad-string-format-type",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE1310",
+   "name": "bad-str-strip-call",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE1507",
+   "name": "invalid-envvar-value",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE1519",
+   "name": "singledispatch-method",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE1520",
+   "name": "singledispatchmethod-function",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE1700",
+   "name": "yield-from-in-async-function",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE2502",
+   "name": "bidirectional-unicode",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE2510",
+   "name": "invalid-character-backspace",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE2512",
+   "name": "invalid-character-sub",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE2513",
+   "name": "invalid-character-esc",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE2514",
+   "name": "invalid-character-nul",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE2515",
+   "name": "invalid-character-zero-width-space",
+   "status": "Stable"
+  },
+  {
+   "code": "PLE4703",
+   "name": "modified-iterating-set",
+   "status": "Preview"
+  },
+  {
+   "code": "PLR0124",
+   "name": "comparison-with-itself",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR0133",
+   "name": "comparison-of-constant",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR0202",
+   "name": "no-classmethod-decorator",
+   "status": "Preview"
+  },
+  {
+   "code": "PLR0203",
+   "name": "no-staticmethod-decorator",
+   "status": "Preview"
+  },
+  {
+   "code": "PLR0206",
+   "name": "property-with-parameters",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR0402",
+   "name": "manual-from-import",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR0904",
+   "name": "too-many-public-methods",
+   "status": "Preview"
+  },
+  {
+   "code": "PLR0911",
+   "name": "too-many-return-statements",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR0912",
+   "name": "too-many-branches",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR0913",
+   "name": "too-many-arguments",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR0914",
+   "name": "too-many-locals",
+   "status": "Preview"
+  },
+  {
+   "code": "PLR0915",
+   "name": "too-many-statements",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR0916",
+   "name": "too-many-boolean-expressions",
+   "status": "Preview"
+  },
+  {
+   "code": "PLR0917",
+   "name": "too-many-positional-arguments",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR1701",
+   "name": "repeated-isinstance-calls",
+   "status": "Removed"
+  },
+  {
+   "code": "PLR1702",
+   "name": "too-many-nested-blocks",
+   "status": "Preview"
+  },
+  {
+   "code": "PLR1704",
+   "name": "redefined-argument-from-local",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR1706",
+   "name": "and-or-ternary",
+   "status": "Removed"
+  },
+  {
+   "code": "PLR1708",
+   "name": "stop-iteration-return",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR1711",
+   "name": "useless-return",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR1712",
+   "name": "swap-with-temporary-variable",
+   "status": "Preview"
+  },
+  {
+   "code": "PLR1714",
+   "name": "repeated-equality-comparison",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR1716",
+   "name": "boolean-chained-comparison",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR1722",
+   "name": "sys-exit-alias",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR1730",
+   "name": "if-stmt-min-max",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR1733",
+   "name": "unnecessary-dict-index-lookup",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR1736",
+   "name": "unnecessary-list-index-lookup",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR2004",
+   "name": "magic-value-comparison",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR2044",
+   "name": "empty-comment",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR5501",
+   "name": "collapsible-else-if",
+   "status": "Stable"
+  },
+  {
+   "code": "PLR6104",
+   "name": "non-augmented-assignment",
+   "status": "Preview"
+  },
+  {
+   "code": "PLR6201",
+   "name": "literal-membership",
+   "status": "Preview"
+  },
+  {
+   "code": "PLR6301",
+   "name": "no-self-use",
+   "status": "Preview"
+  },
+  {
+   "code": "PLW0108",
+   "name": "unnecessary-lambda",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW0120",
+   "name": "useless-else-on-loop",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW0127",
+   "name": "self-assigning-variable",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW0128",
+   "name": "redeclared-assigned-name",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW0129",
+   "name": "assert-on-string-literal",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW0131",
+   "name": "named-expr-without-context",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW0133",
+   "name": "useless-exception-statement",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW0177",
+   "name": "nan-comparison",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW0211",
+   "name": "bad-staticmethod-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW0244",
+   "name": "redefined-slots-in-subclass",
+   "status": "Preview"
+  },
+  {
+   "code": "PLW0245",
+   "name": "super-without-brackets",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW0406",
+   "name": "import-self",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW0602",
+   "name": "global-variable-not-assigned",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW0603",
+   "name": "global-statement",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW0604",
+   "name": "global-at-module-level",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW0642",
+   "name": "self-or-cls-assignment",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW0711",
+   "name": "binary-op-exception",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW0717",
+   "name": "too-many-statements-in-try-clause",
+   "status": "Preview"
+  },
+  {
+   "code": "PLW1501",
+   "name": "bad-open-mode",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW1507",
+   "name": "shallow-copy-environ",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW1508",
+   "name": "invalid-envvar-default",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW1509",
+   "name": "subprocess-popen-preexec-fn",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW1510",
+   "name": "subprocess-run-without-check",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW1514",
+   "name": "unspecified-encoding",
+   "status": "Preview"
+  },
+  {
+   "code": "PLW1641",
+   "name": "eq-without-hash",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW2101",
+   "name": "useless-with-lock",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW2901",
+   "name": "redefined-loop-name",
+   "status": "Stable"
+  },
+  {
+   "code": "PLW3201",
+   "name": "bad-dunder-method-name",
+   "status": "Preview"
+  },
+  {
+   "code": "PLW3301",
+   "name": "nested-min-max",
+   "status": "Stable"
+  },
+  {
+   "code": "UP001",
+   "name": "useless-metaclass-type",
+   "status": "Stable"
+  },
+  {
+   "code": "UP003",
+   "name": "type-of-primitive",
+   "status": "Stable"
+  },
+  {
+   "code": "UP004",
+   "name": "useless-object-inheritance",
+   "status": "Stable"
+  },
+  {
+   "code": "UP005",
+   "name": "deprecated-unittest-alias",
+   "status": "Stable"
+  },
+  {
+   "code": "UP006",
+   "name": "non-pep585-annotation",
+   "status": "Stable"
+  },
+  {
+   "code": "UP007",
+   "name": "non-pep604-annotation-union",
+   "status": "Stable"
+  },
+  {
+   "code": "UP008",
+   "name": "super-call-with-parameters",
+   "status": "Stable"
+  },
+  {
+   "code": "UP009",
+   "name": "utf8-encoding-declaration",
+   "status": "Stable"
+  },
+  {
+   "code": "UP010",
+   "name": "unnecessary-future-import",
+   "status": "Stable"
+  },
+  {
+   "code": "UP011",
+   "name": "lru-cache-without-parameters",
+   "status": "Stable"
+  },
+  {
+   "code": "UP012",
+   "name": "unnecessary-encode-utf8",
+   "status": "Stable"
+  },
+  {
+   "code": "UP013",
+   "name": "convert-typed-dict-functional-to-class",
+   "status": "Stable"
+  },
+  {
+   "code": "UP014",
+   "name": "convert-named-tuple-functional-to-class",
+   "status": "Stable"
+  },
+  {
+   "code": "UP015",
+   "name": "redundant-open-modes",
+   "status": "Stable"
+  },
+  {
+   "code": "UP017",
+   "name": "datetime-timezone-utc",
+   "status": "Stable"
+  },
+  {
+   "code": "UP018",
+   "name": "native-literals",
+   "status": "Stable"
+  },
+  {
+   "code": "UP019",
+   "name": "typing-text-str-alias",
+   "status": "Stable"
+  },
+  {
+   "code": "UP020",
+   "name": "open-alias",
+   "status": "Stable"
+  },
+  {
+   "code": "UP021",
+   "name": "replace-universal-newlines",
+   "status": "Stable"
+  },
+  {
+   "code": "UP022",
+   "name": "replace-stdout-stderr",
+   "status": "Stable"
+  },
+  {
+   "code": "UP023",
+   "name": "deprecated-c-element-tree",
+   "status": "Stable"
+  },
+  {
+   "code": "UP024",
+   "name": "os-error-alias",
+   "status": "Stable"
+  },
+  {
+   "code": "UP025",
+   "name": "unicode-kind-prefix",
+   "status": "Stable"
+  },
+  {
+   "code": "UP026",
+   "name": "deprecated-mock-import",
+   "status": "Stable"
+  },
+  {
+   "code": "UP027",
+   "name": "unpacked-list-comprehension",
+   "status": "Removed"
+  },
+  {
+   "code": "UP028",
+   "name": "yield-in-for-loop",
+   "status": "Stable"
+  },
+  {
+   "code": "UP029",
+   "name": "unnecessary-builtin-import",
+   "status": "Stable"
+  },
+  {
+   "code": "UP030",
+   "name": "format-literals",
+   "status": "Stable"
+  },
+  {
+   "code": "UP031",
+   "name": "printf-string-formatting",
+   "status": "Stable"
+  },
+  {
+   "code": "UP032",
+   "name": "f-string",
+   "status": "Stable"
+  },
+  {
+   "code": "UP033",
+   "name": "lru-cache-with-maxsize-none",
+   "status": "Stable"
+  },
+  {
+   "code": "UP034",
+   "name": "extraneous-parentheses",
+   "status": "Stable"
+  },
+  {
+   "code": "UP035",
+   "name": "deprecated-import",
+   "status": "Stable"
+  },
+  {
+   "code": "UP036",
+   "name": "outdated-version-block",
+   "status": "Stable"
+  },
+  {
+   "code": "UP037",
+   "name": "quoted-annotation",
+   "status": "Stable"
+  },
+  {
+   "code": "UP038",
+   "name": "non-pep604-isinstance",
+   "status": "Removed"
+  },
+  {
+   "code": "UP039",
+   "name": "unnecessary-class-parentheses",
+   "status": "Stable"
+  },
+  {
+   "code": "UP040",
+   "name": "non-pep695-type-alias",
+   "status": "Stable"
+  },
+  {
+   "code": "UP041",
+   "name": "timeout-error-alias",
+   "status": "Stable"
+  },
+  {
+   "code": "UP042",
+   "name": "replace-str-enum",
+   "status": "Stable"
+  },
+  {
+   "code": "UP043",
+   "name": "unnecessary-default-type-args",
+   "status": "Stable"
+  },
+  {
+   "code": "UP044",
+   "name": "non-pep646-unpack",
+   "status": "Stable"
+  },
+  {
+   "code": "UP045",
+   "name": "non-pep604-annotation-optional",
+   "status": "Stable"
+  },
+  {
+   "code": "UP046",
+   "name": "non-pep695-generic-class",
+   "status": "Stable"
+  },
+  {
+   "code": "UP047",
+   "name": "non-pep695-generic-function",
+   "status": "Stable"
+  },
+  {
+   "code": "UP048",
+   "name": "while-one",
+   "status": "Preview"
+  },
+  {
+   "code": "UP049",
+   "name": "private-type-parameter",
+   "status": "Stable"
+  },
+  {
+   "code": "UP050",
+   "name": "useless-class-metaclass-type",
+   "status": "Stable"
+  },
+  {
+   "code": "UP051",
+   "name": "deprecated-abc-decorator",
+   "status": "Preview"
+  },
+  {
+   "code": "UP052",
+   "name": "context-manager-iterator",
+   "status": "Preview"
+  },
+  {
+   "code": "FURB101",
+   "name": "read-whole-file",
+   "status": "Preview"
+  },
+  {
+   "code": "FURB103",
+   "name": "write-whole-file",
+   "status": "Preview"
+  },
+  {
+   "code": "FURB105",
+   "name": "print-empty-string",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB110",
+   "name": "if-exp-instead-of-or-operator",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB113",
+   "name": "repeated-append",
+   "status": "Preview"
+  },
+  {
+   "code": "FURB116",
+   "name": "f-string-number-format",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB118",
+   "name": "reimplemented-operator",
+   "status": "Preview"
+  },
+  {
+   "code": "FURB122",
+   "name": "for-loop-writes",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB129",
+   "name": "readlines-in-for",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB131",
+   "name": "delete-full-slice",
+   "status": "Preview"
+  },
+  {
+   "code": "FURB132",
+   "name": "check-and-remove-from-set",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB136",
+   "name": "if-expr-min-max",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB140",
+   "name": "reimplemented-starmap",
+   "status": "Preview"
+  },
+  {
+   "code": "FURB142",
+   "name": "for-loop-set-mutations",
+   "status": "Preview"
+  },
+  {
+   "code": "FURB145",
+   "name": "slice-copy",
+   "status": "Preview"
+  },
+  {
+   "code": "FURB148",
+   "name": "unnecessary-enumerate",
+   "status": "Preview"
+  },
+  {
+   "code": "FURB152",
+   "name": "math-constant",
+   "status": "Preview"
+  },
+  {
+   "code": "FURB154",
+   "name": "repeated-global",
+   "status": "Preview"
+  },
+  {
+   "code": "FURB156",
+   "name": "hardcoded-string-charset",
+   "status": "Preview"
+  },
+  {
+   "code": "FURB157",
+   "name": "verbose-decimal-constructor",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB161",
+   "name": "bit-count",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB162",
+   "name": "fromisoformat-replace-z",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB163",
+   "name": "redundant-log-base",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB164",
+   "name": "unnecessary-from-float",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB166",
+   "name": "int-on-sliced-str",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB167",
+   "name": "regex-flag-alias",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB168",
+   "name": "isinstance-type-none",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB169",
+   "name": "type-none-comparison",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB171",
+   "name": "single-item-membership-test",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB177",
+   "name": "implicit-cwd",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB180",
+   "name": "meta-class-abc-meta",
+   "status": "Preview"
+  },
+  {
+   "code": "FURB181",
+   "name": "hashlib-digest-hex",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB187",
+   "name": "list-reverse-copy",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB188",
+   "name": "slice-to-remove-prefix-or-suffix",
+   "status": "Stable"
+  },
+  {
+   "code": "FURB189",
+   "name": "subclass-builtin",
+   "status": "Preview"
+  },
+  {
+   "code": "FURB192",
+   "name": "sorted-min-max",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF001",
+   "name": "ambiguous-unicode-character-string",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF002",
+   "name": "ambiguous-unicode-character-docstring",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF003",
+   "name": "ambiguous-unicode-character-comment",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF005",
+   "name": "collection-literal-concatenation",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF006",
+   "name": "asyncio-dangling-task",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF007",
+   "name": "zip-instead-of-pairwise",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF008",
+   "name": "mutable-dataclass-default",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF009",
+   "name": "function-call-in-dataclass-default-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF010",
+   "name": "explicit-f-string-type-conversion",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF011",
+   "name": "ruff-static-key-dict-comprehension",
+   "status": "Removed"
+  },
+  {
+   "code": "RUF012",
+   "name": "mutable-class-default",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF013",
+   "name": "implicit-optional",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF015",
+   "name": "unnecessary-iterable-allocation-for-first-element",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF016",
+   "name": "invalid-index-type",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF017",
+   "name": "quadratic-list-summation",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF018",
+   "name": "assignment-in-assert",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF019",
+   "name": "unnecessary-key-check",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF020",
+   "name": "never-union",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF021",
+   "name": "parenthesize-chained-operators",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF022",
+   "name": "unsorted-dunder-all",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF023",
+   "name": "unsorted-dunder-slots",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF024",
+   "name": "mutable-fromkeys-value",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF026",
+   "name": "default-factory-kwarg",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF027",
+   "name": "missing-f-string-syntax",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF028",
+   "name": "invalid-formatter-suppression-comment",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF029",
+   "name": "unused-async",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF030",
+   "name": "assert-with-print-message",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF031",
+   "name": "incorrectly-parenthesized-tuple-in-subscript",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF032",
+   "name": "decimal-from-float-literal",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF033",
+   "name": "post-init-default",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF034",
+   "name": "useless-if-else",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF035",
+   "name": "ruff-unsafe-markup-use",
+   "status": "Removed"
+  },
+  {
+   "code": "RUF036",
+   "name": "none-not-at-end-of-union",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF037",
+   "name": "unnecessary-empty-iterable-within-deque-call",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF038",
+   "name": "redundant-bool-literal",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF039",
+   "name": "unraw-re-pattern",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF040",
+   "name": "invalid-assert-message-literal-argument",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF041",
+   "name": "unnecessary-nested-literal",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF043",
+   "name": "pytest-raises-ambiguous-pattern",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF045",
+   "name": "implicit-class-var-in-dataclass",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF046",
+   "name": "unnecessary-cast-to-int",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF047",
+   "name": "needless-else",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF048",
+   "name": "map-int-version-parsing",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF049",
+   "name": "dataclass-enum",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF050",
+   "name": "unnecessary-if",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF051",
+   "name": "if-key-in-dict-del",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF052",
+   "name": "used-dummy-variable",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF053",
+   "name": "class-with-mixed-type-vars",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF054",
+   "name": "indented-form-feed",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF055",
+   "name": "unnecessary-regular-expression",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF056",
+   "name": "falsy-dict-get-fallback",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF057",
+   "name": "unnecessary-round",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF058",
+   "name": "starmap-zip",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF059",
+   "name": "unused-unpacked-variable",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF060",
+   "name": "in-empty-collection",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF061",
+   "name": "legacy-form-pytest-raises",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF063",
+   "name": "access-annotations-from-class-dict",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF064",
+   "name": "non-octal-permissions",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF065",
+   "name": "logging-eager-conversion",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF066",
+   "name": "property-without-return",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF067",
+   "name": "non-empty-init-module",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF068",
+   "name": "duplicate-entry-in-dunder-all",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF069",
+   "name": "float-equality-comparison",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF070",
+   "name": "unnecessary-assign-before-yield",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF071",
+   "name": "os-path-commonprefix",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF072",
+   "name": "useless-finally",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF073",
+   "name": "f-string-percent-format",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF074",
+   "name": "incorrect-decorator-order",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF075",
+   "name": "fallible-context-manager",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF077",
+   "name": "method-receiver-default",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF100",
+   "name": "unused-noqa",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF101",
+   "name": "redirected-noqa",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF102",
+   "name": "invalid-rule-code",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF103",
+   "name": "invalid-suppression-comment",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF104",
+   "name": "unmatched-suppression-comment",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF105",
+   "name": "noqa-comments",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF106",
+   "name": "rule-codes-in-suppression-comments",
+   "status": "Preview"
+  },
+  {
+   "code": "RUF200",
+   "name": "invalid-pyproject-toml",
+   "status": "Stable"
+  },
+  {
+   "code": "RUF201",
+   "name": "rule-codes-in-selectors",
+   "status": "Preview"
+  },
+  {
+   "code": "TRY002",
+   "name": "raise-vanilla-class",
+   "status": "Stable"
+  },
+  {
+   "code": "TRY003",
+   "name": "raise-vanilla-args",
+   "status": "Stable"
+  },
+  {
+   "code": "TRY004",
+   "name": "type-check-without-type-error",
+   "status": "Stable"
+  },
+  {
+   "code": "TRY200",
+   "name": "reraise-no-cause",
+   "status": "Removed"
+  },
+  {
+   "code": "TRY201",
+   "name": "verbose-raise",
+   "status": "Stable"
+  },
+  {
+   "code": "TRY203",
+   "name": "useless-try-except",
+   "status": "Stable"
+  },
+  {
+   "code": "TRY300",
+   "name": "try-consider-else",
+   "status": "Stable"
+  },
+  {
+   "code": "TRY301",
+   "name": "raise-within-try",
+   "status": "Stable"
+  },
+  {
+   "code": "TRY400",
+   "name": "error-instead-of-exception",
+   "status": "Stable"
+  },
+  {
+   "code": "TRY401",
+   "name": "verbose-log-message",
+   "status": "Stable"
+  },
+  {
+   "code": null,
+   "name": "pytest-fixture-autouse",
+   "status": "Preview"
+  }
+ ]
+}
