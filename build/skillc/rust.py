@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Youssef Khalil
+# SPDX-License-Identifier: MIT
 """Split the three Rust upstream sources into addressable units.
 
 Unit ids are stable keys the manifest refers to:

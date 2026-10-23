@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Youssef Khalil
+# SPDX-License-Identifier: MIT
 """Split a style guide into sections at chosen heading levels."""
 
 from __future__ import annotations

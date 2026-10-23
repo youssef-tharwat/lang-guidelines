@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Youssef Khalil
+# SPDX-License-Identifier: MIT
 """Read a tiered lint digest: ``## Tier N`` headings over one ``### rule`` entry per lint rule."""
 
 from __future__ import annotations

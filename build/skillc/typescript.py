@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Youssef Khalil
+# SPDX-License-Identifier: MIT
 """Split the TypeScript sources into units, and build ``oxlintrc.jsonc`` from the Oxlint tier digest.
 
 Unit ids: ``G:<anchor>`` (a Google TypeScript Style Guide section, by its page anchor),

@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Copyright (c) 2026 Youssef Khalil
+# SPDX-License-Identifier: MIT
 """Compile a skill folder from its upstream sources and its manifest.
 
     python3 build/compile.py rust           # regenerate rust-guidelines/ (likewise python, typescript)

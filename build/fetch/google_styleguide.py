@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Copyright (c) 2026 Youssef Khalil
+# SPDX-License-Identifier: MIT
 """Convert a Google style guide HTML page into the Markdown source the compiler parses.
 
     curl -sfL https://google.github.io/styleguide/tsguide.html -o tsguide.html

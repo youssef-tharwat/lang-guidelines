@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Youssef Khalil
+# SPDX-License-Identifier: MIT
 """The upstream text model every parser produces and every renderer consumes."""
 
 from __future__ import annotations

@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Youssef Khalil
+# SPDX-License-Identifier: MIT
 """Render a manifest and its units into the files a model reads."""
 
 from __future__ import annotations

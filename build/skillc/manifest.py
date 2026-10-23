@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Youssef Khalil
+# SPDX-License-Identifier: MIT
 """Load a skill manifest and check it against the upstream units it cites."""
 
 from __future__ import annotations

@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Youssef Khalil
+# SPDX-License-Identifier: MIT
 """Split the Python sources into units, and build ``ruff.toml`` from the Ruff tier digest.
 
 Unit ids: ``G:<anchor>`` (a Google Python Style Guide section, by its page anchor) and

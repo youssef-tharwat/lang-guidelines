@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Copyright (c) 2026 Youssef Khalil
+# SPDX-License-Identifier: MIT
 """Compare two ``claude plugin eval`` runs of a skill: the no-skill baseline, before, and after.
 
     python3 evals/compare.py <before/aggregate-result.json> <after/aggregate-result.json>

@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Youssef Khalil
+# SPDX-License-Identifier: MIT
 """Narrow parsed JSON to the shapes a source file must have, failing loudly otherwise."""
 
 from __future__ import annotations

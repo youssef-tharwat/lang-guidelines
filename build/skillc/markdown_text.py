@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Youssef Khalil
+# SPDX-License-Identifier: MIT
 """Fence-aware Markdown helpers shared by every skill's source parsers."""
 
 from __future__ import annotations

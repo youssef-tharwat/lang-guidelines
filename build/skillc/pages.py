@@ -1,3 +1,5 @@
+# Copyright (c) 2026 Youssef Khalil
+# SPDX-License-Identifier: MIT
 """Concatenated web pages: split at ``<!-- source: url -->`` markers, and clean refactoring.guru pages."""
 
 from __future__ import annotations
